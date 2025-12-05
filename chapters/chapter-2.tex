@@ -1,0 +1,617 @@
+\newpage
+\chapter{TINJAUAN PUSTAKA} \label{Bab II}
+
+\section{Tinjauan Pustaka} \label{II.Tinjauan}
+Dalam penelitian ini, studi literatur dilakukan untuk meninjau riset 
+terdahulu. Peninjauan ini berfungsi sebagai panduan utama bagi peneliti 
+untuk mengantisipasi dan merumuskan pendekatan yang berbasis bukti dalam 
+menghadapi permasalahan yang mungkin timbul. Berikut adalah beberapa 
+penelitian terdahulu yang berkaitan dengan penelitian ini: \par
+
+\begin{enumerate}[noitemsep]
+	\item Penelitian sebelumnya oleh Nermi Kadric, Amila Akagic, dan 
+	Medina Kapo pada tahun 2025 dengan judul penelitian "\textit{Improving 
+	Dianostic Accuracy of Pigmented Skin Lesions With CNNs: A Case Study 
+	with DermaMNIST Dataset}" membahas terkait upaya untuk meningkatkan 
+	akurasi diagnostik lesi kulit berpigmen, yang merupakan indikator 
+	kondisi serius seperti melanoma. Penelitian ini juga menyoroti berbagai 
+	kelemahan pada dataset DermaMNIST orisinal, termasuk resolusi gambar 
+	yang rendah (28x28), ketidakseimbangan data, dan organisasi data yang 
+	buruk yang terbukti tidak memadai untuk klasifikasi yang andal. 
+	Terdapat perbandingan metode yang digunakan sebelumnya. Penelitian 
+	sebelumnya membandingkan model ResNet-50 dan EfficientNetV2L, serta 
+	menerapkan \textit{transfer learning} pada dua versi dataset yaitu 
+	DermaMNIST orisinal dan DermaMNIST-C (versi perbaikan resolusi 224x224). 
+	Sedangkan penelitian yang akan dilakukan membandingkan model ResNet-18 
+	dan ResNet-50 \cite{kadric2025improvingdiagnosticaccuracypigmented}.
+
+	\item Penelitian sebelumnya oleh Ian Mateos Gonzales, Estefani Jaramilla
+	Nava, Abraham Sánchez Morales, Jesús García Ramírez, dan Ricardo Ramos
+	Aguilar pada tahun 2025 dengan judul penelitian "\textit{Lighweight 
+	Deep Models for Dermatological Disease Detection: A Study on Instance 
+	Selection and Channel Optimization}" membahas tentang pengembangan 
+	model deep learning yang ringan untuk deteksi penyakit dermatologis. 
+	Penelitian ini menggunakan dataset DermaMNIST yang terdiri dari 7 kelas 
+	yang berbeda. Penelitian ini meneliti dengan menggunakan data yang 
+	sedikit dengan cara seleksi instance menggunakan K-Means Clustering. 
+	Namun, penelitian yang akan dilakukan tidak mengurangi data melainkan 
+	menambahkan data pada kelas minoritas. Selain itu, penelitian akan 
+	dilakukan menggunakan arsitektur ResNet-18 dan ResNet-50 sedangkan 
+	penelitian sebelumnya menggunakan Lighweight Deep Models \cite{gonzalez2025lightweightdeepmodelsdermatological}.
+
+	\item Penelitian yang dilakukan pada tahun 2022 oleh Shuwei Shen, 
+	Mengjuan Xu, Fan Zhang, Pengfei Shao, Honghong Liu, Liang Xu, dan 
+	Ronald X. Xu dengan judul "\textit{A Low-Cost and High-Performance 
+	Data Augmentation for Deep-Learning-Based Skin Lesion Classification}"
+	membahas  tantangan dataset yang tidak seimbang dalam klasifikasi lesi 
+	kulit menggunakan arsitektur EfficientNet. Penelitian ini menerapkan 
+	strategi augmentasi otomatis (\textit{Low-Cost-Augment}) yang teroptimasi untuk 
+	meningkatkan keseimbangan data dan performa klasifikasi pada dataset 
+	HAM10000. Meskipun arsitektur utama yang diuji berupa EfficientNet, 
+	hasil eksperimen menunjukkan bahwa augmentasi otomatis dapat 
+	meningkatkan \textit{accuracy} tanpa memerlukan data eksternal. Namun, 
+	keterbatasannya adalah belum diuji pada arsitektur ResNet-18 dan 
+	ResNet-50 serta belum diaplikasikan pada dataset DermaMNIST \cite{xuronald2022low}.
+
+	\item Penelitian sebelumnya oleh Arindam Halder, Anogh Dalal, Sanghita 
+	Gharami, Marcin Wozniak, Muhammad Fajal Ijaz, dan Pawan Kumar Singh pada
+	tahun 2025 dengan judul penelitian "\textit{A fuzzy rank-based deep 
+	ensemble methodology for multi-class skin cancer classification}" 
+	membahas masalah klasifikasi kanker kulit multi-kelas dan tantangan 
+	\textit{imbalanced dataset}. Penelitian ini menggunakan \textit{deep 
+	ensemble} yang menggabungkan beberapa arsitektur, yaitu Xception, 
+	InceptionResNetV2, dan MobileNetV2. Dalam mengatasi data yang tidak 
+	seimbang, penelitian sebelumnya menerapkan augmentasi data untuk 
+	menyeimbangkan dataset sebelum proses pelatihan. Dengan menerapkan 
+	augmentasi data membuktikan bahwa dapat berhasil meningkatkan performa.
+	Penelitian sebelumnya relevan dengan penelitian yang akan dilakukan 
+	dengan adanya beberapa perbedaan. Penelitian yang akan dilakukan 
+	menerapkan augmentasi data pada kelas minoritas serta menggunakan 
+	ResNet-18 dan ResNet-50 untuk mengukur pengaruh augmentasi terhadap 
+	performa kedua model \cite{halder2025fuzzy}.
+
+	\item Penelitian yang dilakukan pada tahun 2024 oleh Gogor Putra, 
+	Elin Haerani, Fadhillah Syafria, Febi Yanto, dan Siska Kurnia Gusti 
+	dengan judul "Implementasi Algoritma \textit{Convolutional Neural Network}
+	(Resnet-50) untuk Klasifikasi Kanker Kulit Benign dan Malignant". 
+	Penelitian ini membahas tentang klasifikasi kanker kulit untuk membedakan
+	antara lesi \textit{Benign} dan \textit{Malignant}, yang merupakan 
+	masalah klasifikasi biner. Penelitian ini melakukan implmentasi 
+	\textit{transfer learning} menggunakan arsitektur ResNet-50 yang telah
+	dilatih. Penelitian sebelumnya relevan karena menggunakan arsitektur 
+	yang sama yaitu ResNet-50. Terdapat perbedaan dengan penelitian yang 
+	akan dilakukan, yaitu menangani klasifikasi multi-kelas dengan masalah 
+	\textit{imbalanced data}. Serta melakukan augmentasi data pada kelas 
+	minoritas \cite{Gusti_Haerani_Syafria_Yanto_Gusti_2024}.
+\end{enumerate}
+
+\begin{longtable}{| b{0.03\textwidth}|p{0.3\textwidth}|p{0.2\textwidth}|p{0.2\textwidth}|p{0.2\textwidth}|} % Longtable berguna agar tabel dapat terpotong di halaman baru
+	\caption{Tabel Studi Literatur}
+	\label{table:2.literasi}\\
+	\hline
+	\textbf{No.} & \textbf{Judul} & \textbf{Masalah} & \textbf{Metode} & \textbf{Hasil} \\
+	\hline
+	\endfirsthead % Header tabel untuk halaman pertama
+	\hline
+	\textbf{No.} & \textbf{Judul} & \textbf{Masalah} & \textbf{Metode} & \textbf{Hasil} \\
+	\hline
+	\endhead % Header tabel untuk halaman selanjutnya (repeat header row)
+	1. & Nerma Kadric, Amila Akagic, Medina Kapo [2025] [Improving Diagnostic Accuracy of Pigmented Skin Lesions With CNNs: A Case Study with DermaMNIST Dataset] 
+	   & Kelemahan dataset DermaMNIST yang memiliki resolusi gambar yang rendah (28 x 28), \textit{imbalanced data}. 
+	   & \textit{Trasnfer learning} arsitektur ResNet-50 dan EfficientNetV2L dengan menggunakan dataset DermaMNIST orisinal dan DermaMNIST-C (resolusi 224 x 224).
+	   & Arsitektur EfficientNetV2L mencapai akurasi 84.90\% pada dataset DermaMNIST-C.\\ 
+	\hline
+	2. & Ian Mateos Gonzales, Estefani Jaramilla Nava, Abraham Sánchez Morales, Jesús García Ramírez, Ricardo Ramos Aguilar [2025] [Lightweight Deep Models for Dermatological Disease Detection: A Study on Instance Selection and Channel Optimization] 
+	   & Model \textit{deep learning} yang ringan untuk deteksi penyakit dermatologis.
+	   & Menggunakan \textit{Lightweight Deep Models}, melakukan \textit{instance selection} menggunakan K-Means Clustering untuk mengurangi data pada kelas mayoritas.
+	   & Model dengan 472K parameter mencapai akurasi 71.57\%, dengan komputasi yang lebih efisien yang sebanding dengan model ResNet.\\ 
+	\hline
+	3. & Shuwei Shen, Mengjuan Xu, Fan Zhang, Pengfei Shao, Honghong Liu, Liang Xu, Chi Zang, Peng Liu, Peng Yao, Ronald X. Xu [2022] [A Low-Cost High-Performance Data Augmentation for Deep Learning-Based Skin Lesion Classification] 
+	   & Data klasifikasi lesi kulit yang tidak seimbang.
+	   & Menggunakan arsitektur EfficientNet b2 serta menerapkan \textit{Low Cost Augment} untuk augmentasi data.
+	   & Dengan menerapkan \textit{Low Cost Augment} dan menggunakan arsitektur EfficientNet b2, hasil yang didapatkan dengan evaluasi BACC mencapai 0.853.\\ 
+	\hline
+	4. & Arindam Halder, Anogh Dalal, Sanghita Gharami, Marcin Wozniak, Muhammad Fazal Ijaz, Pawar Kuman Singh [2025] [A fuzzy rank-based deep ensemble methodology for multi-class skin cancer classification] 
+	   & \textit{Imbalanced data} pada klasifikasi kanker kulit multi-class.
+	   & \textit{Fuzzy ensemble} dengan menggabungkan Xception, InceptionResNet V2, dan MobileNetV2. Menerapkan augmentasi data untuk menyeimbangkan dataset.
+	   & Model ensemble mencapai akurasi 95\% pada dataset HAM10000 dan mencapai akurasi 73\% dengan menguji model dengan dataset DermaMNIST. \\ 
+	\hline
+	5. & Gogor Putra Hafi Puja Gusti, Elin Haerani, Fadhillah Syafria, Febi Yanto, Siska Kurnia Gusti [2024] [Implementasi Algoritma Convolutional Neural Network (ResNet-50) untuk Klasifikasi Kanker Kulit Benign dan Malignant] 
+	   & Klasifikasi kanker kulit untuk membedakan antara Benign (jinak) dan Malignant (ganas), yang merupakan masalah klasifikasi biner.
+	   & Implementasi \textit{transfer learning} menggunakan ResNet-50 yang \textit{pre-trained}.
+	   & Dengan menggunakan ResNet-50 mencapai akurasi 90\% dengan \textit{loss} 13\%.\\ 
+	\hline
+\end{longtable}
+
+\section{Dasar Teori} \label{II.Teori}
+Berikut ini adalah dasar teori atau penjelasan teori terkait yang akan 
+digunakan dalam penelitian ini.
+
+\subsection{DermaMNIST} \label{II.Teori1}
+DermaMNIST adalah salah satu dari dataset yang ada di dalam koleksi MedMNIST.
+DermaMNIST berdasar pada HAM10000 yang merupakan kumpulan gambar dermatoskopik 
+dari lesi kulit berpigmen yang memiliki \textit{multi-class}. DermaMNIST 
+memiliki 10.015 gambar yang diklasifikasikan ke dalam 7 kelas, yaitu 
+\textit{actinic keratosis and intraepithelial carcinoma},
+\textit{basal cell carcinoma}, \textit{benign keratosis-like lesions},
+\textit{dermatofibroma}, \textit{melanoma}, \textit{melanocytic nevi},
+\textit{vascular lesions} \cite{Yang_2023}. \par
+
+\subsubsection{Actinic Keratosis and Intraepithelial Carcinoma} \label{II.Teori1.1}
+\textit{Actinic Keratosis} adalah sel kulit yang mengalami transformasi 
+neoplastik diakibatkan paparan sinar UV. Pertumbuhan \textit{Actinic 
+Keratosis} masih berada di lapisan kulit luar. \textit{Actinic Keratosis}
+atau disingkat "AK", memiliki hubungan dengan \textit{Carcinoma}. AK adalah
+bentuk awal dari \textit{Carcinoma}, ketika lesi ini menembus lapisan di 
+bawah epidermis, maka AK berubah nama menjadi \textit{Squamous Cell Carcinoma}
+(SCC). Penyakit ini jika tidak diobati, akan berpotensi untuk berkembang
+kemudian berkembang menyerang jaringan yang lebih dalam \cite{COCKERELL2000S11}. \par
+
+\subsubsection{Basal Cell Carcinoma} \label{II.Teori1.2}
+\textit{Basal Cell Carcinoma} atau "BCC" merupakan jenis kanker kulit yang
+umum terjadi, terutama pada orang dewasa berkulit cerah dan biasanya diawali
+pertumbuhan yang lambat dan risiko metastasis yang rendah. Faktor utama dari
+BCC adalah paparan sinar ultraviolet yang membuat lesi ini muncul paling sering
+di kulit yang terpapar sinar matahari. Adapun faktor lain penyebab
+BCC ini muncul, seperti kondisi imunosupresi (penurunan sistem imun) dan 
+sindrom genetik tertentu seperti \textit{Basal Cel Naevus Syndroeme} yang
+menyebabkan BCC muncul pada usia muda \cite{basset2020update}. \par
+
+\subsubsection{Benign Keratosis-Like Lesions} \label{II.Teori1.3}
+\textit{Benign Keratosis} atau disingkat "BKL" bukan merupakan diagnosis 
+penyakit kulit tunggal, melainkan kategori umum yang digunakan untuk 
+mengklasifikasikan tiga jenis \textit{benign lesions} yang berbeda. Tiga 
+jenis adalah \textit{seborheicc keratoses}, \textit{solar lentigo}, dan 
+\textit{lichen planus-like keratoses}. Ketiga jenis tersebut digabungkan 
+karena memiliki kemiripan secara biologis, meskipun secara dermatologis 
+ketiga jenis tersebut dapat terlihat berbeda \cite{tschandl2018ham10000}. \par
+
+\subsubsection{Dermatofibroma} \label{II.Teori1.4}
+\textit{Dermatofibroma} atau disingkat "df" merupakan lesi kulit jinak yang
+dianggap sebagai proliferasi jinak atau reaksi peradangan akibat trauma ringan.
+Gambaran dermatoskopik paling umum dari lesi kulit ini adalah adanya garis-
+garis retikular di bagian tepi dengan disertai bercak putih di bagian tengah \cite{tschandl2018ham10000}. \par
+
+\subsubsection{Melanoma} \label{II.Teori1.5}
+\textit{Melanoma} atau disingkat "mel" merupakan kanker yang berasal dari 
+sel melanosit dan dapat muncul dalam berbagai varian. Jika kanker ini 
+diangkat pada stadium awal dengan operasi pengangkatan sederhana, maka
+kanker dapat disembuhkan \cite{tschandl2018ham10000}. \par
+
+\subsubsection{Melanocytic Nevi} \label{II.Teori1.6}
+\textit{Melanocytic Nevi} atau disingkat "nv" merupakan tumor jinak yang 
+berasal dari sel melanosit, yang dapat muncul dalam berbagai varian. Dari 
+\textit{point of view} dermatoskopik, varian-varian tersebut bisa sangat 
+berbeda satu sama lain \cite{tschandl2018ham10000}. \par
+
+\subsubsection{Vascular Lesions} \label{II.Teori1.7}
+\textit{Vascular Lesions} atau disingkat "vasc" meliputi berbagai jenis, 
+mulai dari \textit{cherry angiomas}, \textit{angiokeratomas}, dan \textit{
+pyogenic granulomas}. \textit{Hemorrhage} juga termasuk dalam kategori ini.
+Secara gambaran dermatoskopik, \textit{angioma} mempunyai ciri khas yaitu 
+warna merah atau ungu dengan adanya struktur padat yang jelas, yang disebut
+dengan istilah "red clods" (gumpalan merah) atau lacunes (rongga kecil) \cite{tschandl2018ham10000}. \par
+
+\subsection{Imbalanced Data} \label{II.Teori2}
+Data tidak seimbang (\textit{imbalanced data}) secara teknis merujuka pada 
+kumpulan data yang memperlihatkan distribusi data yang tidak merata antar 
+kelas. Dalam pemahaman umum, istilah ini merujuk pada kumpulan data yang 
+menunjukkan ketidakseimbangan yang signifikan atau bahkan ekstrem. 
+Ketidakseimbangan ini secara khusus dikenal sebagai ketidakseimbangan 
+antar-kelas, di mana suatu kelas (kelas mayoritas) jauh lebih mendominasi
+kelas lainnya (kelas minoritas). Hal yang tidak aneh menemukan perbandingan
+ketidakseimbangan ini dalam rasio 100:1, 1000:1, atau bahkan 10000:1.
+Meskipun ketidakseimbangan data ini sering merujuk pada masalah biner, 
+ketidakseimbangan juga dapat terjadi pada data \textit{multi-class} \cite{5128907}. \par
+
+\subsection{Data Augmentasi} \label{II.Teori3}
+Kebutuhan data latih untuk melatih model \textit{deep learning} seperti
+\textit{Convolutional Neural Network} membutuhkan jumlah data yang besar. 
+Jumlah data latih yang terbatas akan membuat model rentan terhadap 
+\textit{overfitting}. Kondisi di mana model memiliki performa yang baik 
+terhadap data latih tetapi gagal menggeneralisasi dengan baik pada data 
+uji. Terdapat salah satu teknik untuk mengatasi masalah ini yaitu data 
+augmentasi. Data augmentasi adalah teknik untuk memperbanyak jumlah data 
+latih secara buatan dengan cara membuat versi data yang telah dimodifikasi 
+dari data yang sudah ada. Augmentasi yang diterapkan seperti rotasi, 
+\textit{flipping}, atau pergeseran warna, dengan mengasumsikan tidak 
+mengubah makna atau label dari data aslinya \cite{shorten2019survey}. Penggunaan teknik 
+augmentasi data sebagai metode yang umum dan mudah untuk mengurangi 
+\textit{overfitting} \cite{NIPS2012_c399862d}. \par
+
+\subsubsection{Rotasi} \label{II.Teori3.1}
+Rotasi merupakan teknik augmentasi data dengan cara memutar gambar pada 
+sudut tertentu. Rotasi dapat dilakukan dengan sudut tetap, seperti 15°, 45°,  
+atau sudut acak. Rotasi pada gambar dapat membantu model untuk mengenali 
+objek dari berbagai sudut pandang. Tujuannya adalah agar sistem tidak bingung 
+ketika menemui gambar yang posisinya miring di dunia nyata. Jadi, meskipun 
+pengambilan fotonya tidak tegak lurus, objek di dalamnya tetap bisa dikenali 
+dengan baik \cite{Muhammad_Mega_Nugraha_Moch_Dani_Ferdian_Saputra_Daffa_Athallah_Fauzan_Eva_Yulia_Puspaningrum_2025}. \par
+
+\subsubsection{Flip} \label{II.Teori3.2}
+Augmentasi data menggunakan metode flip dikategorikan sebagai pendekatan 
+manipulasi geometris dasar yang berfungsi meningkatkan dataset pelatihan 
+secara signifikan tanpa mengubah label kelas data yang sebenarnya. Teknik ini 
+bekerja dengan membalikkan orientasi citra, baik secara vertikal maupun 
+horizontal, yang bertujuan agar model dapat mengenali fitur objek dari 
+berbagai sudut pandang \cite{Dede_Husen_2024}. \par
+
+\subsubsection{Random Erasing} \label{II.Teori3.3}
+\textit{Random erasing} merupakan teknik baru untuk augmentasi data. 
+\textit{Random erasing} dapat mengatasi masalah oklusi. Beberapa objek tidak 
+selalu terlihat sepenuhnya dalam gambar, masalah ini disebut dengan oklusi. 
+Objek tidak jarang terhalang atau tertutup oleh objek lain sehingga hanya 
+sebagian yang terlihat. Hal ini membuat model sulit mengenali objek saat 
+proses latih, jika beberapa bagian dari objek tidak terlihat atau tertutup. 
+Dengan \textit{random erasing}, objek akan sengaja dihapus atau ditutup 
+secara acak dibeberapa bagian oleh sebuah area berbentuk persegi panjang yang 
+diisi dengan nilai acak pada gambar. Teknik ini membuat model tidak belajar 
+hanya dari fitur tertentu pada objek. Dengan demikian, model menjadi tidak 
+tidak terlalu kompleks dan tidak menghafal pola tertentu pada gambar yang 
+membuat model menjadi lebih \textit{robust.} \cite{Zhong_Zheng_Kang_Li_Yang_2020}. \par
+
+
+\subsection{Convolutional Neural Network} \label{II.Teori4}
+\textit{Convolutional Neural Network} (CNN) adalah salah satu model 
+\textit{deep learning} yang digunakan untuk memproses data citra. CNN 
+terdiri dari lapisan konvolusi dan \textit{pooling}, satu atau lebih 
+lapisan \textit{fully connected}, dan lapisan \textit{output} di akhir. 
+Lapisan konvolusi dan \textit{pooling} berfungsi untuk ekstraksi fitur. 
+Hasil dari ekstraksi fitur akan dikirim ke lapisan \textit{fully connected} 
+untuk dilakukannya klasifikasi. Istilah lain untuk lapisan 
+\textit{fully connected} adalah lapisan \textit{dense} atau \textit{Multi-
+Layer Perceptron} (MLP) \cite{726791}. \par
+
+\begin{figure}[H] % Kalau menggunakan H, posisi gambar akan tepat dibawah teks
+	\centering
+	\includegraphics[width=1.0\textwidth]{figure/cnnfig.jpg}
+	\caption{Illustrasi Convolutional Neural Network}
+	\label{fig:2.CnnArch}
+\end{figure}
+
+Merujuk pada gambar \ref{fig:2.CnnArch} proses CNN dimulai dengan 
+penerimaan data citra sebagai masukan. Data ini selanjutnya diolah 
+secara bertahap melalui serangkaian lapisan jaringan. Tujuan dari 
+lapisan-lapisan tersebut adalah untuk mengekstraksi fitur-fitur penting 
+dari citra, yang pada akhirnya digunakan untuk mengklasifikasikan citra 
+itu ke dalam kelas-kelas yang relevan. Berikut ini adalah penjelasan 
+mengenai lapisan-lapisan yang menyusun CNN: \par
+
+\begin{enumerate}[noitemsep]
+	\item Lapisan konvolusi \\
+	Lapisan konvolusi yang terdiri dari sejumlah kernel (filter) konvolusi 
+	yang berperan untuk mengekstrak fitur pada data input. Proses konvolusi 
+	yaitu melakukan pergeseran kernel di atas gambar input, kemudian nilai 
+	pada kernel dengan nilai piksel pada posisi yang bersesuaian akan 
+	dikalikan setelah itu dijumlahkan untuk menghasilkan \textit{feature 
+	map}. \textit{Feature map} yang dihasilkan akan digunakan sebagai satu 
+	kelas fitur gambar yang diekstraksi. Beberapa lapisan konvolusi akan 
+	ditumpukkan untuk mengekstrak fitur yang \textit{higher-level} dan 
+	lebih lengkap. \par
+
+	\item Activation Function \\
+	\textit{Activation Function} adalah fungsi matematis yang berperan 
+	penting dalam \textit{neural network} dengan memperkuat representasi 
+	dan kemampuan untuk pembelajaran model. Tanpa adanya fungsi aktivasi, 
+	pemrosesan setiap lapisan hanya proses fungsi linier. Dengan adanya 
+	fungsi aktivasi, model dapat mengenal non-linieritas dalam jaringan. 
+	Fungsi aktivasi sebagai fungsi keputusan untuk membantu model 
+	mempelajari pola yang kompleks. Beberapa fungsi aktivasi yang umum 
+	digunakan seperti Sigmoid, Tanh, ReLU, dan Leaky ReLU. \par
+
+	\item Lapisan pooling \\
+	Lapisan \textit{pooling} ditambahkan setelah lapisan konvolusi 
+	menghasilkan \textit{feature map}. Tujuan dari lapisan \textit{pooling} 
+	adalah untuk mengurangi jumlah dimensi \textit{feature map}, dan 
+	meminimalkan \textit{overfitting}. Terdapat dua metode \textit{pooling} 
+	yang umum digunakan, yaitu \textit{max pooling} dan \textit{average 
+	pooling}. Pada \textit{max pooling}, nilai maksimum dari area yang 
+	oleh kernel (filter) diambil sebagai representasi area tersebut. 
+	Sedangkan pada \textit{average pooling}, nilai rata-rata dari area 
+	yang kernel ambil sebagai representasi area tersebut. \par
+
+	\item Lapisan Fully Connected
+	Lapisan \textit{fully connected} adalah lapisan yang biasanya 
+	ditempatkan di akhir dari jaringan CNN, bertujuan untuk klasifikasi. 
+	Pada lapisan ini, setiap neuron saling terhubung satu sama lain. 
+	Secara umum, CNN akan mengambil \textit{feature map} yang dihasilkan 
+	dari proses sebelumnya, kemudian di-\textit{flatten} menjadi vektor 
+	satu dimensi, lalu dikirim ke lapisan \textit{fully connected}. 
+	Lapisan ini penting untuk integrasi informasi lokal yang memiliki 
+	sifat pembeda kelas yang telah diekstraksi oleh lapisan konvolusi 
+	dan \textit{pooling} sebelumnya. \par
+\end{enumerate}
+
+\subsection{Residual Network} \label{II.Teori5}
+Arsitektur yang sering disebut dengan "ResNet" diperkenalkan oleh 
+Kaiming He dkk didalam jurnal yang berjudul "\textit{Deep Residual 
+Learning for Image Recognition}" pada tahun 2015 \cite{he2015deepresiduallearningimage}. 
+\textit{Residual Network} (ResNet) merupakan arsitektur CNN yang dirancang untuk 
+mengatasi masalah degradasi pada \textit{deep neural network}. Terjadinya 
+degradasi disebabkan kedalaman \textit{neural network} meningkat dan 
+membuat akurasi model menurun dengan cepat. Degradasi bukan karena 
+\textit{overfitting} melainkan penambahan \textit{layer} yang dalam pada 
+model yang cukup dalam, alhasil training error meningkat. Untuk mengatasi 
+masalah ini, arsitektur ResNet memiliki konsep \textit{residual learning} 
+di mana beberapa \textit{stacked layer} menyesuaikan \textit{desired 
+underlying mapping}. Konsep ini didukung dengan adanya \textit{shortcut 
+connections} yang melewati satu atau lebih \textit{layer}. Terdapat 
+perbedaan arsitektur yang dimana ResNet-34 dengan arsitektur yang mempunyai 
+34 \textit{layer} tanpa \textit{residual learning} yang dapat dilihat pada 
+gambar \ref{fig:2.ResnetArch}. \par
+
+\begin{figure}[H] % Kalau menggunakan H, posisi gambar akan tepat dibawah teks
+	\centering
+	\includegraphics[width=0.9\textwidth]{figure/resnet arch.jpg}
+	\caption{Gambaran ResNet-34 dan CNN 34 \textit{layer} tanpa residual learning}
+	\label{fig:2.ResnetArch}
+\end{figure}
+
+ResNet memiliki beberapa jenis berdasarkan dengan jumlah \textit{layer}. 
+Terdapat ResNet-18 dengan 18 \textit{layer}, ResNet-34 dengan 34 
+\textit{layer}, ResNet-50 dengan 50 \textit{layer}, dan lain-lain. Pada 
+penelitian ini akan menggunakan arsitektur ResNet-18 dan ResNet-50 untuk 
+membandingkan performa keduanya. Berikut struktur dari kedua arsitektur 
+dapat dilihat pada tabel \ref{table:resnet18} dan tabel \ref{table:resnet50}. \par
+
+\begingroup
+\renewcommand{\arraystretch}{1.4} % Padding vertikal (default 1.0, semakin besar semakin tinggi)
+\setlength{\tabcolsep}{12pt} % Padding horizontal (default 6pt)
+\begin{longtable}{|c|c|c|} % Longtable berguna agar tabel dapat terpotong di halaman baru
+	\caption{Struktur ResNet-18}
+	\label{table:resnet18}\\
+	\hline
+	\textbf{Nama Lapisan} & \textbf{Ukuran Output} & \textbf{34-Layer} \\
+	\hline
+	\endfirsthead % Header tabel untuk halaman pertama
+	\hline
+	\textbf{Nama Lapisan} & \textbf{Ukuran Output} & \textbf{34-Layer} \\
+	\hline
+	\endhead % Header tabel untuk halaman selanjutnya (repeat header row)
+	Conv1 & $112 \times 112$ & $7 \times 7$, 64, stride 2\\ 
+	\hline
+	\textit{Max Pooling} & $3 \times 3$ & stride 2\\ 
+	\hline
+	Conv2\_x & $56 \times 56$ & $\left[\begin{array}{c} 3 \times 3, 64 \\ 3 \times 3, 64 \end{array}\right] \times 2$\\ 
+	\hline
+	Conv3\_x & $28 \times 28$ & $\left[\begin{array}{c} 3 \times 3, 128 \\ 3 \times 3, 128 \end{array}\right] \times 2$\\ 
+	\hline
+	Conv4\_x & $14 \times 14$ & $\left[\begin{array}{c} 3 \times 3, 256 \\ 3 \times 3, 256 \end{array}\right] \times 2$\\ 
+	\hline
+	Conv5\_x & $7 \times 7$ & $\left[\begin{array}{c} 3 \times 3, 512 \\ 3 \times 3, 512 \end{array}\right] \times 2$\\ 
+	\hline
+	\multicolumn{3}{|c|}{\textit{Average Pooling}}\\ 
+	\hline
+	\multicolumn{3}{|c|}{\textit{Fully Connected Layer}}\\ 
+	\hline
+	\multicolumn{3}{|c|}{\textit{Softmax}}\\ 
+	\hline
+\end{longtable}
+\endgroup
+
+\begingroup
+\renewcommand{\arraystretch}{1.3} % Padding vertikal (default 1.0, semakin besar semakin tinggi)
+\setlength{\tabcolsep}{12pt} % Padding horizontal (default 6pt)
+\begin{longtable}{|c|c|c|} % Longtable berguna agar tabel dapat terpotong di halaman baru
+	\caption{Struktur ResNet-50}
+	\label{table:resnet50}\\
+	\hline
+	\textbf{Nama Lapisan} & \textbf{Ukuran Output} & \textbf{34-Layer} \\
+	\hline
+	\endfirsthead % Header tabel untuk halaman pertama
+	\hline
+	\textbf{Nama Lapisan} & \textbf{Ukuran Output} & \textbf{34-Layer} \\
+	\hline
+	\endhead % Header tabel untuk halaman selanjutnya (repeat header row)
+	Conv1 & $112 \times 112$ & $7 \times 7$, 64, stride 2\\ 
+	\hline
+	\textit{Max Pooling} & $3 \times 3$ & stride 2\\ 
+	\hline
+	Conv2\_x & $56 \times 56$ & $\left[\begin{array}{c} 1 \times 1, 64 \\ 3 \times 3, 64 \\ 1 \times 1, 256 \end{array}\right] \times 3$\\ 
+	\hline
+	Conv3\_x & $28 \times 28$ & $\left[\begin{array}{c} 1 \times 1, 128 \\ 3 \times 3, 128 \\ 1 \times 1, 512 \end{array}\right] \times 4$\\ 
+	\hline
+	Conv4\_x & $14 \times 14$ & $\left[\begin{array}{c} 1 \times 1, 256 \\ 3 \times 3, 256 \\ 1 \times 1, 1024 \end{array}\right] \times 6$\\ 
+	\hline
+	Conv5\_x & $7 \times 7$ & $\left[\begin{array}{c} 1 \times 1, 512 \\ 3 \times 3, 512 \\ 1 \times 1, 2048 \end{array}\right] \times 3$\\ 
+	\hline
+	\multicolumn{3}{|c|}{\textit{Average Pooling}}\\ 
+	\hline
+	\multicolumn{3}{|c|}{\textit{Fully Connected Layer}}\\ 
+	\hline
+	\multicolumn{3}{|c|}{\textit{Softmax}}\\ 
+	\hline
+\end{longtable}
+\endgroup
+
+\subsection{Confusion Matrix} \label{II.Teori6}
+\textit{Confusion Matrix} adalah tabel yang digunakan untuk mengevaluasi
+kinerja model klasifikasi. \textit{Confusion Matrix} terdapat empat
+komponen utama, yaitu \textit{True Positive} (TP), \textit{True Negative} (TN),
+\textit{False Positive} (FP), dan \textit{False Negative} (FN). Matriks ini 
+membantu menganalisis kemampuan klasifikasi model secara rinci, dengan 
+melihat seberapa tepat hasil tebakan model jika dibandingkan dengan data 
+yang sebenarnya \cite{khasanah2021skin}. \textit{Confusion Matrix} bukan hanya digunakan untuk 
+data yang memiliki dua kelas, tetapi matriks ini dapat digunakan untuk 
+data multi-kelas. Ilustrasi \textit{Confusion Matrix} multi-kelas dapat 
+dilihat pada gambar \ref{fig:2.CMatrix}. \par 
+
+\begin{figure}[H] % Kalau menggunakan H, posisi gambar akan tepat dibawah teks
+	\centering
+	\includegraphics[width=0.8\textwidth]{figure/confusionmatrix.png}
+	\caption{Ilustrasi Confusion Matrix Multi-Kelas}
+	\label{fig:2.CMatrix}
+\end{figure}
+
+Keterangan:
+\begin{enumerate}[noitemsep]
+	\item \textit{True Positive} (TP): jumlah data yang nilai aktualnya 
+	positif dan nilai prediksinya positif.
+	\item \textit{True Negative} (TN): jumlah data yang nilai aktualnya 
+	negatif dan nilai prediksinya negatif.
+	\item \textit{False Positive} (FP): jumlah data yang nilai aktualnya 
+	negatif dan nilai prediksinya positif.
+	\item \textit{False Negative} (FN): jumlah data yang nilai aktualnya 
+	positif dan nilai prediksinya negatif.
+\end{enumerate}
+
+Dari nilai komponen utama pada \textit{Confusion Matrix}, dapat dilakukan 
+perhitungan kinerja model menggunakan persamaan berikut. \par
+
+\begin{enumerate}[noitemsep]
+	\item Akurasi \\
+	Akurasi mengukur seberapa akurat model dalam mengklasifikasikan data. 
+    Rumus akurasi dapat dilihat pada persamaan \ref{eq:2.accuracy}.
+\end{enumerate}
+\begin{equationcaptioned}[eq:2.accuracy]{
+	Accuracy = \frac{TP + TN}{TP + TN + FP + FN}
+}{
+	Rumus Accuracy % Caption rumus
+}
+\end{equationcaptioned}
+
+\begin{enumerate}[noitemsep, resume]
+	\item \textit{Precision} \\
+	Precision mengukur seberapa akurat prediksi positif yang dibuat oleh 
+    model. Nilainya dihitung dari rasio antara prediksi positif yang 
+    benar (TP) dibagi dengan keseluruhan data yang diprediksi positif 
+    oleh model (TP + FP). Rumus \textit{precision} dapat dilihat pada 
+    persamaan \ref{eq:2.precision}.
+\end{enumerate}
+\begin{equationcaptioned}[eq:2.precision]{
+	Precision = \frac{TP}{TP + FP}
+}{
+	Rumus Precision % Caption rumus
+}
+\end{equationcaptioned}
+
+\begin{enumerate}[noitemsep, resume]
+	\item \textit{Recall} \\
+	Recall adalah metrik yang menunjukkan kemampuan sebuah model dalam 
+    menemukan kembali semua data yang sebenarnya positif. Nilainya 
+    dihitung dari rasio antara prediksi positif yang benar (TP) dibagi 
+    dengan jumlah total data yang faktanya positif (TP + FN). Rumus 
+    \textit{recall} dapat dilihat pada persamaan.
+\end{enumerate}
+\begin{equationcaptioned}[eq:2.recall]{
+	Recall = \frac{TP}{TP + FN}
+}{
+	Rumus Recall % Caption rumus
+}
+\end{equationcaptioned}
+
+\begin{enumerate}[noitemsep, resume]
+	\item \textit{F1-Score} \\
+	F1-Score adalah rata-rata harmonik (harmonic mean) dari Precision dan 
+    Recall. Metrik ini menggabungkan kedua metrik tersebut untuk memberikan 
+    satu skor tunggal, yang sangat berguna terutama jika terdapat 
+    ketidakseimbangan kelas (imbalanced classes). Rumus \textit{F1-Score} 
+    dapat dilihat pada persamaan.
+\end{enumerate}
+\begin{equationcaptioned}[eq:2.f1score]{
+	F1-Score = 2 \times \frac{Precision \times Recall}{Precision + Recall}
+}{
+	Rumus F1-Score % Caption rumus
+}
+\end{equationcaptioned}
+
+\subsection{Matthews Correlation Coefficient} \label{II.Teori7}
+\textit{Matthews Correlation Coefficient} (MCC) merupakan metrik evaluasi untuk 
+klasifikasi biner yang menghasilkan skor dalam interval [-1; +1], jika 
+\textit{classifier} memperoleh nilai tinggi untuk komponen dasar dari 
+\textit{confusion matrix} yaitu, akurasi, \textit{precision}, \textit{recall}, 
+dan \textit{false negative} (FN). MCC juga dapat digunakan pada klasifikasi 
+multi-kelas. Nilai +1 menunjukkan klasifikasi sempurna, nilai mendekati 0 
+menunjukkan prediksi yang dibuat secara acak, dan nilai -1 menunjukkan 
+prediksi yang berlawanan sempurna dimana semua sampel negatif diprediksi 
+sebagai positif dan sebaliknya. Keunggulan MCC adalah mampu dalam menangani 
+\textit{imbalanced data} dikarenakan MCC diakui \textit{robust} terhadap 
+\textit{imbalanced data} \cite{chicco2023matthews}. Berikut persamaan MCC untuk klasifikasi multi-kelas 
+yang dapat dilihat pada \ref{eq:2.mcc}.
+\begin{equationcaptioned}[eq:2.mcc]{
+	MCC = \frac{c \times s - \sum_{k}^{K} p_k \times t_k}{\sqrt{(s^2 - \sum_{k}^{K} p_k^2) \times (s^2 - \sum_{k}^{K} t_k^2)}}
+}{
+	Rumus Matthews Correlation Coefficient % Caption rumus
+}
+\end{equationcaptioned}
+
+\noindent Keterangan: \\
+k: Jumlah total kelas \\ 
+c: Jumlah total sampel yang diprediksi dengan benar (\textit{True Positive}) \\
+s: Jumlah total keseluruhan sampel \\
+$p_k$: jumlah prediksi untuk kelas k (total elemen yang diprediksi sebagai kelas k) \\
+$t_k$: jumlah sampel aktual untuk kelas k (ground truth untuk kelas k) \\
+
+% \subsection{Teori 1} \label{II.Teori1}
+% Berikut adalah contoh penyisipan tabel menggunakan \verb|\begin{longtable}{}|: \par
+	
+% 	\begin{longtable}{|c|c|c|c|}
+% 		\caption{Contoh Tabel}
+% 		\label{table:2.contoh}\\
+% 		\hline
+% 		Col1 & Col2 & Col2 & Col3 \\
+% 		\hline
+% 		\endhead
+% 		1 & 6 & 87837 & 787 \\ 
+% 		\hline
+% 		2 & 7 & 78 & 5415 \\
+% 		\hline
+% 		3 & 545 & 778 & 7507 \\
+% 		\hline
+% 		4 & 545 & 18744 & 7560 \\
+% 		\hline
+% 		5 & 88 & 788 & 6344 \\
+% 		\hline
+% 	\end{longtable}
+
+% \subsubsection{Subsubbab} \label{II.Teori1.1}
+% Berikut adalah contoh subsubbab. Ini adalah level subbab maksimal dalam laporan Tugas Akhir, dan tidak boleh lebih dalam. \par
+
+% Gambar \ref{fig:2.contoh} adalah contoh Gambar yang diambil dari internet yang harus dicantumkan sumbernya dan memiliki lisensi Creative Common. Jika gambar adalah milik peneliti lain atau tidak dibuat atau diambil sendiri maka peneliti wajib meminta izin kepada peneliti lain tersebut untuk mencantumkan gambar. Gunakan \verb|\begin{figure}| untuk memasukkan gambar. Gunakan \verb|\caption{[nama caption]}| untuk memberikan caption gambar. Nomor caption akan diurutkan secara otomatis. Jangan lupa untuk melabeli setiap gambar dengan \verb|\label{[nama label]}|, agar bisa direferensi menggunakan \verb|\ref{[nama label]}| \par
+% \begin{figure}[H] % Kalau menggunakan H, posisi gambar akan tepat dibawah teks
+% 	\centering
+% 	\includegraphics[width=0.6\textwidth]{figure/keyboard.jpg}
+% 	\caption{Contoh gambar dan caption}
+% 	\label{fig:2.contoh}
+% 	{\footnotesize Sumber: Contoh} % Untuk memberikan sumber
+% \end{figure}
+
+% \subsection{Teori 2} \label{II.teori2}
+% Untuk membuat sebuah rumus persamaan, gunakan kode \verb|\begin{equationcaptioned}| seperti dibawah: \par
+	
+% \begin{equationcaptioned}[eq:2.sederhana]{
+% 	x + 1 = 2
+% }{
+% 	Rumus sederhana % Caption rumus
+% }
+% \end{equationcaptioned}
+
+% Teks caption rumus tidak akan muncul di teks, tetapi akan muncul di Daftar Rumus. \par
+
+% \begin{equationcaptioned}[eq:2.mae]{
+%     MAE = \frac{1}{n} \sum_{i=1}^{n} \left| y_i - \hat{y}_i \right|
+% }{
+%     Mean Absolute Error (MAE)
+% }
+% \end{equationcaptioned}
+
+% Berikut adalah contoh penulisan persamaan yang lebih kompleks, yaitu persamaan distribusi normal. \par
+
+% \begin{equationcaptioned}[eq:2.mae]{
+% 		P(x) = \frac{1}{{\sigma \sqrt {2\pi } }}e^{{{ - \left( {x - \mu } \right)^2 } \mathord{\left/ {\vphantom {{ - \left( {x - \mu } \right)^2 } {2\sigma ^2 }}} \right. \kern-\nulldelimiterspace} {2\sigma ^2 }}}
+% 	}{
+% 		Distribusi Normal
+% 	}
+% \end{equationcaptioned}
+
+% Jika menuliskan banyak persamaan secara berurutan, gunakan  \verb|\begin{split}|: \par
+
+% \begin{equationcaptioned}[eq:2.mae]{
+% 		\begin{split} 
+% 			2x - 5y &=  8 \\ 
+% 			3x + 9y &=  -12
+% 		\end{split}
+% 	}{
+% 		Sistem persamaan linier
+% 	}
+% \end{equationcaptioned}

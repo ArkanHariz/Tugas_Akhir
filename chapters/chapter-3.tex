@@ -1,0 +1,264 @@
+\newpage
+\chapter{METODE PENELITIAN} \label{Bab III}
+
+\section{Alur Penelitian} \label{III.Alur}
+Penelitian ini berfokus pada augmentasi data kelas minoritas untuk 
+membandingkan hasil atau performa arsitektur ResNet-18 dan ResNet-50. 
+Alur penelitian dijelaskan pada diagram yang dapat dilihat pada Gambar \ref{fig:3.alur}.
+Penelitian dimulai dari identifikasi masalah hingga selesai.
+
+\begin{figure}[H] % Kalau menggunakan H, posisi gambar akan tepat dibawah teks
+    \centering
+    \includegraphics[width=1.0\textwidth]{figure/alur_penelitian.png}
+    \caption{Diagram Alur Penelitian}
+    \label{fig:3.alur}
+\end{figure}
+
+\section{Penjabaran Langkah Penelitian} \label{III.Jabar Alur}
+Penjelasan dari setiap langkah pada alur penelitian akan dijelaskan 
+secara rinci untuk memberikan detail yang jelas terhadap metode yang digunakan. 
+Berikut penjelasan dari setiap langkah penelitian tersebut. \par
+
+\subsection{Identifikasi Masalah} \label{III.Langkah 1}
+Tahap awal yang dilakukan sebelum penelitian adalah identifikasi masalah. 
+Identifikasi dilakukan dengan cara menelaah karakteristik dataset DermaMNIST
+yang digunakan dalam penelitian klasifikasi citra penyakit kulit. Pada 
+penelitian klasifikasi citra penyakit kulit menggunakan dataset DermaMNIST 
+yang dilakukan oleh Nerma Kadric dkk pada tahun 2025, terdapat 
+ketidakseimbangan kelas yang signifikan di mana berdampak terhadap performa 
+model \cite{kadric2025improvingdiagnosticaccuracypigmented}. Berdasarkan hal 
+tersebut, dilakukan eksplorasi terhadap dataset dan ditemukannya kelas yang
+jumlah data nya sedikit (kelas minoritas) dibandingkan kelas lainnya yang 
+memiliki jumlah data yang banyak (kelas mayoritas). Kondisi 
+ketidakseimbangan kelas ini menjadi dasar dilakukannya penelitian untuk 
+mengevaluasi efektivitas teknik augmentasi pada kelas minoritas dalam 
+membandingkan performa model ResNet-18 dan ResNet-50 pada klasifikasi citra 
+penyakit kulit menggunakan dataset DermaMNIST. \par
+
+\subsection{Studi Literatur} \label{III.Langkah 2}
+Tahap studi literatur dilakukan dengan mengumpulkan dan mengkaji berbagai 
+sumber akademis terpercaya, meliputi jurnal ilmiah dan publikasi terkini 
+yang relevan dengan penelitian. Referensi yang dikumpulkan berdasarkan pada
+topik klasifikasi citra penyakit kulit menggunakan deep learning, imbalanced 
+data pada multi-kelas, penanganan imbalanced data melalui teknik augmentasi, 
+dan model ResNet-18 dan ResNet-50. Tahap ini bertujuan untuk membangun 
+landasan teoritis yang kuat dan berkaitan dengan penelitian yang dilakukan. \par
+
+\subsection{Akuisisi Dataset} \label{III.Langkah 3}
+Proses pengumpulan data dalam riset ini menggunakan dataset DermaMNIST yang 
+diambil dari platform MedMNIST, yaitu open-source yang menyediakan koleksi 
+dataset citra medis.  Dataset DermaMNIST berisi gambar-gambar penyakit kulit 
+berwarna dengan dimensi 28x28 piksel dan 224x224 piksel, yang dikelompokkan 
+menjadi 7 kelas berbeda sesuai jenis penyakit kulitnya. Dataset ini terdiri 
+dari total 10.015 gambar yang terbagi menjadi data latih, data validasi, dan 
+data uji. Ketujuh kelas penyakit kulit tersebut meliputi actinic keratosis 
+and intraepithelial carcinoma, basal cell carcinoma, benign keratosis-like 
+lesions, dermatofibroma, melanoma, melanocytic nevi, dan vascular lesions. \par
+
+\subsection{Preprocessing Data} \label{III.Langkah 4}
+Sebelum pelatihan model melakukan dataset yang sudah dikumpulkan, data akan 
+diolah terlebih dahulu. Tahapan tersebut disebut dengan \textit{Preprocessing 
+Data}. Tahap \textit{preprocessing data} akan melakukan \textit{resizing} dan 
+normalisasi data. Pada tahap \textit{resizing}, data di-\textit{resize} dari 
+ukuran aslinya yaitu 28x28 menjadi 224x224 agar sesuai dengan dimensi input 
+\textit{default} pada arsitektur ResNet, baik ResNet-18 maupun ResNet-50. 
+Proses normalisasi dilakukan untuk mentransformasi rentang nilai piksel dari 
+[0, 255] menjadi [0, 1] dengan tujuan menstabilkan konvergensi selama 
+pelatihan model dan meningkatkan efisiensi komputasi. Dataset DermaMNIST yang 
+digunakan dalam penelitian ini terdiri dari 10.015 citra. Pembagian data 
+mengikuti pembagian yang sudah disediakan oleh dataset, yaitu 7.007 citra 
+untuk data \textit{training}, 1.003 citra untuk data \textit{validation}, 
+dan 2.005 citra untuk data \textit{test}. \par
+
+\subsection{Augmentasi Kelas Minoritas} \label{III.Langkah 5}
+Augmentasi data merupakan teknik untuk meningkatkan jumlah data pelatihan 
+dengan menghasilkan variasi baru dari data yang sudah tersedia melalui 
+berbagai modifikasi seperti rotasi, \textit{flipping}, dan \textit{cropping}. 
+Teknik ini bertujuan untuk memperbesar ukuran dan meningkatkan keragaman 
+dataset sehingga dapat mengurangi \textit{overfitting} dan meningkatkan 
+performa model \cite{MAHARANA202291}. Pada penelitian ini, augmentasi hanya 
+diterapkan pada data di kelas minoritas. Metode yang digunakan untuk 
+augmentasi meliputi rotasi, \textit{flip}, dan \textit{random erasing}. 
+Gambar akan dirotasi secara acak dengan rentang sudut 0° hingga 45° derajat. 
+Pada metode \textit{flip}, gambar akan di-\textit{flip} secara vertikal dan 
+horizontal. Pada metode \textit{random erasing}, gambar akan diberikan area 
+persegi panjang dengan rasio aspek acak, kemudian nilai piksel asli diganti 
+dengan nilai piksel acak (\textit{noise}) atau rata-rata dataset 
+(\textit{mean}) \cite{tumewu2020klasifikasi}. \par
+
+\subsection{Perancangan Model ResNet-18 dan ResNet-50} \label{III.Langkah 6}
+Tahapan ini merupakan penjelasan pada perancangan model ResNet-18 dan ResNet-50. 
+Model ResNet menggunakan mekanisme \textit{residual learning} dengan 
+\textit{skip connections} untuk mengatasi masalah \textit{vanishing gradient}, 
+dimana ResNet-18 memiliki 18 lapisan dan ResNet-50 memiliki 50 lapisan. 
+Perancangan diawali dengan pembagian dataset menjadi data \textit{training}, 
+data \textit{validation}, dan data \textit{test}. Data \textit{training} 
+akan dilakukan augmentasi data pada kelas minoritas. Setelah pembagian dan 
+augmentasi, dataset digunakan sebagai input pada model ResNet-18 dan ResNet-50 
+dan model melakukan \textit{training}. Hasil \textit{training} model akan 
+disimpan dan dievaluasi untuk membandingkan performa antara kedua model. \par
+
+\subsection{Evaluasi} \label{III.Langkah 7}
+Tahapan ini adalah penjelasan terkait evaluasi yang akan digunakan pada model. 
+Evaluasi terhadap model dilakukan menggunakan tiga cara, yakni \textit{Confusion 
+Matrix}, metrik evaluasi, dan \textit{Matthews Correlation Coefficient} (MCC). 
+\textit{Confusion Matrix} digunakan untuk mengevaluasi kinerja model guna 
+memberikan rincian mengenai tingkat efektivitas model. Nilai yang dihasilkan 
+dari \textit{Confusion Matrix} berupa nilai \textit{True Positive}, 
+\textit{False Positive}, \textit{True Negative}, dan \textit{False Negative}. 
+Nilai-nilai tersebut kemudian digunakan sebagai dasar perhitungan metrik 
+evaluasi standar yang meliputi Akurasi, Presisi, \textit{Recall}, dan 
+\textit{F1-Score}. Evaluasi ini juga menerapkan \textit{Matthews Correlation 
+Coefficient} (MCC). MCC digunakan karena kemampuannya memberikan penilaian 
+yang lebih pada data yang tidak seimbang dibandingkan akurasi biasa. \par
+
+\section{Alat dan Bahan Tugas Akhir} \label{III.Alat dan Bahan}
+Berisi alat-alat dan bahan-bahan yang digunakan dalam penelitian. \par
+
+\subsection{Alat} \label{III.Alat}
+Berikut merupakan alat-alat yang digunakan dalam pelaksanaan penelitian: \par
+\begin{enumerate}[noitemsep]
+	\item Laptop dengan spesifikasi windows 11, processor Intel(R) Core(TM) 
+	i5-11400H 11th Gen @ 2.70GHz, memory 16 GB, dan graphics card 
+	NVIDIA GeForce GTX 1650, SSD 512 GB
+	\item Code editor Microsoft Visual Studio Code
+	\item Python 3.10
+	\item Libray python: PyTorch, NumPy, Matplotlib.
+\end{enumerate}
+
+\subsection{Bahan} \label{III.Bahan}
+Penulis menggunakan dataset DermaMNIST yang merupakan bagian dari MedMNIST. 
+Dataset terdiri dari citra penyakit kulit dengan 7 kelas berbeda, yaitu 
+\textit{melanocytic nevi} sebanyak 6705 gambar, 
+\textit{melanoma} sebanyak 1113 gambar, 
+\textit{benign keratosis-like lesions} sebanyak 1099 gambar,
+\textit{basal cell carcinoma} sebanyak 514 gambar,
+\textit{actinic keratoses and intraepithelial carcinoma} sebanyak 327 gambar,
+\textit{vascular lesions} sebanyak 142 gambar, dan 
+\textit{dermatofibroma} sebanyak 115 gambar.
+Dataset ini digunakan untuk pelatihan dan pengujian model klasifikasi. DermaMNIST
+tersedia secara open access untuk digunakan dalam penelitian. \par
+
+\section{Metode Pengembangan} \label{III.Metode}
+Metode yang akan digunakan pada penelitian adalah metode \textit{Convolutional 
+Neural Network} (CNN) dengan arsitektur ResNet-18 dan ResNet-50 untuk 
+klasifikasi jenis penyakit kulit berdasarkan dataset DermaMNIST yang dimana 
+membandingkan performa kedua arsitektur sebelum dan sesudah dilakukan 
+augmentasi data yang dikhususkan untuk kelas minoritas. \par
+
+\section{Ilustrasi Perhitungan Metode} \label{III.Ilustrasi}
+Berikut adalah ilustrasi perhitungan metode yang digunakan dalam penelitian. \par
+
+\subsection{Ilustrasi Perhitungan Konvolusi} \label{III.Konvolusi}
+Perhitungan lapisan konvolusi dilakukan dengan cara mengalikan matriks filter 
+(\textit{kernel}) dengan matriks input pada gambar. Misalkan terdapat matriks gambar 
+sebesar 7x7 dan dan kernel 5x5. Selain itu, terdapat parameter lain yaitu 
+\textit{padding} dengan nilai 0 dan \textit{stride} sebanyak 1 kali 
+\textit{kernel} bergeser. Contoh matriks input pada gambar 7x7 dapat dilihat 
+pada Gambar \ref{fig:3.konvolusi}.
+
+\begin{figure}[H] % Kalau menggunakan H, posisi gambar akan tepat dibawah teks
+    \centering
+    \includegraphics[width=0.6\textwidth]{figure/lapisan_konvolusi.png}
+    \caption{Matriks Input Gambar 7x7}
+    \label{fig:3.konvolusi}
+\end{figure}
+
+Kemudian terdapat \textit{kernel} 5x5 yang akan digunakan untuk proses 
+konvolusi. Contoh matriks \textit{kernel} dapat dilihat pada Gambar \ref{fig:3.kernel}.
+
+\begin{figure}[H] % Kalau menggunakan H, posisi gambar akan tepat dibawah teks
+    \centering
+    \includegraphics[width=0.5\textwidth]{figure/kernel.png}
+    \caption{Matriks Kernel 7x7}
+    \label{fig:3.kernel}
+\end{figure}
+
+Selanjutnya dilakukan proses konvolusi dengan mengalikan matriks 
+\textit{kernel} dengan matriks input gambar. Hasil perkalian antar kedua 
+matriks akan dijumlahkan dan menghasilkan sebuah nilai pertama dari hasil 
+proses konvolusi. Proses konvolusi dapat dilihat pada Gambar \ref{fig:3.contohkonv1}.
+
+\begin{figure}[H] % Kalau menggunakan H, posisi gambar akan tepat dibawah teks
+    \centering
+    \includegraphics[width=1.0\textwidth]{figure/proses_konvolusi.png}
+    \caption{Contoh Hasil Konvolusi}
+    \label{fig:3.contohkonv1}
+\end{figure}
+
+Berikut adalah perhitungan dari proses konvolusi pertama: \\
+\begin{align*} 
+    &(4 \times 1) + (6 \times 1) + (3 \times 1) + (8 \times 1) + 
+    (5 \times 1) + (9 \times 1) \\ &+ (1 \times (-2)) + (4 \times (-2)) + 
+    (6 \times 2) + (3 \times 1) + (5 \times 1) + (7 \times (-2)) \\ 
+    &+ (2 \times (-6)) + (9 \times (-2)) + (1 \times 1) + (3 \times 1) + 
+    (8 \times 2) + (5 \times (-2)) \\ &+ (7 \times (-2)) + (2 \times 1) + 
+    (6 \times 1) + (3 \times 1) + (8 \times 1) + (5 \times 1) \\ 
+    &+ (7 \times 1) = 28 
+\end{align*} \\
+
+Proses konvolusi dilakukan secara berulang sesuai dengan parameter yang sudah 
+ditentukan yaitu dengan pergeseran \textit{stride} sebanyak 1 kali dan tanpa 
+\textit{padding}. Hasil akhir dari proses konvolusi ini adalah sebuah matriks 
+output berukuran 3x3. Hasil akhir dari proses konvolusi dapat dilihat pada 
+Gambar .
+
+\begin{figure}[H] % Kalau menggunakan H, posisi gambar akan tepat dibawah teks
+    \centering
+    \includegraphics[width=1.0\textwidth]{figure/proses_konvolusi_2.png}
+    \caption{Contoh Hasil Konvolusi}
+    \label{fig:3.contohkonv2}
+\end{figure}
+
+\begin{figure}[H] % Kalau menggunakan H, posisi gambar akan tepat dibawah teks
+    \centering
+    \includegraphics[width=0.4\textwidth]{figure/hasil_akhir_konvolusi.png}
+    \caption{Hasil Akhir Proses Konvolusi}
+    \label{fig:3.endkonv}
+\end{figure}
+
+Berdasarkan gambar \ref{fig:3.endkonv} menunjukkan bahwa hasil akhir dari 
+proses konvolusi menghasilkan matriks output berukuran 3x3 yang dimana matriks 
+yang dihasilkan lebih kecil dibandingkan dengan matriks input awal yang 
+berukuran 7x7. Ukuran matriks output pada proses konvolusi dapat dihitung 
+menggunakan rumus berikut:
+
+$$Output Size = \frac{I - F + 2P}{S} + 1$$
+\\
+\noindent Keterangan: \\
+I = Ukuran Input \\ 
+F = Ukuran Kernel \\ 
+P = Padding \\ 
+S = Stride
+
+\subsection{Ilustrasi Perhitungan Fungsi Aktivasi ReLU} \label{III.RELU}
+Fungsi aktivasi ReLU (Rectified Linear Unit) beroperasi dengan mengubah 
+setiap nilai negatif dalam matriks menjadi 0, sedangkan nilai positif tidak 
+mengalami perubahan. Fungsi ini diterapkan pada lapisan konvolusi dengan 
+tujuan menambahkan non-linearitas ke dalam arsitektur model \cite{Yang_2023}. Berikut 
+contoh perhitungan fungsi aktivasi ReLU pada output yang dihasilkan dari 
+lapisan konvolusi sebelumnya.
+
+\begin{figure}[H] % Kalau menggunakan H, posisi gambar akan tepat dibawah teks
+    \centering
+    \includegraphics[width=0.8\textwidth]{figure/fungsi_aktivasi.png}
+    \caption{Visualisasi Fungsi Aktivasi ReLU}
+    \label{fig:3.funcact}
+\end{figure}
+
+\subsection{Ilustrasi Perhitungan Pooling} \label{III.POOLING}
+Proses pada lapisan Pooling dilakukan menggunakan teknik max pooling, yaitu 
+dengan mengekstrak nilai tertinggi dari setiap wilayah pada matriks yang 
+telah melalui fungsi aktivasi ReLU. Kernel berukuran 2x2 digunakan dalam 
+lapisan Pooling ini dengan parameter stride bernilai 1. Contoh implementasi 
+perhitungan pada lapisan Pooling disajikan pada ilustrasi berikut:
+
+\begin{figure}[H] % Kalau menggunakan H, posisi gambar akan tepat dibawah teks
+    \centering
+    \includegraphics[width=1.0\textwidth]{figure/max_pooling.png}
+    \caption{Visualisasi Perhitungan Pooling}
+    \label{fig:3.pooling}
+\end{figure} 
+
+% \section{Rancangan Pengujian} \label{III.Rancang_Uji}
+% Penjabaran terkait rancangan pengujian, pengujian perangkat keras, lunak, fungsional, dan non-fungsional. Berikan juga hipotesis hasil yang diharapkan dari penelitian. \par

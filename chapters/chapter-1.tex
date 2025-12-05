@@ -1,0 +1,189 @@
+\newpage
+\chapter{PENDAHULUAN} \label{Bab I}
+
+\section{Latar Belakang} \label{I.Latar Belakang}
+Bidang kesehatan kini sudah memperlihatkan penggunaan tren teknologi
+seperti \textit{artificial intelligence} (AI) dalam kegiatan
+medis. Pemanfaatan AI dalam bidang kesehatan banyak digunakan untuk
+meningkatkan akurasi diagnosis, personalisasi pengobatan, serta membuat proses
+administrasi di rumah sakit menjadi efisien \cite{info:doi/10.2196/53616}. Kemajuan teknologi kesehatan digital telah
+mendorong transformasi sistem pelayanan medis menuju pendekatan yang
+lebih terintegrasi dan berbasis informasi. Meski demikian, aspek keselamatan
+data pribadi tetap menjadi fokus utamanya \cite{lee2024status}. Melalui transformasi tersebut,
+diharapkan terjadi perluasan akses masyarakat terhadap pelayanan kesehatan
+yang berkualitas dan terjangkau. \par
+
+Salah satu implementasi \textit{artificial intelligence} yang menonjol dalam bidang kesehatan adalah
+pada pengolahan citra medis. Kontribusi teknologi kecerdasan buatan dalam
+sektor kesehatan mengalami perkembangan signifikan, khususnya pada citra
+medis dan klasifikasi penyakit. Dengan menggunakan \textit{deep learning} seperti
+\textit{Convolutional Neural Network} (CNN) menunjukkan performa yang sangat baik
+dalam mengidentifikasi dan mengelompokkan berbagai penyakit dari citra medis
+seperti fundus mata, radiologi, dan hasil pemindaian lainnya. Pendekatan ini
+memungkinkan ekstraksi fitur penting secara otomatis, sehingga mempercepat
+proses diagnosis dan memperkecil risiko kesalahan manusia dalam interpretasi
+gambar medis \cite{Nozomi_Aldi_Sentosa_2022}. Hasil penelitian dari berbagai studi literatur mengindikasikan
+bahwa teknologi kecerdasan buatan berkontribusi dalam meningkatkan akurasi 
+deteksi penyakit serta menyediakan alternatif otomatisasi untuk analisis citra
+medis yang sebelumnya sangat bergantung pada keahlian manual \cite{li2023medical}. Selain itu,
+pengembangan framework inovatif berbasis \textit{deep learning} berperan besar dalam
+mengintegrasikan patologi dan radiologi, sehingga menghasilkan klasifikasi
+penyakit yang lebih presisi dan transparan \cite{he2025deep}. Teknologi kecerdasan buatan
+dengan tingkat presisi yang menyamai atau bahkan mengungguli kemampuan
+praktisi medis, berkontribusi dalam mengoptimalkan manajemen perawatan
+pasien melalui pendekatan yang lebih fokus. \par
+
+Namun dalam penerapannya pada klasifikasi penyakit spesifik seperti
+penyakit kulit, muncul tantangan terkait data yang tidak seimbang. Klasifikasi
+penyakit kulit menggunakan citra medis memiliki salah satu tantangan yaitu
+data yang tidak seimbang atau \textit{imbalanced data} antar kelas
+penyakit. Masalah ini menyebabkan model menghasilkan prediksi yang lebih 
+akurat pada kelas mayoritas dibandingkan dengan kelas minoritas yang performanya 
+lebih rendah \cite{nurkhasanah2021klasifikasi}. Ketidakseimbangan data dapat memicu bias
+prediksi dan sensitivitas model akan berkurang terhadap penyakit minoritas,
+yang akhirnya menyebabkan risiko misdiagnosis pada kasus penting meningkat.
+Beberapa penelitian telah mengamati bahwa data yang tidak terdistribusi dengan
+seimbang, menyebabkan presisi dan recall akan rendah, seperti yang ditemukan
+pada penelitian klasifikasi penyakit kulit wajah dengan menggunakan ResNet-50 \cite{khani2025penerapan}.
+Salah satu dataset yang banyak digunakan dalam klasifikasi penyakit kulit
+adalah DermaMNIST, yang juga memiliki distribusi data yang tidak merata
+antar kelas. Dalam mengatasi masalah tersebut, teknik augmentasi data sering
+dimanfaatkan pada kelas minoritas supaya performa model meningkat \cite{prananda2024klasifikasikan}. \par
+
+Augmentasi pada kelas minoritas telah terbukti dalam meningkatkan
+performa model, yang merupakan salah satu solusi untuk mengatasi data yang
+tidak seimbang pada klasifikasi penyakit kulit berbasis citra medis, terutama
+dalam mendeteksi penyakit yang spesifik atau langka \cite{wang2024majority}. Dengan teknik
+augmentasi untuk menambahkan data, keberagaman dan jumlah data pada
+kelas minoritas akan meningkat sehingga model dapat lebih sensitif dan adil
+dalam melakukan prediksi. Arsitektur yang digunakan untuk melakukan klasifikasi 
+citra medis pada penelitian ini adalah ResNet-18 dan Resnet-50. Arsitektur ResNet-50 
+dan ResNet-18 menerapkan konsep \textit{residual learning} melalui \textit{skip connections} 
+untuk mengatasi masalah vanishing dan \textit{exploding gradient}, di mana ResNet-50 
+memfasilitasi aliran informasi pada jaringan dalam, sedangkan ResNet-18 
+dibangun dengan struktur spesifik yang terdiri dari 17 lapisan konvolusi, 
+max pooling $3\times3$, serta lapisan fully connected dengan fungsi aktivasi 
+ReLU \cite{jiemesha2025classification} \cite{francis2025deep}. 
+Performa model dievaluasi menggunakan Matthews Correlation Coefficient (MCC) untuk memastikan penilaian yang adil, 
+terutama pada kasus dengan ukuran kelas data yang tidak seimbang \cite{aggarwal2019data}. Selain itu, evaluasi performa juga dilengkapi 
+dengan penggunaan \textit{confusion matrix} yang meliputi akurasi, \textit{precision}, \textit{recall}, dan \textit{f1-score}. Hasil evaluasi dari masing-masing arsitektur yaitu ResNet-18 dan ResNet-50 
+akan dibandingkan untuk menentukan arsitektur yang memberikan performa terbaik dalam klasifikasi citra medis sesudah melakukan
+augmentasi data. \par
+
+% Latar Belakang berisi dasar pemikiran, kebutuhan atau alasan yang menjadi ide dari topik tugas akhir. Tujuan utamanya adalah untuk memberikan informasi secukupnya kepada pembaca agar memahami topik yang akan dibahas. Terdapat dua hal yang wajib dikemukakan: \par
+
+% \begin{enumerate}[noitemsep]
+% 	\item Deskripsi yang luas dan longgar yang berkaitan dengan bidang/masalah di masyarakat, industry dan atau bidang-bidang lainnya. Deskripsi ini mewakili bidang/masalah secara umum yang berkaitan dengan Teknik Informatika, bekerja dan akan terlibat di dalamnya. Sangat disarankan di sini, sebisa mungkin tidak ada Batasan tentang pilihan teknologi yang akan digunakan. Contoh: bidang transportasi, bidang telekomunikasi, bidang Pendidikan, bidang manufaktur, bidang renewable energi, pariwisata, militer, transportasi, kesehatan, pertanian, pengelolaan infrastruktur dan sebagainya.
+% 	\item Deskripsi lebih khusus dan mendetail yang didapatkan dari poin 1 di atas. Dari deskripsi umum di atas, selanjutkan fokuskan pada fenomena masalah yang akan diangkat. Pendetailan harus mampu membawa masalah kepada masalah yang mennjukkan peran Anda dalam penelitian 
+% \end{enumerate}
+
+\section{Rumusan Masalah} \label{I.Rumusan Masalah}
+Berdasarkan latar belakang yang telah diuraikan, maka rumusan masalah dalam penelitian ini adalah sebagai berikut: \par
+
+\begin{enumerate}
+    \item Bagaimana menerapkan teknik augmentasi data yang ditujukan hanya pada kelas minoritas untuk meningkatkan performa model klasifikasi citra penyakit kulit berbasis dataset DermaMNIST yang tidak seimbang ?
+    \item Bagaimana performa arsitektur ResNet-18 dan ResNet-50 dalam mengklasifikasikan citra penyakit kulit setelah diterapkan augmentasi khusus pada kelas minoritas dibandingkan tanpa augmentasi ?
+    \item Bagaimana metrik evaluasi seperti akurasi, \textit{precision}, \textit{recall}, dan \textit{F1-score} serta pengukuran MCC dalam mengukur performa model pada data klasifikasi penyakit kulit yang tidak seimbang ?
+\end{enumerate}
+
+% Merumuskan masalah secara konkrit, bentuk pertanyaan fakta / kebenaran yang masih dipertanyakan \par
+
+% Dari pendahuluan di atas, mahasiswa diharapkan dapat memformulasikan masalah engineering yang solid. Masalah yang kemudian akan diformulasi mahasiswa harus terdefinisi dengan baik (harus jelas, tidak ambigu/ada makna ganda, tanpa menggunakan jargon), masalah harus real (benar-benar ada masalah terebut) sehingga nantinya akan ada solusi yang konkrit. Perlu dipertimbangkan juga masalah tersebut harus bisa dipecahkan dalam waktu maksimal 1 semester oleh mahasiswa dengan alokasi waktu per minggu tidak lebih dari 20 jam per minggu. \par
+
+% Lebih jelasnya masalah yang diharapkan adalah seperti dalam 3 poin di bawah ini. Jika tidak mengandung semua unsur dibawah maka tugas akhir ini tidak memenuhi syarat sebagai tugas akhir. \par
+
+% \begin{enumerate}[noitemsep]
+% 	\item Harus ada proses perancangan yang utuh dari penentuan masalah real yang perlu dipecahkan, 
+% 	\item Harus menjelaskan spesifikasi yang akan dibuat
+% 	\item Harus ada implementasi dalam bentuk salah satu di bawah ini:
+% 	\begin{enumerate}
+% 		\item Hardware/perangkat keras
+% 		\item Software/perangkat lunak
+% 		\item Proses/simulasi yang dibuat sendiri (Matlab, C/C++, Python, dan lain-lain) bukan melalui software yang murni dan sudah paten dan tinggal memasukkan data (ETAP, EDSA, SPSS, dan lain-lain)
+% 	\end{enumerate}
+% \end{enumerate}
+
+% Hasil rancangan dalam bentuk hardware/software/simulasi tersebut harus diuji dan diverifikasi apakah bekerja dengan baik atau belum Jika belum bekerja baik, mahasiswa harus bisa menjelaskan alasannya dan perbaikannya ke depan (walau pun saat tugas akhir ini selesai, alat/software/simulasi belum bisa bekerja).\par
+
+% Selain itu, rumusan sangat disarankan untuk melibatkan pengalaman multidisiplin. Misalnya melibatkan unsur-unsur seperti seni, ekonomi, mekanik, politik, proses kimia, etika, kesehatan, dan sebagainya. Contoh-contoh rumusan masalah yang \textbf{tidak disarankan}: \par
+
+% \begin{enumerate}[noitemsep]
+% 	\item \textbf{Masalah tidak real dan tidak terlalu hipotetis}. Misalnya, topik riset atau topik untuk lomba (contoh: mencari metode paling cepat untuk menentukan posisi kebakaran di dalam hutan).
+% 	\item Rumusan untuk membuat alat/produk yang \textbf{tidak dapat diimplemetasikan dan diukur/diuji dalam waktu maksimal 2 semester}. Misalnya membuat roket dengan daya jangkau 500 km.
+% 	\item \textbf{Solusi terlalu kompleks} sehingga dalam satu tahun hanya dapat menghasilkan bagian kecil dari solusi yang diharapkan Rumusan masalah berisi ringkasan fenomena dan masalah.
+% \end{enumerate}
+
+% Rumusan masalah akan dijawab di \nameref{V.Kesimpulan}. Rumusan Masalah disarankan untuk ditulis per poin.
+
+\section{Tujuan Penelitian} \label{I.Tujuan}
+Penelitian ini bertujuan untuk mengatasi permasalahan ketidakseimbangan data pada klasifikasi citra penyakit kulit dengan menerapkan pendekatan augmentasi pada kelas minoritas. Secara khusus, tujuan dari penelitian ini adalah sebagai berikut: \par
+
+\begin{enumerate}
+    \item Menerapkan teknik augmentasi data yang ditujukan khusus pada kelas minoritas dalam dataset DermaMNIST untuk mengatasi ketidakseimbangan data dan meningkatkan keberagaman citra penyakit kulit.
+    \item Mengukur performa arsitektur ResNet-18 dan ResNet-50 dalam klasifikasi citra penyakit kulit sebelum dan sesudah penerapan augmentasi pada kelas minoritas, untuk mengetahui efektivitas strategi augmentasi terhadap akurasi dan keadilan prediksi antar kelas.
+    \item Mengevaluasi performa model dengan menggunakan metrik akurasi, \textit{precision}, \textit{recall}, dan \textit{F1-score} serta pengukuran MCC sebagai evaluasi yang tepat dalam konteks data yang tidak seimbang.
+\end{enumerate}
+
+% Tujuan diisikan tujuan dari penelitian yang dilakukan, berdasarkan sub-bab \nameref{I.Latar Belakang} dan \nameref{I.Rumusan Masalah} dilengkapi dengan spesifikasinya. Tuliskan Tujuan sesuai dengan poin Rumusan Masalah. \par
+
+\section{Batasan Masalah} \label{I.Batasan}
+Supaya ruang lingkup penelitian ini lebih terarah dan realistis untuk diselesaikan dalam waktu yang telah ditentukan, maka penelitian ini dibatasi pada hal-hal berikut: \par
+
+\begin{enumerate}
+    \item Penelitian hanya menggunakan dataset DermaMNIST, yang terdiri dari citra medis penyakit kulit dalam tujuh kelas dengan distribusi data yang tidak seimbang.
+    \item Teknik augmentasi citra hanya diterapkan pada kelas minoritas, tanpa melakukan augmentasi pada kelas mayoritas.
+    \item Arsitektur yang digunakan hanya ResNet-18 dan Resnet-50 untuk perbandingan performa.
+\end{enumerate}
+
+% Batasan yang dimaksud disini ialah batasan dari penelitian tugas akhir yang dilakukan. Batasan masalah ditujukan agar tugas akhir yang dilakukan tidak terlalu luas, dan menjadi lebih realistis untuk diselesaikan. \par
+
+\section{Manfaat Penelitian} \label{I.Manfaat}
+Penelitian diharapkan dapat memberikan manfaat baik bagi penulis sendiri maupun dunia akademik. Adapun manfaat dari penelitian sebagai berikut: \par
+
+\begin{enumerate}
+    \item Memberikan solusi praktis dalam menangani ketidakseimbangan data pada klasifikasi citra penyakit kulit melalui teknik augmentasi khusus pada kelas minoritas.
+    \item Menyediakan perbandingan empiris performa arsitektur ResNet-18 dan ResNet-50 dalam klasifikasi citra medis dengan data tidak seimbang.
+    \item Berkontribusi pada pengembangan metode evaluasi model menggunakan metrik yang tepat untuk data tidak seimbang dalam konteks klasifikasi citra medis.
+\end{enumerate}
+
+% Manfaat tugas akhir yang dilakukan didefinisikan sebagai manfaat yang diperoleh ketika tugas akhir telah selesai dilakukan. Manfaat dapat berupa manfaat untuk: \textbf{mahasiswa, program studi teknik informatika, ITERA, masyarakat, dunia akademisi, dan dunia penelitian}. \par
+
+
+\section{Sistematika Penulisan} \label{I.Sistematika}
+Sistematika penulisan ini bertujuan untuk memberikan 
+gambaran umum mengenai struktur dan isi dari laporan 
+tugas akhir yang disusun. Penulisan dibagi ke dalam 
+lima bab utama yang saling berkaitan dan disusun 
+secara sistematis untuk memudahkan pembaca memahami 
+alur penelitian dari awal hingga akhir. \par
+
+\subsection*{Bab I}
+Pada Bab ini, berisi penjabaran mengenai latar belakang 
+permasalahan yang menjadi dasar dilakukannya penelitian 
+ini. Selain itu, bab ini juga memuat rumusan masalah, 
+tujuan penelitian, manfaat penelitian, batasan masalah, 
+serta sistematika penulisan.
+
+\subsection*{Bab II}
+Bab ini memuat teori-teori dan konsep yang relevan dengan 
+penelitian, seperti teori tentang klasifikasi citra, 
+augmentasi data, ketidakseimbangan kelas, arsitektur 
+\textit{Convolutional Neural Network} (CNN), serta penjelasan 
+mengenai dataset DermaMNIST dan penelitian terdahulu yang mendukung.
+
+\subsection*{Bab III}
+Bab ini menjelaskan metode yang digunakan dalam penelitian, 
+mulai dari tahapan pengolahan data, penerapan teknik augmentasi 
+pada kelas minoritas, perancangan model ResNet-18, hingga 
+proses pelatihan dan evaluasi model.
+
+\subsection*{Bab IV}
+Bab ini menyajikan hasil eksperimen yang diperoleh, termasuk 
+analisis performa model berdasarkan metrik evaluasi yang 
+digunakan serta pembahasan terhadap pengaruh augmentasi kelas 
+minoritas terhadap hasil klasifikasi.
+
+\subsection*{Bab V}
+Bab ini berisi kesimpulan dari penelitian yang dilakukan 
+berdasarkan hasil yang diperoleh serta memberikan saran 
+untuk pengembangan atau penelitian selanjutnya.
