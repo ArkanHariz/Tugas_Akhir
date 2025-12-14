@@ -428,7 +428,19 @@ dapat dilihat pada tabel \ref{table:resnet18} dan tabel \ref{table:resnet50}. \p
 \endgroup
 
 \subsubsection{Residual Learning} \label{II.Teori5.1}
-\blindtext
+Pada tahun 2016, Kaiming He dkk memperkenalkan konsep \textit{residual learning}
+pada arsitektur \textit{deep learning}. Lapisan-lapisan dalam jaringan disusun 
+kembali untuk mempelajari fungsi residual yang mereferensikan input asli. 
+Konsep \textit{residual learning} ini membuat lapisan-lapisan jaringan cukup 
+mempelajari selisih atau residual dari input asli, yaitu $\mathcal{F}(x) := \mathcal{H}(x) - x$, 
+dibandingkan mempelajari fungsi target langsung yaitu $\mathcal{H}(x)$. Hasil 
+dari pembelajaran fungsi residual ini kemudian ditambahkan ke input asli ($x$) 
+tersebut ($\mathcal{F}(x) + x$). Pengoptimalan fungsi residual lebih efisien 
+dibandingkan pemetaan asli, karena jaringan cukup menekan nilai residual 
+mendekati nol untuk mencapai pemetaan identitas. Hal ini diimplementasikan 
+melalui \textit{shortcut connections} yang menjumlahkan input identitas 
+langsung ke output lapisan. Konsep ini juga dapat mengatasi masalah degradasi 
+yang disebabkan karena penambahan kedalaman pada jaringan \cite{he2015deepresiduallearningimage}. \par 
 
 \subsubsection{Shortcut Connections} \label{II.Teori5.2}
 \blindtext
