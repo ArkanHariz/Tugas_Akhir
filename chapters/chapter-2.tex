@@ -443,7 +443,14 @@ langsung ke output lapisan. Konsep ini juga dapat mengatasi masalah degradasi
 yang disebabkan karena penambahan kedalaman pada jaringan \cite{he2015deepresiduallearningimage}. \par 
 
 \subsubsection{Shortcut Connections} \label{II.Teori5.2}
-\blindtext
+\textit{Shortcut connections} merupakan jalur koneksi yang melompati satu atau 
+lebih lapisan jaringan. Dalam arsitektur ResNet, jalur koneksi ini melakukan 
+\textit{identity mapping}, yang mana \textit{output} dari lapisan yang berupa 
+fungsi residual ditambahkan dengan input asli. Secara matematis 
+direpresentasikan sebagai $y = \mathcal{F}(x, \{W_{i}\}) + x$, di mana $x$ 
+adalah input dan $y$ adalah output. Penggunaan \textit{shortcut connections} 
+memiliki keunggulan yaitu efisien. Dengan adanya jalur ini, tidak menambahkan 
+parameter ekstra maupun meningkatkan kompleksitas komputasi pada jaringan \cite{he2015deepresiduallearningimage}. \par 
 
 
 \subsection{Confusion Matrix} \label{II.Teori6}
