@@ -298,19 +298,19 @@ Keratosis-Like Lesions} (bkl), \textit{Dermatofibroma} (df), \textit{Melanoma}
         \hline
         Aktual / Prediksi & akiec & bcc & bkl & df & mel & nv & vasc & Total Aktual \\
         \hline
-        akiec & 8 & 2 & 1 & 0 & 0 & 1 & 0 & 12 \\
+        akiec & \textbf{8} & 2 & 1 & 0 & 0 & 1 & 0 & 12 \\
         \hline
-        bcc & 1 & 12 & 2 & 0 & 1 & 2 & 0 & 18 \\
+        bcc & 1 & \textbf{12} & 2 & 0 & 1 & 2 & 0 & 18 \\
         \hline
-        bkl & 2 & 1 & 15 & 0 & 2 & 3 & 0 & 23 \\
+        bkl & 2 & 1 & \textbf{15} & 0 & 2 & 3 & 0 & 23 \\
         \hline
-        df & 0 & 0 & 1 & 6 & 1 & 1 & 0 & 9 \\
+        df & 0 & 0 & 1 & \textbf{6} & 1 & 1 & 0 & 9 \\
         \hline
-        mel & 0 & 1 & 3 & 0 & 14 & 4 & 0 & 22 \\
+        mel & 0 & 1 & 3 & 0 & \textbf{14} & 4 & 0 & 22 \\
         \hline
-        nv & 1 & 3 & 5 & 1 & 5 & 40 & 1 & 56 \\
+        nv & 1 & 3 & 5 & 1 & 5 & \textbf{40} & 1 & 56 \\
         \hline
-        vasc & 0 & 0 & 0 & 0 & 0 & 1 & 9 & 10 \\
+        vasc & 0 & 0 & 0 & 0 & 0 & 1 & \textbf{9} & 10 \\
         \hline
         Total Prediksi & 12 & 19 & 27 & 7 & 23 & 52 & 10 & Total: 150 \\
         \hline
@@ -320,3 +320,31 @@ Keratosis-Like Lesions} (bkl), \textit{Dermatofibroma} (df), \textit{Melanoma}
 Untuk mengukur kinerja model terutama pada multi-kelas, perhitungan dilakukan 
 untuk setiap kelas nya. Berikut perhitungan menggunakan kelas \textit{Benign 
 Keratosis-Like Lesions} (bkl) sebagai contoh. \par
+
+Berdasarkan data yang ada pada tabel \ref{tab:confusion_matrix_tabel}, 
+didapatkannya nilai \textit{True Positive} (TP), \textit{False Positive} (FP),
+\textit{True Negative} (TN), dan \textit{False Negative} (FN) untuk kelas bkl 
+sebagai berikut: \par
+
+\begin{enumerate}[noitemsep]
+	\item \textit{True Positive} \\
+    Model berhasil memprediksi citra kelas bkl secara benar, di mana sampel 
+    yang memang termasuk kelas bkl diklasifikasikan sebagai bkl. \\
+    $$TP = 15$$
+
+    \item \textit{False Positive} \\
+    Model memprediksi suatu citra sebagai kelas bkl, namun citra tersebut 
+    sebenarnya kelas lain dan bukan termasuk kelas bkl. \\
+    $$FP = 1 + 2 + 1 + 3 + 5 + 0 = 12$$
+
+    \item \textit{False Negative} \\
+    Model salah memprediksi yang mana kelas bkl diklasifikasikan sebagai kelas 
+    lain. \\
+    $$FN = 2 + 1 + 0 + 2 + 3 + 0 = 8$$
+
+    \item \textit{True Negative} \\
+    Model secara tepat mengklasifikasikan citra yang tidak termasuk dalam 
+    kelas bkl ke dalam kelas lain yang sesuai (Total seluruh data dikurangi 
+    TP, FP, dan FN). \\
+    $$TN = 150 - (15 + 12 + 8) = 150 - 35 = 115$$
+\end{enumerate}
