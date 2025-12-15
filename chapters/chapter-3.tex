@@ -246,19 +246,35 @@ lapisan konvolusi sebelumnya.
     \label{fig:3.funcact}
 \end{figure}
 
-\subsection{Ilustrasi Perhitungan Pooling} \label{III.POOLING}
-Proses pada lapisan Pooling dilakukan menggunakan teknik max pooling, yaitu 
-dengan mengekstrak nilai tertinggi dari setiap wilayah pada matriks yang 
-telah melalui fungsi aktivasi ReLU. Kernel berukuran 2x2 digunakan dalam 
-lapisan Pooling ini dengan parameter stride bernilai 1. Contoh implementasi 
-perhitungan pada lapisan Pooling disajikan pada ilustrasi berikut:
+\subsection{Max Pooling dan Average Pooling} \label{III.POOLING}
+Proses pada lapisan \textit{pooling} terdapat 2 jenis, \textit{max pooling} 
+dan \textit{average pooling}. Max pooling yaitu mengekstrak nilai 
+tertinggi dari setiap wilayah pada matriks yang telah melalui fungsi aktivasi 
+ReLU. Kernel berukuran 2x2 digunakan dalam lapisan Pooling ini dengan 
+parameter stride bernilai 1. Contoh implementasi perhitungan pada \textit{max 
+pooling} disajikan pada ilustrasi berikut: \par
 
 \begin{figure}[H] % Kalau menggunakan H, posisi gambar akan tepat dibawah teks
     \centering
     \includegraphics[width=1.0\textwidth]{figure/max_pooling.png}
-    \caption{Visualisasi Perhitungan Pooling}
-    \label{fig:3.pooling}
+    \caption{Visualisasi Perhitungan Max Pooling}
+    \label{fig:3.maxpooling}
 \end{figure} 
 
-% \section{Rancangan Pengujian} \label{III.Rancang_Uji}
-% Penjabaran terkait rancangan pengujian, pengujian perangkat keras, lunak, fungsional, dan non-fungsional. Berikan juga hipotesis hasil yang diharapkan dari penelitian. \par
+\textit{Average pooling} yaitu mengekstrak nilai rata-rata dari setiap wilayah 
+pada matriks yang telah melalui fungsi aktivasi ReLU. Kernel berukuran 2x2 
+digunakan dalam lapisan Pooling ini dengan parameter stride bernilai 1. Contoh 
+implementasi perhitungan pada \textit{average pooling} disajikan pada ilustrasi 
+berikut: \par
+
+\begin{figure}[H] % Kalau menggunakan H, posisi gambar akan tepat dibawah teks
+    \centering
+    \includegraphics[width=1.0\textwidth]{figure/average_pooling.png}
+    \caption{Visualisasi Perhitungan Average Pooling}
+    \label{fig:3.averagepooling}
+\end{figure}
+
+\section{Rancangan Pengujian} \label{III.Rancang_Uji}
+Setelah proses pelatihan model selesai, model dievaluasi menggunakan \textit{confussion 
+matrix} dan \textit{Matthews Correlation Coefficient} (MCC). Evaluasi ini 
+bertujuan untuk mengukur kemampuan model dalam menggeneralisasi data baru. \par
