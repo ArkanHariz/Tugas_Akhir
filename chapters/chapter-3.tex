@@ -387,3 +387,34 @@ kinerja model. \par
     $$F1-Score = 2 \times \frac{Precision \times Recall}{Precision + Recall}$$ \\ \\
     $$F1-Score = 2 \times \frac{0,5556 \times 0,6521}{0,5556 + 0,6521} = 2 \times \frac{0,3623}{1,2077} = 0,5999 (59,99\%)$$ \\
 \end{enumerate}
+
+Tabel \ref{tab:metrik_evaluasi} menyajikan hasil lengkap dari perhitungan \textit{precision}, 
+\textit{recall}, dan \textit{F1-score} dari ketujuh kelas. Tabel \ref{tab:metrik_evaluasi} dapat 
+dilihat dibawah ini. \par
+
+\begin{table}[h]
+    \centering
+    \caption{Hasil Perhitungan Metrik Evaluasi per Kelas}
+    \label{tab:metrik_evaluasi}
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        & \textit{Precision} & \textit{Recall} & \textit{F1-score} \\
+        \hline
+        akiec & 0,6667 & 0,6667 & 0,6667 \\
+        \hline
+        bcc & 0,6315 & 0,6667 & 0,6486 \\
+        \hline
+        bkl & 0,5556 & 0,6521 & 0,5999 \\
+        \hline
+        df & 0,8571 & 0,6667 & 0,7500 \\
+        \hline
+        mel & 0,6086 & 0,6363 & 0,6221 \\
+        \hline
+        nv & 0,7692 & 0,7142 & 0,7406 \\
+        \hline
+        vasc & 0,9 & 0,9 & 0,9 \\
+        \hline
+    \end{tabular}
+\end{table}
+
+% \subsection{Macro Average} \label{III.Macro_Average}
