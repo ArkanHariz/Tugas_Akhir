@@ -278,3 +278,45 @@ berikut: \par
 Setelah proses pelatihan model selesai, model dievaluasi menggunakan \textit{confussion 
 matrix} dan \textit{Matthews Correlation Coefficient} (MCC). Evaluasi ini 
 bertujuan untuk mengukur kemampuan model dalam menggeneralisasi data baru. \par
+
+\subsection{Pengukuran \textit{Confusion Matrix}} \label{III.Confussion_Matrix}
+Pada penelitian ini, kinerja model diukur menggunakan metrik akurasi, presisi, 
+recall, dan F1-Score yang didasarkan oleh pada confusion matrix. Matriks ini 
+menggambarkan hubungan antara kelas aktual (\textit{ground truth}) dengan kelas 
+prediksi yang dihasilkan oleh model. Sebagai contoh perhitungan, tabel \ref{tab:confusion_matrix_tabel} 
+menyajikan contoh data yang dihasilkan prediksi model pada data uji dari 
+masing-masing kelasnya, yaitu \textit{Actinic Keratosis and intraepithelial 
+Carcinoma} (akiec), \textit{Basal Cell Carcinoma} (bcc), \textit{Benign 
+Keratosis-Like Lesions} (bkl), \textit{Dermatofibroma} (df), \textit{Melanoma} 
+(mel), \textit{Melanocytic Nevi} (nv), dan \textit{Vascular Lesions} (vasc). \par
+
+\begin{table}[h]
+    \centering
+    \caption{Contoh Hasil Confusion Matrix}
+    \label{tab:confusion_matrix_tabel}
+    \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+        \hline
+        Aktual / Prediksi & akiec & bcc & bkl & df & mel & nv & vasc & Total Aktual \\
+        \hline
+        akiec & 8 & 2 & 1 & 0 & 0 & 1 & 0 & 12 \\
+        \hline
+        bcc & 1 & 12 & 2 & 0 & 1 & 2 & 0 & 18 \\
+        \hline
+        bkl & 2 & 1 & 15 & 0 & 2 & 3 & 0 & 23 \\
+        \hline
+        df & 0 & 0 & 1 & 6 & 1 & 1 & 0 & 9 \\
+        \hline
+        mel & 0 & 1 & 3 & 0 & 14 & 4 & 0 & 22 \\
+        \hline
+        nv & 1 & 3 & 5 & 1 & 5 & 40 & 1 & 56 \\
+        \hline
+        vasc & 0 & 0 & 0 & 0 & 0 & 1 & 9 & 10 \\
+        \hline
+        Total Prediksi & 12 & 19 & 27 & 7 & 23 & 52 & 10 & Total: 150 \\
+        \hline
+    \end{tabular}
+\end{table}
+
+Untuk mengukur kinerja model terutama pada multi-kelas, perhitungan dilakukan 
+untuk setiap kelas nya. Berikut perhitungan menggunakan kelas \textit{Benign 
+Keratosis-Like Lesions} (bkl) sebagai contoh. \par
