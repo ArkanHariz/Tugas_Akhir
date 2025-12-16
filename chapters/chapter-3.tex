@@ -417,4 +417,21 @@ dilihat dibawah ini. \par
     \end{tabular}
 \end{table}
 
-% \subsection{Macro Average} \label{III.Macro_Average}
+\subsection{Macro Average} \label{III.Macro_Average}
+\textit{Macro average} digunakan untuk mengevaluasi kinerja model secara 
+objektif tanpa dipengaruhi oleh jumlah sampel data pada setiap kelas. Nilai 
+\textit{F1-Score} dihitung secara terpisah untuk masing-masing kelas, kemudian 
+dirata-ratakan secara aritmatika sederhana. Untuk contoh perhitungan, 
+perhitungan \textit{macro average} menggunakan nilai \textit{F1-Score} dari 
+masing-masing kelas yang pada tabel \ref{tab:metrik_evaluasi}. Berikut perhitungan 
+\textit{macro average}: \\ \\
+% $$Macro\ Average = \frac{F1-Score_{akiec} + F1-Score_{bcc} + F1-Score_{bkl} + F1-Score_{df} + F1-Score_{mel} + F1-Score_{nv} + F1-Score_{vasc}}{7}$$ \\ \\
+% $$Macro\ Average = \frac{0,6667 + 0,6486 + 0,5999 + 0,7500 + 0,6221 + 0,7406 + 0,9}{7} = \frac{4,9279}{7} = 0,7040 (70,40\%)$$ \\
+
+$$Macro\ Average = \frac{F1_{akiec} + F1_{bcc} + F1_{bkl} + F1_{df}}{7}$$ \\ \\
+$$+ \frac{F1_{mel} + F1_{nv} + F1_{vasc}}{7}$$ \\
+
+$$Macro\ Average = \frac{0,6667 + 0,6486 + 0,5999 + 0,7500 + 0,6221 + 0,7406 + 0,9}{7}$$ \\
+$$= \frac{4,9279}{7} = 0,7040\ (70,40\%)$$ \\
+
+\subsection{Weighted Average F1} \label{III.weighted_Average}
