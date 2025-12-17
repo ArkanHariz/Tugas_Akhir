@@ -417,7 +417,7 @@ dilihat dibawah ini. \par
     \end{tabular}
 \end{table}
 
-\subsection{Macro Average} \label{III.Macro_Average}
+\subsection{Perhitungan Macro Average} \label{III.Macro_Average}
 \textit{Macro average} digunakan untuk mengevaluasi kinerja model secara 
 objektif tanpa dipengaruhi oleh jumlah sampel data pada setiap kelas. Nilai 
 \textit{F1-Score} dihitung secara terpisah untuk masing-masing kelas, kemudian 
@@ -434,4 +434,61 @@ $$+ \frac{F1_{mel} + F1_{nv} + F1_{vasc}}{7}$$ \\
 $$Macro\ Average = \frac{0,6667 + 0,6486 + 0,5999 + 0,7500 + 0,6221 + 0,7406 + 0,9}{7}$$ \\
 $$= \frac{4,9279}{7} = 0,7040\ (70,40\%)$$ \\
 
-\subsection{Weighted Average F1} \label{III.weighted_Average}
+\subsection{Perhitungan Matthews Correlation Coefficient} \label{III.MCC}
+\textit{Matthews Correlation Coefficient} digunakan untuk mengukur kualitas 
+pada klasifikasi biner maupun multi-kelas. Koefisien ini memperhitungkan 
+\textit{true} dan \textit{false positives}, dan \textit{negatives}. MCC 
+adalah nilai korelasi koefisian antara -1 dan +1. Koefisien +1 mewakili 
+prediksi yang sempurna, 0 mewakili prediksi acak rata-rata, dan -1 mewakili 
+prediksi terbalik. MCC memperhitungkan seluruh elemen \textit{confusion matrix}
+(TP, TN, FP, FN). Rumus MCC untuk multi-kelas adalah sebagai berikut. \par
+
+$$MCC = \frac{c \times s - \sum_{k}^{K} p_k \times t_k}{\sqrt{(s^2 - \sum_{k}^{K} p_k^2) \times (s^2 - \sum_{k}^{K} t_k^2)}}$$ \\
+
+\noindent Keterangan: \\
+k: Jumlah total kelas \\ 
+c: Jumlah total sampel yang diprediksi dengan benar (\textit{True Positive}) \\
+s: Jumlah total keseluruhan sampel \\
+$p_k$: jumlah prediksi untuk kelas k (total elemen yang diprediksi sebagai kelas k) \\
+$t_k$: jumlah sampel aktual untuk kelas k (ground truth untuk kelas k) 
+
+Pertama mengidentifikasi nilai variabel yang diperlukan pada kelas bkl, yang 
+mana diperoleh nilai-nilai berikut: \par
+
+\begin{enumerate}[noitemsep]
+    \item K (Jumlah total kelas) = 7
+    \item c (Jumlah total yang diprediksi dengan benar) = 8 + 12 + 15 + 6 + 14 + 40 + 9 = 104
+    \item s (Jumlah total keseluruhan) = 150
+    \item $p_{k}$ (Jumlah prediksi untuk kelas bkl) \\
+    $p_{akiec}=12, \ p_{bcc}=19, \ p_{bkl}=27, \ p_{df}=7, \ p_{mel}=23, \ p_{nv}=52, \ p_{vasc}=10$
+    \item $t_{k}$ (Jumlah sampel aktual untuk kelas bkl) \\
+    $t_{akiec}=12, \ t_{bcc}=18, \ t_{bkl}=23, \ t_{df}=9, \ t_{mel}=22, \ t_{nv}=56, \ t_{vasc}=10$
+\end{enumerate} \par
+
+Setelah mengidentifikasi nilai variabel yang diperlukan, selanjutnya melakukan 
+perhitungan secara bertahap.
+
+\begin{enumerate}[noitemsep]
+    \item Menghitung $\sum_{k}^{K} p_k \times t_k$ \\ \\
+    $$\sum_{k}^{K} p_k \times t_k = (12 \times 12) + (19 \times 18) + (27 \times 23) + (7 \times 9) + (23 \times 22) + (52 \times 56) + (10 \times 10)$$ \\
+    $$= 144 + 342 + 621 + 63 + 506 + 2.912 + 100 = 4.688$$ \\
+
+    \item Menghitung $\sum_{k}^{K} p_k^2$ dan $\sum_{k}^{K} t_k^2$ \\ \\
+    $$\sum_{k}^{K} t_k^2 = 12^2 + 18^2 + 23^2 + 9^2 + 22^2 + 56^2 + 10^2$$ \\
+    $$= 144 + 324 + 529 + 81 + 484 + 3.136 + 100 = 4.798$$ \\ \\
+
+    $$\sum_{k}^{K} p_k^2 = 12^2 + 19^2 + 27^2 + 7^2 + 23^2 + 52^2 + 10^2$$ \\
+    $$= 144 + 361 + 729 + 49 + 529 + 2.704 + 100 = 4.616$$ \\
+
+    \item Menghitung nilai MCC \\ \\
+    $$MCC = \frac{(104 \times 150) - 4.688}{\sqrt{(150^2 - 4.616) \times (150^2 - 4.798)}}$$ \\ \\
+    $$MCC = \frac{15.600 - 4.688}{\sqrt{(22.500 - 4.616) \times (22.500 - 4.798)}}$$ \\ \\ 
+    $$MCC = \frac{10.912}{\sqrt{17.884 \times 17.702}}$$ \\ \\
+    $$MCC = \frac{10.912}{\sqrt{316.582.568}}$$ \\ \\
+    $$MCC = \frac{10.912}{17.792,76} \approx 0,613$$ \\
+\end{enumerate} \par
+
+Berdasarkan hasil perhitungan ilustrasi di atas menunjukkan nilai MCC sebesar 
+0,613. Nilai ini mengindikasikan korelasi positif yang cukup kuat antara hasil 
+prediksi model dengan label sebenarnya, meskipun terdapat ketidakseimbangan 
+jumlah data antar kelas. \par
