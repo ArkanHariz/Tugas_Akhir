@@ -51,7 +51,12 @@ penelitian terdahulu yang berkaitan dengan penelitian ini: \par
 	hasil eksperimen menunjukkan bahwa augmentasi otomatis dapat 
 	meningkatkan \textit{accuracy} tanpa memerlukan data eksternal. Namun, 
 	keterbatasannya adalah belum diuji pada arsitektur ResNet-18 dan 
-	ResNet-50 serta belum diaplikasikan pada dataset DermaMNIST \cite{xuronald2022low}.
+	ResNet-50 serta belum diaplikasikan pada dataset DermaMNIST \cite{xuronald2022low}. 
+	Oleh karena itu, penelitian ini tetap memiliki kontribusi penting 
+	dalam pengembangan strategi augmentasi data pada bidang klasifikasi 
+	citra medis. Selain itu, pendekatan yang diusulkan dapat menjadi 
+	acuan awal bagi penelitian lanjutan dengan arsitektur dan dataset 
+	yang berbeda.
 
 	\item Penelitian sebelumnya oleh Arindam Halder, Anogh Dalal, Sanghita 
 	Gharami, Marcin Wozniak, Muhammad Fajal Ijaz, dan Pawan Kumar Singh pada
@@ -82,7 +87,11 @@ penelitian terdahulu yang berkaitan dengan penelitian ini: \par
 	yang sama yaitu ResNet-50. Terdapat perbedaan dengan penelitian yang 
 	akan dilakukan, yaitu menangani klasifikasi multi-kelas dengan masalah 
 	\textit{imbalanced data}. Serta melakukan augmentasi data pada kelas 
-	minoritas \cite{Gusti_Haerani_Syafria_Yanto_Gusti_2024}.
+	minoritas \cite{Gusti_Haerani_Syafria_Yanto_Gusti_2024} Dengan demikian, 
+	penelitian ini dapat dijadikan sebagai referensi awal dalam memahami 
+	penerapan arsitektur ResNet pada citra medis. Selain itu, hasil 
+	penelitian tersebut memberikan gambaran umum mengenai performa model 
+	deep learning dalam konteks klasifikasi penyakit kulit.
 \end{enumerate}
 
 \begin{longtable}{| b{0.03\textwidth}|p{0.3\textwidth}|p{0.2\textwidth}|p{0.2\textwidth}|p{0.2\textwidth}|} % Longtable berguna agar tabel dapat terpotong di halaman baru
@@ -135,7 +144,10 @@ memiliki 10.015 gambar yang diklasifikasikan ke dalam 7 kelas, yaitu
 \textit{actinic keratosis and intraepithelial carcinoma},
 \textit{basal cell carcinoma}, \textit{benign keratosis-like lesions},
 \textit{dermatofibroma}, \textit{melanoma}, \textit{melanocytic nevi},
-\textit{vascular lesions} \cite{Yang_2023}. \par
+\textit{vascular lesions} \cite{Yang_2023}. Dataset ini digunakan dalam 
+penelitian klasifikasi citra medis karena memiliki standar anotasi yang 
+jelas. Selain itu, ketersediaannya secara publik memudahkan proses 
+replikasi dan perbandingan hasil penelitian. \par
 
 \subsubsection{Actinic Keratosis and Intraepithelial Carcinoma} \label{II.Teori1.1}
 \textit{Actinic Keratosis} adalah sel kulit yang mengalami transformasi 
@@ -164,7 +176,12 @@ mengklasifikasikan tiga jenis \textit{benign lesions} yang berbeda. Tiga
 jenis adalah \textit{seborheicc keratoses}, \textit{solar lentigo}, dan 
 \textit{lichen planus-like keratoses}. Ketiga jenis tersebut digabungkan 
 karena memiliki kemiripan secara biologis, meskipun secara dermatologis 
-ketiga jenis tersebut dapat terlihat berbeda \cite{tschandl2018ham10000}. \par
+ketiga jenis tersebut dapat terlihat berbeda \cite{tschandl2018ham10000}. 
+Secara klinis, ketiga lesi tersebut sama-sama bersifat jinak dan tidak 
+menunjukkan karakteristik keganasan. Oleh karena itu, pengelompokan BKL 
+sering digunakan dalam studi dermatologi dan dataset citra medis. 
+Selain itu, kesamaan pola visual pada ketiga lesi tersebut menjadikan BKL 
+relevan untuk dikaji dalam penelitian. \par
 
 \subsubsection{Dermatofibroma} \label{II.Teori1.4}
 \textit{Dermatofibroma} atau disingkat "df" merupakan lesi kulit jinak yang
@@ -176,13 +193,21 @@ garis retikular di bagian tepi dengan disertai bercak putih di bagian tengah \ci
 \textit{Melanoma} atau disingkat "mel" merupakan kanker yang berasal dari 
 sel melanosit dan dapat muncul dalam berbagai varian. Jika kanker ini 
 diangkat pada stadium awal dengan operasi pengangkatan sederhana, maka
-kanker dapat disembuhkan \cite{tschandl2018ham10000}. \par
+kanker dapat disembuhkan \cite{tschandl2018ham10000}. Pada stadium lanjut 
+melanoma memiliki tingkat agresivitas yang tinggi dan berpotensi menyebar 
+ke organ lain. Secara dermatoskopik, melanoma sering menunjukkan pola yang 
+tidak teratur, variasi warna, serta batas lesi yang tidak jelas. Oleh 
+karena itu, deteksi dini melanoma menjadi aspek yang sangat penting dalam 
+upaya menurunkan angka mortalitas akibat kanker kulit. \par
 
 \subsubsection{Melanocytic Nevi} \label{II.Teori1.6}
 \textit{Melanocytic Nevi} atau disingkat "nv" merupakan tumor jinak yang 
 berasal dari sel melanosit, yang dapat muncul dalam berbagai varian. Dari 
 \textit{point of view} dermatoskopik, varian-varian tersebut bisa sangat 
-berbeda satu sama lain \cite{tschandl2018ham10000}. \par
+berbeda satu sama lain \cite{tschandl2018ham10000}. Perbedaan ini mencakup 
+variasi warna, struktur, dan pola distribusi pigmen pada permukaan kulit. 
+Secara klinis, melanocytic nevi umumnya bersifat non-malignan dan memiliki 
+risiko rendah untuk berkembang menjadi melanoma. \par
 
 \subsubsection{Vascular Lesions} \label{II.Teori1.7}
 \textit{Vascular Lesions} atau disingkat "vasc" meliputi berbagai jenis, 
@@ -354,8 +379,12 @@ ResNet memiliki beberapa jenis berdasarkan dengan jumlah \textit{layer}.
 Terdapat ResNet-18 dengan 18 \textit{layer}, ResNet-34 dengan 34 
 \textit{layer}, ResNet-50 dengan 50 \textit{layer}, dan lain-lain. Pada 
 penelitian ini akan menggunakan arsitektur ResNet-18 dan ResNet-50 untuk 
-membandingkan performa keduanya. Berikut struktur dari kedua arsitektur 
-dapat dilihat pada tabel \ref{table:resnet18} dan tabel \ref{table:resnet50}. \par
+membandingkan performa keduanya. Pemilihan kedua arsitektur tersebut 
+didasarkan pada perbedaan kompleksitas model dan kedalaman jaringan. 
+Dengan membandingkan dua arsitektur yang memiliki jumlah parameter 
+berbeda, diharapkan dapat diperoleh gambaran pengaruh kedalaman jaringan 
+terhadap hasil klasifikasi.Berikut struktur dari kedua arsitektur dapat 
+dilihat pada tabel \ref{table:resnet18} dan tabel \ref{table:resnet50}. \par
 
 \begingroup
 \renewcommand{\arraystretch}{1.4} % Padding vertikal (default 1.0, semakin besar semakin tinggi)
@@ -484,8 +513,8 @@ Keterangan:
 	positif dan nilai prediksinya negatif.
 \end{enumerate}
 
-Dari nilai komponen utama pada \textit{Confusion Matrix}, dapat dilakukan 
-perhitungan kinerja model menggunakan persamaan berikut. \par
+Dari nilai komponen utama pada \textit{Confusion Matrix}, dapat dilakukan perhitungan kinerja model 
+menggunakan persamaan berikut. \\
 
 \begin{enumerate}[noitemsep]
 	\item Akurasi \\
