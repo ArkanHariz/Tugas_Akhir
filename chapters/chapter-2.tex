@@ -39,25 +39,6 @@ penelitian terdahulu yang berkaitan dengan penelitian ini: \par
 	dilakukan menggunakan arsitektur ResNet-18 dan ResNet-50 sedangkan 
 	penelitian sebelumnya menggunakan Lighweight Deep Models \cite{gonzalez2025lightweightdeepmodelsdermatological}.
 
-	\item Penelitian yang dilakukan pada tahun 2022 oleh Shuwei Shen, 
-	Mengjuan Xu, Fan Zhang, Pengfei Shao, Honghong Liu, Liang Xu, dan 
-	Ronald X. Xu dengan judul "\textit{A Low-Cost and High-Performance 
-	Data Augmentation for Deep-Learning-Based Skin Lesion Classification}"
-	membahas  tantangan dataset yang tidak seimbang dalam klasifikasi lesi 
-	kulit menggunakan arsitektur EfficientNet. Penelitian ini menerapkan 
-	strategi augmentasi otomatis (\textit{Low-Cost-Augment}) yang teroptimasi untuk 
-	meningkatkan keseimbangan data dan performa klasifikasi pada dataset 
-	HAM10000. Meskipun arsitektur utama yang diuji berupa EfficientNet, 
-	hasil eksperimen menunjukkan bahwa augmentasi otomatis dapat 
-	meningkatkan \textit{accuracy} tanpa memerlukan data eksternal. Namun, 
-	keterbatasannya adalah belum diuji pada arsitektur ResNet-18 dan 
-	ResNet-50 serta belum diaplikasikan pada dataset DermaMNIST \cite{xuronald2022low}. 
-	Oleh karena itu, penelitian ini tetap memiliki kontribusi penting 
-	dalam pengembangan strategi augmentasi data pada bidang klasifikasi 
-	citra medis. Selain itu, pendekatan yang diusulkan dapat menjadi 
-	acuan awal bagi penelitian lanjutan dengan arsitektur dan dataset 
-	yang berbeda.
-
 	\item Penelitian sebelumnya oleh Arindam Halder, Anogh Dalal, Sanghita 
 	Gharami, Marcin Wozniak, Muhammad Fajal Ijaz, dan Pawan Kumar Singh pada
 	tahun 2025 dengan judul penelitian "\textit{A fuzzy rank-based deep 
@@ -92,6 +73,25 @@ penelitian terdahulu yang berkaitan dengan penelitian ini: \par
 	penerapan arsitektur ResNet pada citra medis. Selain itu, hasil 
 	penelitian tersebut memberikan gambaran umum mengenai performa model 
 	deep learning dalam konteks klasifikasi penyakit kulit.
+
+	\item Penelitian yang dilakukan pada tahun 2022 oleh Shuwei Shen, 
+	Mengjuan Xu, Fan Zhang, Pengfei Shao, Honghong Liu, Liang Xu, dan 
+	Ronald X. Xu dengan judul "\textit{A Low-Cost and High-Performance 
+	Data Augmentation for Deep-Learning-Based Skin Lesion Classification}"
+	membahas  tantangan dataset yang tidak seimbang dalam klasifikasi lesi 
+	kulit menggunakan arsitektur EfficientNet. Penelitian ini menerapkan 
+	strategi augmentasi otomatis (\textit{Low-Cost-Augment}) yang teroptimasi untuk 
+	meningkatkan keseimbangan data dan performa klasifikasi pada dataset 
+	HAM10000. Meskipun arsitektur utama yang diuji berupa EfficientNet, 
+	hasil eksperimen menunjukkan bahwa augmentasi otomatis dapat 
+	meningkatkan \textit{accuracy} tanpa memerlukan data eksternal. Namun, 
+	keterbatasannya adalah belum diuji pada arsitektur ResNet-18 dan 
+	ResNet-50 serta belum diaplikasikan pada dataset DermaMNIST \cite{xuronald2022low}. 
+	Oleh karena itu, penelitian ini tetap memiliki kontribusi penting 
+	dalam pengembangan strategi augmentasi data pada bidang klasifikasi 
+	citra medis. Selain itu, pendekatan yang diusulkan dapat menjadi 
+	acuan awal bagi penelitian lanjutan dengan arsitektur dan dataset 
+	yang berbeda.
 \end{enumerate}
 
 \begin{longtable}{| b{0.03\textwidth}|p{0.3\textwidth}|p{0.2\textwidth}|p{0.2\textwidth}|p{0.2\textwidth}|} % Longtable berguna agar tabel dapat terpotong di halaman baru
@@ -115,20 +115,20 @@ penelitian terdahulu yang berkaitan dengan penelitian ini: \par
 	   & Menggunakan \textit{Lightweight Deep Models}, melakukan \textit{instance selection} menggunakan K-Means Clustering untuk mengurangi data pada kelas mayoritas.
 	   & Model dengan 472K parameter mencapai akurasi 71.57\%, dengan komputasi yang lebih efisien yang sebanding dengan model ResNet.\\ 
 	\hline
-	3. & Shuwei Shen, Mengjuan Xu, Fan Zhang, Pengfei Shao, Honghong Liu, Liang Xu, Chi Zang, Peng Liu, Peng Yao, Ronald X. Xu [2022] [A Low-Cost High-Performance Data Augmentation for Deep Learning-Based Skin Lesion Classification] 
-	   & Data klasifikasi lesi kulit yang tidak seimbang.
-	   & Menggunakan arsitektur EfficientNet b2 serta menerapkan \textit{Low Cost Augment} untuk augmentasi data.
-	   & Dengan menerapkan \textit{Low Cost Augment} dan menggunakan arsitektur EfficientNet b2, hasil yang didapatkan dengan evaluasi BACC mencapai 0.853.\\ 
-	\hline
-	4. & Arindam Halder, Anogh Dalal, Sanghita Gharami, Marcin Wozniak, Muhammad Fazal Ijaz, Pawar Kuman Singh [2025] [A fuzzy rank-based deep ensemble methodology for multi-class skin cancer classification] 
+	3. & Arindam Halder, Anogh Dalal, Sanghita Gharami, Marcin Wozniak, Muhammad Fazal Ijaz, Pawar Kuman Singh [2025] [A fuzzy rank-based deep ensemble methodology for multi-class skin cancer classification] 
 	   & \textit{Imbalanced data} pada klasifikasi kanker kulit multi-class.
 	   & \textit{Fuzzy ensemble} dengan menggabungkan Xception, InceptionResNet V2, dan MobileNetV2. Menerapkan augmentasi data untuk menyeimbangkan dataset.
 	   & Model ensemble mencapai akurasi 95\% pada dataset HAM10000 dan mencapai akurasi 73\% dengan menguji model dengan dataset DermaMNIST. \\ 
 	\hline
-	5. & Gogor Putra Hafi Puja Gusti, Elin Haerani, Fadhillah Syafria, Febi Yanto, Siska Kurnia Gusti [2024] [Implementasi Algoritma Convolutional Neural Network (ResNet-50) untuk Klasifikasi Kanker Kulit Benign dan Malignant] 
+	4. & Gogor Putra Hafi Puja Gusti, Elin Haerani, Fadhillah Syafria, Febi Yanto, Siska Kurnia Gusti [2024] [Implementasi Algoritma Convolutional Neural Network (ResNet-50) untuk Klasifikasi Kanker Kulit Benign dan Malignant] 
 	   & Klasifikasi kanker kulit untuk membedakan antara Benign (jinak) dan Malignant (ganas), yang merupakan masalah klasifikasi biner.
 	   & Implementasi \textit{transfer learning} menggunakan ResNet-50 yang \textit{pre-trained}.
 	   & Dengan menggunakan ResNet-50 mencapai akurasi 90\% dengan \textit{loss} 13\%.\\ 
+	\hline
+	5. & Shuwei Shen, Mengjuan Xu, Fan Zhang, Pengfei Shao, Honghong Liu, Liang Xu, Chi Zang, Peng Liu, Peng Yao, Ronald X. Xu [2022] [A Low-Cost High-Performance Data Augmentation for Deep Learning-Based Skin Lesion Classification] 
+	   & Data klasifikasi lesi kulit yang tidak seimbang.
+	   & Menggunakan arsitektur EfficientNet b2 serta menerapkan \textit{Low Cost Augment} untuk augmentasi data.
+	   & Dengan menerapkan \textit{Low Cost Augment} dan menggunakan arsitektur EfficientNet b2, hasil yang didapatkan dengan evaluasi BACC mencapai 0.853.\\ 
 	\hline
 \end{longtable}
 
