@@ -5,70 +5,77 @@
 Bidang kesehatan kini sudah memperlihatkan penggunaan tren teknologi
 seperti \textit{artificial intelligence} (AI) dalam kegiatan
 medis. Pemanfaatan AI dalam bidang kesehatan banyak digunakan untuk
-meningkatkan akurasi diagnosis, personalisasi pengobatan, serta membuat proses
-administrasi di rumah sakit menjadi efisien \cite{info:doi/10.2196/53616}. Kemajuan teknologi kesehatan digital telah
-mendorong transformasi sistem pelayanan medis menuju pendekatan yang
-lebih terintegrasi dan berbasis informasi. Meski demikian, aspek keselamatan
-data pribadi tetap menjadi fokus utamanya \cite{lee2024status}. Melalui transformasi tersebut,
-diharapkan terjadi perluasan akses masyarakat terhadap pelayanan kesehatan
-yang berkualitas dan terjangkau. \par
+meningkatkan akurasi diagnosis, personalisasi pengobatan, serta membuat 
+prosesadministrasi di rumah sakit menjadi efisien \cite{info:doi/10.2196/53616}. 
+Kemajuan teknologi kesehatan digital telah mendorong transformasi sistem 
+pelayanan medis menuju pendekatan yang lebih terintegrasi dan berbasis 
+informasi. Meski demikian, aspek keselamatan data pribadi tetap menjadi 
+fokus utamanya \cite{lee2024status}. Melalui transformasi tersebut, 
+diharapkan terjadi perluasan akses masyarakat terhadap pelayanan 
+kesehatan yang berkualitas dan terjangkau. \par
 
 Salah satu implementasi AI yang menonjol dalam bidang kesehatan adalah
-pada pengolahan citra medis. Kontribusi AI dalam
-sektor kesehatan mengalami perkembangan signifikan, khususnya pada citra
-medis dan klasifikasi penyakit. Dengan menggunakan \textit{deep learning} seperti
-\textit{Convolutional Neural Network} (CNN) menunjukkan performa yang sangat baik
-dalam mengidentifikasi dan mengelompokkan berbagai penyakit dari citra medis
-seperti fundus mata, radiologi, dan hasil pemindaian lainnya. Pendekatan ini
-memungkinkan ekstraksi fitur penting secara otomatis, sehingga mempercepat
-proses diagnosis dan memperkecil risiko kesalahan manusia dalam interpretasi
-gambar medis \cite{Nozomi_Aldi_Sentosa_2022}. Hasil penelitian dari berbagai studi literatur mengindikasikan
-bahwa AI berkontribusi dalam meningkatkan akurasi 
-deteksi penyakit serta menyediakan alternatif otomatisasi untuk analisis citra
-medis yang sebelumnya sangat bergantung pada keahlian manual \cite{li2023medical}. Selain itu,
-pengembangan framework inovatif berbasis \textit{deep learning} berperan besar dalam
-mengintegrasikan patologi dan radiologi, sehingga menghasilkan klasifikasi
-penyakit yang lebih presisi dan transparan \cite{he2025deep}. AI
-dengan tingkat presisi yang menyamai atau bahkan mengungguli kemampuan
+pada pengolahan citra medis. Kontribusi AI dalam sektor kesehatan 
+mengalami perkembangan signifikan, khususnya pada citra medis dan 
+klasifikasi penyakit. Dengan menggunakan \textit{deep learning} seperti
+\textit{Convolutional Neural Network} (CNN) menunjukkan performa yang 
+sangat baik dalam mengidentifikasi dan mengelompokkan berbagai penyakit 
+dari citra medis seperti fundus mata, radiologi, dan hasil pemindaian 
+lainnya. Pendekatan ini memungkinkan ekstraksi fitur penting secara 
+otomatis, sehingga mempercepat proses diagnosis dan memperkecil risiko 
+kesalahan manusia dalam interpretasi gambar medis \cite{Nozomi_Aldi_Sentosa_2022}. 
+Hasil penelitian dari berbagai studi literatur mengindikasikan bahwa AI 
+berkontribusi dalam meningkatkan akurasi deteksi penyakit serta 
+menyediakan alternatif otomatisasi untuk analisis citra medis yang 
+sebelumnya sangat bergantung pada keahlian manual \cite{li2023medical}. 
+Selain itu, pengembangan framework inovatif berbasis \textit{deep learning} 
+berperan besar dalam mengintegrasikan patologi dan radiologi, sehingga 
+menghasilkan klasifikasi penyakit yang lebih presisi dan transparan \cite{he2025deep}. 
+AI dengan tingkat presisi yang menyamai atau bahkan mengungguli kemampuan
 praktisi medis, berkontribusi dalam mengoptimalkan manajemen perawatan
 pasien melalui pendekatan yang lebih fokus. \par
 
 Namun dalam penerapannya pada klasifikasi penyakit spesifik seperti
-penyakit kulit, muncul tantangan terkait data yang tidak seimbang. Klasifikasi
-penyakit kulit menggunakan citra medis memiliki salah satu tantangan yaitu
-data yang tidak seimbang atau \textit{imbalanced data} antar kelas
-penyakit. Masalah ini menyebabkan model menghasilkan prediksi yang lebih 
-akurat pada kelas mayoritas dibandingkan dengan kelas minoritas yang performanya 
-lebih rendah \cite{nurkhasanah2021klasifikasi}. Ketidakseimbangan data dapat memicu bias
-prediksi dan sensitivitas model akan berkurang terhadap penyakit minoritas,
-yang akhirnya menyebabkan risiko misdiagnosis pada kasus penting meningkat.
-Beberapa penelitian telah mengamati bahwa data yang tidak terdistribusi dengan
-seimbang, menyebabkan presisi dan recall akan rendah, seperti yang ditemukan
-pada penelitian klasifikasi penyakit kulit wajah dengan menggunakan ResNet-50 \cite{khani2025penerapan}.
+penyakit kulit, muncul tantangan terkait data yang tidak seimbang. 
+Klasifikasi penyakit kulit menggunakan citra medis memiliki salah satu 
+tantangan yaitu data yang tidak seimbang atau \textit{imbalanced data} 
+antar kelas penyakit. Masalah ini menyebabkan model menghasilkan prediksi 
+yang lebih akurat pada kelas mayoritas dibandingkan dengan kelas minoritas 
+yang performanya lebih rendah \cite{nurkhasanah2021klasifikasi}. 
+Ketidakseimbangan data dapat memicu bias prediksi dan sensitivitas model 
+akan berkurang terhadap penyakit minoritas, yang akhirnya menyebabkan 
+risiko misdiagnosis pada kasus penting meningkat. Beberapa penelitian 
+telah mengamati bahwa data yang tidak terdistribusi dengan seimbang, 
+menyebabkan presisi dan recall akan rendah, seperti yang ditemukan pada 
+penelitian klasifikasi penyakit kulit wajah dengan menggunakan ResNet-50 \cite{khani2025penerapan}.
 Salah satu dataset yang banyak digunakan dalam klasifikasi penyakit kulit
 adalah DermaMNIST, yang juga memiliki distribusi data yang tidak merata
-antar kelas. Dalam mengatasi masalah tersebut, teknik augmentasi data sering
-dimanfaatkan pada kelas minoritas supaya performa model meningkat \cite{prananda2024klasifikasikan}. \par
+antar kelas. Dalam mengatasi masalah tersebut, teknik augmentasi data 
+sering dimanfaatkan pada kelas minoritas supaya performa model meningkat \cite{prananda2024klasifikasikan}. \par
 
 Augmentasi pada kelas minoritas telah terbukti dalam meningkatkan
 performa model, yang merupakan salah satu solusi untuk mengatasi data yang
-tidak seimbang pada klasifikasi penyakit kulit berbasis citra medis, terutama
-dalam mendeteksi penyakit yang spesifik atau langka \cite{wang2024majority}. Dengan teknik
-augmentasi untuk menambahkan data, keberagaman dan jumlah data pada
-kelas minoritas akan meningkat sehingga model dapat lebih sensitif dan adil
-dalam melakukan prediksi. Arsitektur yang digunakan untuk melakukan klasifikasi 
-citra medis pada penelitian ini adalah ResNet-18 dan Resnet-50. Arsitektur ResNet-50 
-dan ResNet-18 menerapkan konsep \textit{residual learning} melalui \textit{skip connections} 
-untuk mengatasi masalah vanishing dan \textit{exploding gradient}, di mana ResNet-50 
-memfasilitasi aliran informasi pada jaringan dalam, sedangkan ResNet-18 
-dibangun dengan struktur spesifik yang terdiri dari 17 lapisan konvolusi, 
-max pooling $3\times3$, serta lapisan fully connected dengan fungsi aktivasi 
-ReLU \cite{jiemesha2025classification} \cite{francis2025deep}. 
-Performa model dievaluasi menggunakan Matthews Correlation Coefficient (MCC) untuk memastikan penilaian yang adil, 
-terutama pada kasus dengan ukuran kelas data yang tidak seimbang \cite{aggarwal2019data}. Selain itu, evaluasi performa juga dilengkapi 
-dengan penggunaan \textit{confusion matrix} yang meliputi akurasi, \textit{precision}, \textit{recall}, dan \textit{f1-score}. Hasil evaluasi dari masing-masing arsitektur yaitu ResNet-18 dan ResNet-50 
-akan dibandingkan untuk menentukan arsitektur yang memberikan performa terbaik dalam klasifikasi citra medis sesudah melakukan
-augmentasi data. \par
+tidak seimbang pada klasifikasi penyakit kulit berbasis citra medis, 
+terutama dalam mendeteksi penyakit yang spesifik atau langka \cite{wang2024majority}. 
+Dengan teknik augmentasi untuk menambahkan data, keberagaman dan jumlah 
+data pada kelas minoritas akan meningkat sehingga model dapat lebih 
+sensitif dan adil dalam melakukan prediksi. Arsitektur yang digunakan 
+untuk melakukan klasifikasi citra medis pada penelitian ini adalah 
+ResNet-18 dan Resnet-50. Arsitektur ResNet-50 dan ResNet-18 menerapkan 
+konsep \textit{residual learning} melalui \textit{skip connections} untuk 
+mengatasi masalah vanishing dan \textit{exploding gradient}, di mana 
+ResNet-50 memfasilitasi aliran informasi pada jaringan dalam, sedangkan 
+ResNet-18 dibangun dengan struktur spesifik yang terdiri dari 17 lapisan 
+konvolusi, max pooling $3\times3$, serta lapisan fully connected dengan 
+fungsi aktivasi ReLU \cite{jiemesha2025classification} \cite{francis2025deep}. 
+Performa model dievaluasi menggunakan Matthews Correlation Coefficient (MCC) 
+untuk memastikan penilaian yang adil, terutama pada kasus dengan ukuran 
+kelas data yang tidak seimbang \cite{aggarwal2019data}. Selain itu, 
+evaluasi performa juga dilengkapi dengan penggunaan \textit{confusion matrix} 
+yang meliputi akurasi, \textit{precision}, \textit{recall}, dan \textit{f1-score}. 
+Hasil evaluasi dari masing-masing arsitektur yaitu ResNet-18 dan ResNet-50 
+akan dibandingkan untuk menentukan arsitektur yang memberikan performa 
+terbaik dalam klasifikasi citra medis sesudah melakukan augmentasi data. \par
 
 % Latar Belakang berisi dasar pemikiran, kebutuhan atau alasan yang menjadi ide dari topik tugas akhir. Tujuan utamanya adalah untuk memberikan informasi secukupnya kepada pembaca agar memahami topik yang akan dibahas. Terdapat dua hal yang wajib dikemukakan: \par
 
@@ -78,7 +85,8 @@ augmentasi data. \par
 % \end{enumerate}
 
 \section{Rumusan Masalah} \label{I.Rumusan Masalah}
-Berdasarkan latar belakang yang telah diuraikan, maka rumusan masalah dalam penelitian ini adalah sebagai berikut: \par
+Berdasarkan latar belakang yang telah diuraikan, maka rumusan masalah 
+dalam penelitian ini adalah sebagai berikut: \par
 
 \begin{enumerate}
     \item Bagaimana menerapkan teknik augmentasi data yang ditujukan hanya pada kelas minoritas untuk meningkatkan performa model klasifikasi citra penyakit kulit berbasis dataset DermaMNIST yang tidak seimbang ?
@@ -116,7 +124,10 @@ Berdasarkan latar belakang yang telah diuraikan, maka rumusan masalah dalam pene
 % Rumusan masalah akan dijawab di \nameref{V.Kesimpulan}. Rumusan Masalah disarankan untuk ditulis per poin.
 
 \section{Tujuan Penelitian} \label{I.Tujuan}
-Penelitian ini bertujuan untuk mengatasi permasalahan ketidakseimbangan data pada klasifikasi citra penyakit kulit dengan menerapkan pendekatan augmentasi pada kelas minoritas. Secara khusus, tujuan dari penelitian ini adalah sebagai berikut: \par
+Penelitian ini bertujuan untuk mengatasi permasalahan ketidakseimbangan 
+data pada klasifikasi citra penyakit kulit dengan menerapkan pendekatan 
+augmentasi pada kelas minoritas. Secara khusus, tujuan dari penelitian 
+ini adalah sebagai berikut: \par
 
 \begin{enumerate}
     \item Menerapkan teknik augmentasi data yang ditujukan khusus pada kelas minoritas dalam dataset DermaMNIST untuk mengatasi ketidakseimbangan data dan meningkatkan keberagaman citra penyakit kulit.
@@ -127,7 +138,9 @@ Penelitian ini bertujuan untuk mengatasi permasalahan ketidakseimbangan data pad
 % Tujuan diisikan tujuan dari penelitian yang dilakukan, berdasarkan sub-bab \nameref{I.Latar Belakang} dan \nameref{I.Rumusan Masalah} dilengkapi dengan spesifikasinya. Tuliskan Tujuan sesuai dengan poin Rumusan Masalah. \par
 
 \section{Batasan Masalah} \label{I.Batasan}
-Supaya ruang lingkup penelitian ini lebih terarah dan realistis untuk diselesaikan dalam waktu yang telah ditentukan, maka penelitian ini dibatasi pada hal-hal berikut: \par
+Supaya ruang lingkup penelitian ini lebih terarah dan realistis untuk 
+diselesaikan dalam waktu yang telah ditentukan, maka penelitian ini 
+dibatasi pada hal-hal berikut: \par
 
 \begin{enumerate}
     \item Penelitian hanya menggunakan dataset DermaMNIST, yang terdiri dari citra medis penyakit kulit dalam tujuh kelas dengan distribusi data yang tidak seimbang.
@@ -138,7 +151,8 @@ Supaya ruang lingkup penelitian ini lebih terarah dan realistis untuk diselesaik
 % Batasan yang dimaksud disini ialah batasan dari penelitian tugas akhir yang dilakukan. Batasan masalah ditujukan agar tugas akhir yang dilakukan tidak terlalu luas, dan menjadi lebih realistis untuk diselesaikan. \par
 
 \section{Manfaat Penelitian} \label{I.Manfaat}
-Penelitian diharapkan dapat memberikan manfaat baik bagi penulis sendiri maupun dunia akademik. Adapun manfaat dari penelitian sebagai berikut: \par
+Penelitian diharapkan dapat memberikan manfaat baik bagi penulis sendiri 
+maupun dunia akademik. Adapun manfaat dari penelitian sebagai berikut: \par
 
 \begin{enumerate}
     \item Memberikan solusi praktis dalam menangani ketidakseimbangan data pada klasifikasi citra penyakit kulit melalui teknik augmentasi khusus pada kelas minoritas.
