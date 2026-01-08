@@ -35,7 +35,7 @@ AI dengan tingkat presisi yang menyamai atau bahkan mengungguli kemampuan
 praktisi medis, berkontribusi dalam mengoptimalkan manajemen perawatan
 pasien melalui pendekatan yang lebih fokus. \par
 
-Dalam penerapannya pada klasifikasi penyakit spesifik, seperti penyakit 
+Dalam penerapannya pada klasifikasi penyakit spesifik seperti penyakit 
 kulit, muncul tantangan terkait ketidakseimbangan data. 
 Klasifikasi penyakit kulit menggunakan citra medis memiliki salah satu 
 tantangan yaitu data yang tidak seimbang 
@@ -51,17 +51,28 @@ recall menjadi rendah. \cite{khani2025penerapan}.
 Salah satu dataset yang banyak digunakan dalam klasifikasi penyakit kulit
 adalah DermaMNIST, yang juga memiliki distribusi data yang tidak merata
 antar kelas. Dalam mengatasi masalah tersebut, teknik augmentasi data 
-sering dimanfaatkan pada kelas minoritas supaya performa model meningkat \cite{prananda2024klasifikasikan}. \par
+dapat dimanfaatkan pada kelas minoritas supaya performa model meningkat \cite{prananda2024klasifikasikan}. \par
 
 Augmentasi pada kelas minoritas telah terbukti dalam meningkatkan
 performa model, yang merupakan salah satu solusi untuk mengatasi data yang
 tidak seimbang pada klasifikasi penyakit kulit berbasis citra medis, 
 terutama dalam mendeteksi penyakit yang spesifik atau langka \cite{wang2024majority}. 
-Dengan teknik augmentasi untuk menambahkan data, keberagaman dan jumlah 
-data pada kelas minoritas akan meningkat sehingga model dapat lebih 
-sensitif dan adil dalam melakukan prediksi. Arsitektur yang digunakan 
-untuk melakukan klasifikasi citra medis pada penelitian ini adalah 
-ResNet-18 dan Resnet-50. Arsitektur ResNet-50 dan ResNet-18 menerapkan 
+Melalui teknik augmentasi, jumlah dan keberagaman 
+data pada kelas minoritas dapat ditingkatkan sehingga model memiliki 
+peluang lebih besar untuk mempelajari karakteristik kelas tersebut secara 
+lebih representatif. Pemilihan arsitektur deep learning yang tepat 
+merupakan langkah penting. Berbagai arsitektur deep learning seperti 
+VGG, DenseNet, EfficientNet, dan ResNet telah banyak diterapkan dalam 
+klasifikasi citra medis dengan masing-masing karakteristik dan keunggulan 
+yang berbeda \cite{Berliani_Rahardja_Septiana_2023} \cite{Ade_Maulani_Bilgis_Nurhadi_Surojudin_Ahmad_Fauzi_2025} \cite{kadric2025improvingdiagnosticaccuracypigmented}. 
+Di antara arsitektur tersebut, ResNet dikenal memiliki 
+kemampuan yang baik dalam menangani jaringan yang lebih dalam melalui 
+mekanisme residual learning, sehingga mampu menjaga stabilitas proses 
+pelatihan dan mempertahankan performa model. Maka dari itu, untuk penelitian 
+yang dilakukan menggunakan arsitektur ResNet. \par
+
+Jenis arsitektur ResNet yang digunakan adalah ResNet-18 dan ResNet-50. 
+Kedua jenis arsitektur menerapkan 
 konsep \textit{residual learning} melalui \textit{skip connections} untuk 
 mengatasi masalah vanishing dan \textit{exploding gradient}, di mana 
 ResNet-50 memfasilitasi aliran informasi pada jaringan dalam, sedangkan 
