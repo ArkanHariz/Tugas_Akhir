@@ -14,16 +14,16 @@ penelitian terdahulu yang berkaitan dengan penelitian ini: \par
 	Dianostic Accuracy of Pigmented Skin Lesions With CNNs: A Case Study 
 	with DermaMNIST Dataset}" membahas terkait upaya untuk meningkatkan 
 	akurasi diagnostik lesi kulit berpigmen, yang merupakan indikator 
-	kondisi serius seperti melanoma. Penelitian ini juga menyoroti berbagai 
-	kelemahan pada dataset DermaMNIST orisinal, termasuk resolusi gambar 
-	yang rendah (28x28), ketidakseimbangan data, dan organisasi data yang 
-	buruk yang terbukti tidak memadai untuk klasifikasi yang andal. 
-	Terdapat perbandingan metode yang digunakan sebelumnya. Penelitian 
-	sebelumnya membandingkan model ResNet-50 dan EfficientNetV2L, serta 
-	menerapkan \textit{transfer learning} pada dua versi dataset yaitu 
-	DermaMNIST orisinal dan DermaMNIST-C (versi perbaikan resolusi 224x224). 
-	Sedangkan penelitian yang akan dilakukan membandingkan model ResNet-18 
-	dan ResNet-50 \cite{kadric2025improvingdiagnosticaccuracypigmented}.
+	kondisi serius seperti melanoma. Penelitian ini juga menyoroti 
+	berbagai kelemahan pada dataset DermaMNIST orisinal, termasuk resolusi 
+	gambar yang rendah (28x28), ketidakseimbangan data, dan organisasi 
+	data yang buruk yang terbukti tidak memadai untuk klasifikasi yang 
+	andal. Terdapat perbandingan metode yang digunakan sebelumnya. 
+	Penelitian sebelumnya membandingkan model ResNet-50 dan 
+	EfficientNetV2L, serta menerapkan \textit{transfer learning} pada dua 
+	versi dataset yaitu DermaMNIST orisinal dan DermaMNIST-C (versi 
+	perbaikan resolusi 224x224). Sedangkan penelitian yang akan dilakukan 
+	membandingkan model ResNet-18 dan ResNet-50 \cite{kadric2025improvingdiagnosticaccuracypigmented}.
 
 	\item Penelitian sebelumnya oleh Ian Mateos Gonzales, Estefani Jaramilla
 	Nava, Abraham Sánchez Morales, Jesús García Ramírez, dan Ricardo Ramos
@@ -31,48 +31,49 @@ penelitian terdahulu yang berkaitan dengan penelitian ini: \par
 	Deep Models for Dermatological Disease Detection: A Study on Instance 
 	Selection and Channel Optimization}" membahas tentang pengembangan 
 	model deep learning yang ringan untuk deteksi penyakit dermatologis. 
-	Penelitian ini menggunakan dataset DermaMNIST yang terdiri dari 7 kelas 
-	yang berbeda. Penelitian ini meneliti dengan menggunakan data yang 
-	sedikit dengan cara seleksi instance menggunakan K-Means Clustering. 
-	Namun, penelitian yang akan dilakukan tidak mengurangi data melainkan 
-	menambahkan data pada kelas minoritas. Selain itu, penelitian akan 
-	dilakukan menggunakan arsitektur ResNet-18 dan ResNet-50 sedangkan 
-	penelitian sebelumnya menggunakan Lighweight Deep Models \cite{gonzalez2025lightweightdeepmodelsdermatological}.
+	Penelitian ini menggunakan dataset DermaMNIST yang terdiri dari 7 
+	kelas yang berbeda. Penelitian ini meneliti dengan menggunakan data 
+	yang sedikit dengan cara seleksi instance menggunakan K-Means 
+	Clustering. Namun, penelitian yang akan dilakukan tidak mengurangi 
+	data melainkan menambahkan data pada kelas minoritas. Selain itu, 
+	penelitian akan dilakukan menggunakan arsitektur ResNet-18 dan 
+	ResNet-50 sedangkan penelitian sebelumnya menggunakan Lighweight 
+	Deep Models \cite{gonzalez2025lightweightdeepmodelsdermatological}.
 
-	\item Penelitian sebelumnya oleh Arindam Halder, Anogh Dalal, Sanghita 
-	Gharami, Marcin Wozniak, Muhammad Fajal Ijaz, dan Pawan Kumar Singh pada
-	tahun 2025 dengan judul penelitian "\textit{A fuzzy rank-based deep 
-	ensemble methodology for multi-class skin cancer classification}" 
-	membahas masalah klasifikasi kanker kulit multi-kelas dan tantangan 
-	\textit{imbalanced dataset}. Penelitian ini menggunakan \textit{deep 
-	ensemble} yang menggabungkan beberapa arsitektur, yaitu Xception, 
-	InceptionResNetV2, dan MobileNetV2. Dalam mengatasi data yang tidak 
-	seimbang, penelitian sebelumnya menerapkan augmentasi data untuk 
-	menyeimbangkan dataset sebelum proses pelatihan. Dengan menerapkan 
-	augmentasi data membuktikan bahwa dapat berhasil meningkatkan performa.
-	Penelitian sebelumnya relevan dengan penelitian yang akan dilakukan 
-	dengan adanya beberapa perbedaan. Penelitian yang akan dilakukan 
-	menerapkan augmentasi data pada kelas minoritas serta menggunakan 
-	ResNet-18 dan ResNet-50 untuk mengukur pengaruh augmentasi terhadap 
-	performa kedua model \cite{halder2025fuzzy}.
+	\item Penelitian sebelumnya oleh Arindam Halder, Anogh Dalal, 
+	Sanghita Gharami, Marcin Wozniak, Muhammad Fajal Ijaz, dan Pawan 
+	Kumar Singh pada tahun 2025 dengan judul penelitian "\textit{A fuzzy 
+	rank-based deep ensemble methodology for multi-class skin cancer 
+	classification}" membahas masalah klasifikasi kanker kulit multi-kelas 
+	dan tantangan \textit{imbalanced dataset}. Penelitian ini menggunakan 
+	\textit{deep ensemble} yang menggabungkan beberapa arsitektur, yaitu 
+	Xception, InceptionResNetV2, dan MobileNetV2. Dalam mengatasi data 
+	yang tidak seimbang, penelitian sebelumnya menerapkan augmentasi data 
+	untuk menyeimbangkan dataset sebelum proses pelatihan. Dengan 
+	menerapkan augmentasi data membuktikan bahwa dapat berhasil 
+	meningkatkan performa. Penelitian sebelumnya relevan dengan penelitian 
+	yang akan dilakukan dengan adanya beberapa perbedaan. Penelitian yang 
+	akan dilakukan menerapkan augmentasi data pada kelas minoritas serta 
+	menggunakan ResNet-18 dan ResNet-50 untuk mengukur pengaruh augmentasi 
+	terhadap performa kedua model \cite{halder2025fuzzy}.
 
 	\item Penelitian yang dilakukan pada tahun 2024 oleh Gogor Putra, 
 	Elin Haerani, Fadhillah Syafria, Febi Yanto, dan Siska Kurnia Gusti 
-	dengan judul "Implementasi Algoritma \textit{Convolutional Neural Network}
-	(Resnet-50) untuk Klasifikasi Kanker Kulit Benign dan Malignant". 
-	Penelitian ini membahas tentang klasifikasi kanker kulit untuk membedakan
-	antara lesi \textit{Benign} dan \textit{Malignant}, yang merupakan 
-	masalah klasifikasi biner. Penelitian ini melakukan implmentasi 
-	\textit{transfer learning} menggunakan arsitektur ResNet-50 yang telah
-	dilatih. Penelitian sebelumnya relevan karena menggunakan arsitektur 
-	yang sama yaitu ResNet-50. Terdapat perbedaan dengan penelitian yang 
-	akan dilakukan, yaitu menangani klasifikasi multi-kelas dengan masalah 
-	\textit{imbalanced data}. Serta melakukan augmentasi data pada kelas 
-	minoritas \cite{Gusti_Haerani_Syafria_Yanto_Gusti_2024} Dengan demikian, 
-	penelitian ini dapat dijadikan sebagai referensi awal dalam memahami 
-	penerapan arsitektur ResNet pada citra medis. Selain itu, hasil 
-	penelitian tersebut memberikan gambaran umum mengenai performa model 
-	deep learning dalam konteks klasifikasi penyakit kulit.
+	dengan judul "Implementasi Algoritma \textit{Convolutional Neural 
+	Network} (Resnet-50) untuk Klasifikasi Kanker Kulit Benign dan 
+	Malignant". Penelitian ini membahas tentang klasifikasi kanker kulit 
+	untuk membedakan antara lesi \textit{Benign} dan \textit{Malignant}, 
+	yang merupakan masalah klasifikasi biner. Penelitian ini melakukan 
+	implmentasi \textit{transfer learning} menggunakan arsitektur 
+	ResNet-50 yang telah dilatih. Penelitian sebelumnya relevan karena 
+	menggunakan arsitektur yang sama yaitu ResNet-50. Terdapat perbedaan 
+	dengan penelitian yang akan dilakukan, yaitu menangani klasifikasi 
+	multi-kelas dengan masalah \textit{imbalanced data}. Serta melakukan 
+	augmentasi data pada kelas minoritas \cite{Gusti_Haerani_Syafria_Yanto_Gusti_2024}. 
+	Dengan demikian, penelitian ini dapat dijadikan sebagai referensi awal 
+	dalam memahami penerapan arsitektur ResNet pada citra medis. Selain 
+	itu, hasil penelitian tersebut memberikan gambaran umum mengenai 
+	performa model deep learning dalam konteks klasifikasi penyakit kulit.
 
 	\item Penelitian yang dilakukan pada tahun 2022 oleh Shuwei Shen, 
 	Mengjuan Xu, Fan Zhang, Pengfei Shao, Honghong Liu, Liang Xu, dan 
@@ -80,18 +81,18 @@ penelitian terdahulu yang berkaitan dengan penelitian ini: \par
 	Data Augmentation for Deep-Learning-Based Skin Lesion Classification}"
 	membahas  tantangan dataset yang tidak seimbang dalam klasifikasi lesi 
 	kulit menggunakan arsitektur EfficientNet. Penelitian ini menerapkan 
-	strategi augmentasi otomatis (\textit{Low-Cost-Augment}) yang teroptimasi untuk 
-	meningkatkan keseimbangan data dan performa klasifikasi pada dataset 
-	HAM10000. Meskipun arsitektur utama yang diuji berupa EfficientNet, 
-	hasil eksperimen menunjukkan bahwa augmentasi otomatis dapat 
-	meningkatkan \textit{accuracy} tanpa memerlukan data eksternal. Namun, 
-	keterbatasannya adalah belum diuji pada arsitektur ResNet-18 dan 
-	ResNet-50 serta belum diaplikasikan pada dataset DermaMNIST \cite{xuronald2022low}. 
-	Oleh karena itu, penelitian ini tetap memiliki kontribusi penting 
-	dalam pengembangan strategi augmentasi data pada bidang klasifikasi 
-	citra medis. Selain itu, pendekatan yang diusulkan dapat menjadi 
-	acuan awal bagi penelitian lanjutan dengan arsitektur dan dataset 
-	yang berbeda.
+	strategi augmentasi otomatis (\textit{Low-Cost-Augment}) yang 
+	teroptimasi untuk meningkatkan keseimbangan data dan performa 
+	klasifikasi pada dataset HAM10000. Meskipun arsitektur utama yang 
+	diuji berupa EfficientNet, hasil eksperimen menunjukkan bahwa 
+	augmentasi otomatis dapat meningkatkan \textit{accuracy} tanpa 
+	memerlukan data eksternal. Namun, keterbatasannya adalah belum diuji 
+	pada arsitektur ResNet-18 dan ResNet-50 serta belum diaplikasikan pada 
+	dataset DermaMNIST \cite{xuronald2022low}. Oleh karena itu, penelitian 
+	ini tetap memiliki kontribusi penting dalam pengembangan strategi 
+	augmentasi data pada bidang klasifikasi citra medis. Selain itu, 
+	pendekatan yang diusulkan dapat menjadi acuan awal bagi penelitian 
+	lanjutan dengan arsitektur dan dataset yang berbeda.
 \end{enumerate}
 
 \begin{longtable}{| b{0.03\textwidth}|p{0.3\textwidth}|p{0.2\textwidth}|p{0.2\textwidth}|p{0.2\textwidth}|} % Longtable berguna agar tabel dapat terpotong di halaman baru
