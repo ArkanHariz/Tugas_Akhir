@@ -115,6 +115,85 @@ def get_aug_transform(size):
     ])
 \end{lstlisting}
 
+\subsubsection{\textit{Flip}} \label{IV.Augmentasi_Dataset_Flip}
+\textit{Flip} merupakan teknik augmentasi yang membalikkan orientasi citra 
+secara horizontal maupun vertikal. Teknik ini bertujuan supaya model dapat 
+belajar fitur objek dari berbagai sudut pandang. \par
+
+\begin{figure}[H]
+    \centering
+    
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figure/h_flip.png}
+        \caption{Flip Horizontal}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figure/v_flip.png}
+        \caption{Flip Vertical}
+    \end{subfigure}
+    
+    \caption{Hasil Augmentasi Flip}
+    \label{fig:4.contohflip}
+\end{figure}
+
+\subsubsection{\textit{Rotation}} \label{IV.Augmentasi_Dataset_Rotation}
+\textit{Rotation} merupakan teknik augmentasi yang memutar citra dengan 
+sudut tertentu. Rotasi pada gambar dapat membantu model untuk mengenali
+objek dari berbagai sudut pandang. Teknik ini bertujuan supaya model 
+tidak bingung ketika menemui gambar yang posisinya miring di dunia nyata. 
+Pada penelitian ini, rotasi dilakukan dengan sudut 20 derajat. \par
+
+\begin{figure}[H] % Kalau menggunakan H, posisi gambar akan tepat dibawah teks
+    \centering
+    \includegraphics[width=0.5\textwidth]{figure/rotation.png}
+    \caption{Hasil Augmentasi Rotasi}
+    \label{fig:4.contohrotation}
+\end{figure}
+
+\subsubsection{\textit{Color Jitter}} \label{IV.Augmentasi_Dataset_ColorJitter}
+\textit{Color jitter} merupakan teknik augmentasi yang memodifikasi 
+karakteristik warna pada citra seperti \textit{brightness}, \textit{contrast}, 
+\textit{saturation}, dan \textit{hue} secara acak atau bisa diatur secara 
+manual. Teknik ini bertujuan agar model tidak bergantung pada kondisi 
+pencahayaan atau distribusi warna tertentu pada gambar. \par
+
+\begin{figure}[H] % Kalau menggunakan H, posisi gambar akan tepat dibawah teks
+    \centering
+    \includegraphics[width=0.5\textwidth]{figure/col_jit.png}
+    \caption{Hasil Augmentasi Color Jitter}
+    \label{fig:4.contohcolorjitter}
+\end{figure}
+
+\subsubsection{\textit{Random Erasing}} \label{IV.Augmentasi_Dataset_RandomErasing}
+\textit{Random erasing} merupakan teknik augmentasi yang menghapus objek 
+secara sengaja atau menutupi beberapa bagian secara acak dengan sebuah 
+area berbentuk persegi panjang. Teknik ini bertujuan supaya model tidak 
+menghafal pola tertenut pada gambar. \par
+
+\begin{figure}[H] % Kalau menggunakan H, posisi gambar akan tepat dibawah teks
+    \centering
+    \includegraphics[width=0.4\textwidth]{figure/rand_era.png}
+    \caption{Hasil Augmentasi Random Erasing}
+    \label{fig:4.contohrandomerasing}
+\end{figure}
+
+\subsubsection{\textit{Random Augment}} \label{IV.Augmentasi_Dataset_RandAugment}
+\textit{Random augment} merupakan teknik augmentasi yang menerapkan kombinasi 
+beberapa transformasi secara acak pada citra dalam satu proses augmentasi. 
+Teknik ini bertujuan untuk menghasilkan variasi data yang lebih beragam 
+sehingga model tidak menghafal pola tertentu dan mampu melakukan 
+generalisasi dengan lebih baik.
+
+\begin{figure}[H] % Kalau menggunakan H, posisi gambar akan tepat dibawah teks
+    \centering
+    \includegraphics[width=0.35\textwidth]{figure/rand_aug.png}
+    \caption{Hasil Augmentasi Random Augment}
+    \label{fig:4.contohrandomaugment}
+\end{figure}
+
 % Berisi hasil penelitian berdasarkan rancangan yang sudah dijelaskan pada Bab \ref{Bab III}, terutama dari Subbab \ref{III.Metode}. Bagi yang membuat alat, jelaskan alat yang jadi dalam bentuk apa. Bagi yang membuat aplikasi, jelaskan aplikasi yang jadi dalam bentuk seperti apa. Jabarkan dalam bentuk pseudocode dan dijelaskan per bagian kodenya. Gunakan gambar dan tabel sebagai alat bantu menjelaskan hasil. \par
 
 % Contoh implementasi kode dapat ditulis menggunakan \verb|\begin{lstlisting}|. Contoh kode dapat dilihat pada Kode \ref{code:4.contoh}. \par
