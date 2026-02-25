@@ -2,35 +2,60 @@
 \chapter{HASIL DAN PEMBAHASAN} \label{Bab IV}
 
 \section{Hasil Penelitian} \label{IV.Hasil}
+Berikut merupakan hasil penelitian terhadap arsitektur \textit{ResNet-18} 
+dan \textit{ResNet-50} dengan menerapkan augmentasi data kelas minoritas 
+pada dataset DermaMNIST yang dilakukan oleh penulis. \par
 
-\begingroup
-\renewcommand{\arraystretch}{1.4} % Padding vertikal (default 1.0, semakin besar semakin tinggi)
-\setlength{\tabcolsep}{5pt} % Padding horizontal (default 6pt)
-\begin{longtable}{|c|c|c|c|} % Longtable berguna agar tabel dapat terpotong di halaman baru
-	\caption{Struktur ResNet-18 \& ResNet-50}
-	\label{table:resnet18}\\
-	\hline
-	\textbf{Nama Lapisan} & \textbf{Ukuran Output} & \textbf{18-Layer} & \textbf{50-layer} \\
-	\hline
-	\endfirsthead % Header tabel untuk halaman pertama
-	\hline
-	\textbf{Nama Lapisan} & \textbf{Ukuran Output} & \textbf{18-Layer} & \textbf{50-layer} \\
-	\hline
-	\endhead % Header tabel untuk halaman selanjutnya (repeat header row)
-	Conv1 & $28 \times 28$ & \multicolumn{2}{c}{$3 \times 3, 64, \text{stride } 1$}\\ 
-	\hline
-	Conv2\_x & $28 \times 28$ & $\left[\begin{array}{c} 3 \times 3, 64 \\ 3 \times 3, 64 \end{array}\right] \times 2$ & $\left[\begin{array}{c} 1 \times 1, 64 \\ 3 \times 3, 64 \\ 1 \times 1, 256 \end{array}\right] \times 3$\\ 
-	\hline
-	Conv3\_x & $14 \times 14$ & $\left[\begin{array}{c} 3 \times 3, 128 \\ 3 \times 3, 128 \end{array}\right] \times 2$ & $\left[\begin{array}{c} 1 \times 1, 128 \\ 3 \times 3, 128 \\ 1 \times 1, 512 \end{array}\right] \times 4$\\ 
-	\hline
-	Conv4\_x & $14 \times 14$ & $\left[\begin{array}{c} 3 \times 3, 256 \\ 3 \times 3, 256 \end{array}\right] \times 2$ & $\left[\begin{array}{c} 1 \times 1, 256 \\ 3 \times 3, 256 \\ 1 \times 1, 1024 \end{array}\right] \times 6$\\ 
-	\hline
-	Conv5\_x & $7 \times 7$ & $\left[\begin{array}{c} 3 \times 3, 512 \\ 3 \times 3, 512 \end{array}\right] \times 2$ & $\left[\begin{array}{c} 1 \times 1, 512 \\ 3 \times 3, 512 \\ 1 \times 1, 2048 \end{array}\right] \times 3$\\ 
-	\hline
-	& $1 \times 1$ & \multicolumn{2}{c}{Adaptive Avg Pool, Dropout (0.7), 7-d fc, Softmax}\\ 
-	\hline
+\subsection{Akuisisi Dataset} \label{Akuisisi_Dataset}
+Dataset yang digunakan merupakan dataset \textit{open-source} yang 
+di-\textit{import} dari website MedMNIST. Dataset yang dipilih untuk 
+penelitian ini yaitu dataset DermaMNIST yang merupakan citra dermatoskopi 
+dari lesi kulit. Citra dari dataset memiliki resolusi asli 28x28 piksel 
+berwarna RGB yang terbagi menjadi 7 kelas penyakit. Berikut 7 kelas 
+penyakit beserta contoh citra dari masing-masing kelas. \par
+
+\begin{longtable}{|C{0.07\textwidth}|C{0.45\textwidth}|C{0.3\textwidth}|}
+\caption{Contoh Citra dari Setiap Kelas Penyakit}
+\label{table:citra_kelas}\\
+\hline
+\textbf{No.} & \textbf{Kelas Penyakit} & \textbf{Gambar} \\
+\hline
+\endfirsthead
+
+\hline
+\textbf{No.} & \textbf{Kelas Penyakit} & \textbf{Gambar} \\
+\hline
+\endhead
+
+1. & \textit{Actinic Keratoses} dan \textit{Intraepithelial Carcinoma} 
+& \includegraphics[width=3cm]{figure/id_0.png} \\ 
+\hline
+
+2. & \textit{Basal Cell Carcinoma} 
+& \includegraphics[width=3cm]{figure/id_1.png} \\ 
+\hline
+
+3 & \textit{Benign Keratosis-like Lesions} 
+& \includegraphics[width=3cm]{figure/id_2.png} \\ 
+\hline
+
+4. & \textit{Dermatofibroma} 
+& \includegraphics[width=3cm]{figure/id_3.png} \\ 
+\hline
+
+5. & \textit{Melanocytic Nevi} 
+& \includegraphics[width=3cm]{figure/id_4.png} \\ 
+\hline
+
+6. & \textit{Melanoma} 
+& \includegraphics[width=3cm]{figure/id_5.png} \\ 
+\hline
+
+7. & \textit{Vascular Lesions} 
+& \includegraphics[width=3cm]{figure/id_6.png} \\
+\hline
+
 \end{longtable}
-\endgroup
 
 
 % Berisi hasil penelitian berdasarkan rancangan yang sudah dijelaskan pada Bab \ref{Bab III}, terutama dari Subbab \ref{III.Metode}. Bagi yang membuat alat, jelaskan alat yang jadi dalam bentuk apa. Bagi yang membuat aplikasi, jelaskan aplikasi yang jadi dalam bentuk seperti apa. Jabarkan dalam bentuk pseudocode dan dijelaskan per bagian kodenya. Gunakan gambar dan tabel sebagai alat bantu menjelaskan hasil. \par
@@ -56,44 +81,6 @@
 % 		process_dataset(dataset)
 % 		print("print string")
 % \end{lstlisting}
-
-\section{Hasil Pengujian} \label{IV.Hasil_Uji}
-% Berikan hasil pengujian berdasarkan rancangan \& skenario yang sudah direncanakan sebelumnya pada Subbab \ref{III.Rancang_Uji}. \par
-
-% \begin{longtable}{|c|c|c|c|c|c|c|c|c|}
-% 	\caption{Data \textit{dummy} Pengujian}
-% 	\label{table:4.dummy}\\
-% 	\hline
-% 	\multirow{2}{*}{\textbf{Subjek}} & \multicolumn{7}{|c|}{\textbf{Hasil Prediksi (BPM)}} & \multirow{2}{*}{\textbf{GT}} \\ \cline{2-8}
-% 	& \textbf{F} & \textbf{NA} & \textbf{NO} & \textbf{RC} & \textbf{LC} & \textbf{M} & \textbf{C} & \\ 
-% 	\hline
-% 	\endfirsthead
-% 	\hline
-% 	\multirow{2}{*}{\textbf{Subjek}} & \multicolumn{7}{|c|}{\textbf{Hasil Prediksi (BPM)}} & \multirow{2}{*}{\textbf{GT}} \\ \cline{2-8}
-% 	& \textbf{F} & \textbf{NA} & \textbf{NO} & \textbf{RC} & \textbf{LC} & \textbf{M} & \textbf{C} & \\ 
-% 	\hline
-% 	\endhead
-% 	\hline
-% 	\endfoot
-% 	\hline
-% 	\endlastfoot
-% 	1 & 68 & 69 & 68 & 70 & 68 & 71 & 69 & 68 \\ 
-% 	\hline
-% 	2 & 69 & 69 & 68 & 70 & 68 & 71 & 69 & 69 \\
-% 	\hline
-% 	3 & 70 & 70 & 69 & 71 & 68 & 73 & 69 & 70\\
-% 	\hline
-% 	4 & 71 & 70 & 70 & 72 & 69 & 73 & 70 & 71 \\
-% 	\hline
-% 	5 & 72 & 72 & 70 & 72 & 70 & 74 & 70 & 72 \\
-% \end{longtable}
-
-% \begin{figure}[H]
-% 	\centering
-% 	\includegraphics[width=0.7\textwidth]{figure/zeta.png}
-% 	\caption{Contoh Graf Pengujian}
-% 	\label{fig:4.graf}
-% \end{figure}
 
 \section{Analisis Hasil Penelitian} \label{IV.Analisis}
 % Berikan analisis hasil penelitian \& pengujian, berupa data yang didapatkan dari penelitian \& pengujian Tugas Akhir yang sudah anda kerjakan. Gunakan gambar dan tabel sebagai alat bantu menjelaskan analisis hasil. Data luaran penelitian yang dapat dianalisis berupa: \par
