@@ -58,7 +58,62 @@ penyakit beserta contoh citra dari masing-masing kelas. \par
 \end{longtable}
 
 \subsection{\textit{Preprocessing} Data} \label{IV.Preprocessing_Dataset}
+Pada tahap ini dataset dilakukan \textit{preprocessing} sebelum dataset 
+masuk ke model untuk dilakukannya proses \textit{training}. \textit{Preprocessing} 
+yang dilakukan yaitu \textit{resize} dan normalisasi nilai citra. \textit{Resize} 
+dilakukan untuk mengubah resolusi citra dari 28x28 piksel menjadi 224x224 piksel. 
+Proses ini dilakukan untuk menyesuaikan inputan model yang dimana \textit{ResNet} 
+menerima inputan citra dengan resolusi 224x224 piksel. Selain itu, alasan 
+citra dilakukan \textit{resize} menjadi 224x224 piksel dikarenakan ingin 
+melakukan perbandingan hasil dengan hasil yang model yang di-\textit{training} 
+dengan resolusi citra 28x28 piksel. \par 
 
+Kemudian dilakukannya normalisasi nilai citra untuk mengubah rentang nilai 
+piksel dari [0, 255] menjadi [0, 1]. Normalisasi dilakukan supaya saat proses 
+\textit{training} stabil. Normalisasi menggunakan nilai mean dan standar 
+deviasi dari ImageNet yaitu [0.485, 0.456, 0.406] dan [0.229, 0.224, 0.225]. 
+
+\begin{lstlisting}[caption={Kode Normalisasi dan Resize}, label={code:4.kode_normalisasi_resize}]
+data_mean = [0.485, 0.456, 0.406]
+data_std = [0.229, 0.224, 0.225]
+
+def get_base_transform(size):
+    return transforms.Compose([
+        transforms.Resize((size, size)),
+        transforms.ToTensor(),
+        transforms.Normalize(mean=data_mean, std=data_std)
+    ])
+\end{lstlisting}
+
+\subsection{Augmentasi Data} \label{IV.Augmentasi_Dataset}
+Dataset yang sudah melewati \textit{preprocessing}, dataset di-augmentasi 
+untuk memperbanyak jumlah data dan model dapat belajar dari berbagai jenis 
+variasi citra. Augmentasi dilakukan hanya data pada kelas minoritas saja. 
+Augmentasi yang dilakukan pada penelitian ini yaitu \textit{flip} (horizontal 
+dan vertikal), \textit{rotation}, \textit{color jitter}, \textit{random erasing}, 
+dan \textit{random augment}. Penerapan augmentasi ini bertujuan untuk 
+mengurangi ketidakseimbangan distribusi kelas sehingga model tidak 
+cenderung bias terhadap kelas mayoritas. Dengan variasi transformasi 
+tersebut, model diharapkan mampu mempelajari fitur terhadap perubahan 
+orientasi, pencahayaan, maupun gangguan visual pada citra. \par
+
+\begin{lstlisting}[caption={Kode Augmentasi Data}, label={code:4.kode_augmentasi}]
+def get_aug_transform(size):
+    return transforms.Compose([
+        transforms.Resize((size, size)),
+        transforms.RandAugment(num_ops=2, magnitude=9),
+        transforms.RandomHorizontalFlip(p=0.5),
+        transforms.RandomVerticalFlip(p=0.5),
+        transforms.RandomRotation(degrees=20),
+        transforms.ColorJitter(brightness=0.3, contrast=0.3, saturation=0.3, hue=0.1),
+
+        transforms.ToTensor(),
+
+        transforms.RandomErasing(p=0.5, scale=(0.02, 0.15)),
+
+        transforms.Normalize(mean=data_mean, std=data_std)
+    ])
+\end{lstlisting}
 
 % Berisi hasil penelitian berdasarkan rancangan yang sudah dijelaskan pada Bab \ref{Bab III}, terutama dari Subbab \ref{III.Metode}. Bagi yang membuat alat, jelaskan alat yang jadi dalam bentuk apa. Bagi yang membuat aplikasi, jelaskan aplikasi yang jadi dalam bentuk seperti apa. Jabarkan dalam bentuk pseudocode dan dijelaskan per bagian kodenya. Gunakan gambar dan tabel sebagai alat bantu menjelaskan hasil. \par
 
