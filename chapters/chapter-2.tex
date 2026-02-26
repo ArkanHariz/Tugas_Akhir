@@ -243,28 +243,28 @@ augmentasi. Data augmentasi adalah teknik untuk memperbanyak jumlah data
 latih secara buatan dengan cara membuat versi data yang telah dimodifikasi 
 dari data yang sudah ada. Augmentasi yang diterapkan seperti rotasi, 
 \textit{flipping}, atau pergeseran warna, dengan mengasumsikan tidak 
-mengubah makna atau label dari data aslinya \cite{shorten2019survey}. Penggunaan teknik 
+mengubah makna atau label dari data aslinya \cite{Goodfellow-et-al-2016}. Penggunaan teknik 
 augmentasi data sebagai metode yang umum dan mudah untuk mengurangi 
 \textit{overfitting} \cite{NIPS2012_c399862d}. \par
 
-\subsubsection{Rotasi} \label{II.Teori3.1}
+\subsubsection{\textit{Flip}} \label{II.Teori3.1}
+Augmentasi data menggunakan metode flip dikategorikan sebagai pendekatan 
+manipulasi geometris dasar yang berfungsi meningkatkan dataset pelatihan 
+secara signifikan tanpa mengubah label kelas data yang sebenarnya. Teknik ini 
+bekerja dengan membalikkan orientasi citra, baik secara vertikal maupun 
+horizontal, yang bertujuan agar model dapat mengenali fitur objek dari 
+berbagai sudut pandang \cite{Goodfellow-et-al-2016}. \par
+
+\subsubsection{Rotasi} \label{II.Teori3.2}
 Rotasi merupakan teknik augmentasi data dengan cara memutar gambar pada 
 sudut tertentu. Rotasi dapat dilakukan dengan sudut tetap, seperti 15°, 45°,  
 atau sudut acak. Rotasi pada gambar dapat membantu model untuk mengenali 
 objek dari berbagai sudut pandang. Tujuannya adalah agar sistem tidak bingung 
 ketika menemui gambar yang posisinya miring di dunia nyata. Jadi, meskipun 
 pengambilan fotonya tidak tegak lurus, objek di dalamnya tetap bisa dikenali 
-dengan baik \cite{Muhammad_Mega_Nugraha_Moch_Dani_Ferdian_Saputra_Daffa_Athallah_Fauzan_Eva_Yulia_Puspaningrum_2025}. \par
+dengan baik \cite{szeliski2022computer}. \par
 
-\subsubsection{Flip} \label{II.Teori3.2}
-Augmentasi data menggunakan metode flip dikategorikan sebagai pendekatan 
-manipulasi geometris dasar yang berfungsi meningkatkan dataset pelatihan 
-secara signifikan tanpa mengubah label kelas data yang sebenarnya. Teknik ini 
-bekerja dengan membalikkan orientasi citra, baik secara vertikal maupun 
-horizontal, yang bertujuan agar model dapat mengenali fitur objek dari 
-berbagai sudut pandang \cite{Dede_Husen_2024}. \par
-
-\subsubsection{Random Erasing} \label{II.Teori3.3}
+\subsubsection{\textit{Random Erasing}} \label{II.Teori3.3}
 \textit{Random erasing} merupakan teknik baru untuk augmentasi data. 
 \textit{Random erasing} dapat mengatasi masalah oklusi. Beberapa objek tidak 
 selalu terlihat sepenuhnya dalam gambar, masalah ini disebut dengan oklusi. 
@@ -277,6 +277,22 @@ diisi dengan nilai acak pada gambar. Teknik ini membuat model tidak belajar
 hanya dari fitur tertentu pada objek. Dengan demikian, model menjadi tidak 
 tidak terlalu kompleks dan tidak menghafal pola tertentu pada gambar yang 
 membuat model menjadi lebih \textit{robust.} \cite{Zhong_Zheng_Kang_Li_Yang_2020}. \par
+
+\subsubsection{\textit{Random Augmentation}} \label{II.Teori3.4}
+\textit{Random augmentation} merupakan teknik augmentasi yang dilakukan 
+secara otomatis dengan tujuan untuk mengatasi kelemahan pada teknik 
+sebelumnya seperti \textit{AutoAugment}. Masalah pada teknik sebelumnya 
+dikarenakan membutuhkan komputasi yang tinggi untuk mencari augmentasi 
+yang optimal dan membutuhkan \textit{search phase} yang rumit. Dengan 
+\textit{random augmentation}, meringankan proses dengan cara menghapus 
+\textit{search phase} \cite{cubuk2019randaugmentpracticalautomateddata}.
+
+\subsubsection{\textit{Color Jitter}} \label{II.Teori3.5}
+\textit{Color jitter} merupakan teknik augmentasi dengan cara mengubah 
+warna pada gambar secara acak dengan tujuan membuat model tidak terlalu 
+sensitif terhadap perubahan warna pada gambar. Teknik ini membuat model 
+untuk menggeneralisasi menjadi lebih baik. Teknik ini membutuhkan empat 
+komponen utama yaitu kecerahan, kontras, saturasi, dan \textit{Hue} \cite{zhang2023dive}.
 
 
 \subsection{Convolutional Neural Network} \label{II.Teori4}
