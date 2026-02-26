@@ -95,6 +95,7 @@ dan tes per kelasnya disajikan dalam Tabel \ref{tab:persebaran_data}. \par
     \end{tabular}
 \end{table}
 
+
 \subsection{\textit{Preprocessing} Data} \label{IV.Preprocessing_Dataset}
 Pada tahap ini dataset dilakukan \textit{preprocessing} sebelum dataset 
 masuk ke model untuk dilakukannya proses \textit{training}. \textit{Preprocessing} 
@@ -122,6 +123,7 @@ def get_base_transform(size):
         transforms.Normalize(mean=data_mean, std=data_std)
     ])
 \end{lstlisting}
+
 
 \subsection{Augmentasi Data} \label{IV.Augmentasi_Dataset}
 Dataset yang sudah melewati \textit{preprocessing}, dataset di-augmentasi 
@@ -153,6 +155,7 @@ def get_aug_transform(size):
     ])
 \end{lstlisting}
 
+
 \subsubsection{\textit{Flip}} \label{IV.Augmentasi_Dataset_Flip}
 \textit{Flip} merupakan teknik augmentasi yang membalikkan orientasi citra 
 secara horizontal maupun vertikal. Teknik ini bertujuan supaya model dapat 
@@ -177,6 +180,7 @@ belajar fitur objek dari berbagai sudut pandang. \par
     \label{fig:4.contohflip}
 \end{figure}
 
+
 \subsubsection{\textit{Rotation}} \label{IV.Augmentasi_Dataset_Rotation}
 \textit{Rotation} merupakan teknik augmentasi yang memutar citra dengan 
 sudut tertentu. Rotasi pada gambar dapat membantu model untuk mengenali
@@ -190,6 +194,7 @@ Pada penelitian ini, rotasi dilakukan dengan sudut 20 derajat. \par
     \caption{Hasil Augmentasi Rotasi}
     \label{fig:4.contohrotation}
 \end{figure}
+
 
 \subsubsection{\textit{Color Jitter}} \label{IV.Augmentasi_Dataset_ColorJitter}
 \textit{Color jitter} merupakan teknik augmentasi yang memodifikasi 
@@ -205,6 +210,7 @@ pencahayaan atau distribusi warna tertentu pada gambar. \par
     \label{fig:4.contohcolorjitter}
 \end{figure}
 
+
 \subsubsection{\textit{Random Erasing}} \label{IV.Augmentasi_Dataset_RandomErasing}
 \textit{Random erasing} merupakan teknik augmentasi yang menghapus objek 
 secara sengaja atau menutupi beberapa bagian secara acak dengan sebuah 
@@ -217,6 +223,7 @@ menghafal pola tertenut pada gambar. \par
     \caption{Hasil Augmentasi Random Erasing}
     \label{fig:4.contohrandomerasing}
 \end{figure}
+
 
 \subsubsection{\textit{Random Augment}} \label{IV.Augmentasi_Dataset_RandAugment}
 \textit{Random augment} merupakan teknik augmentasi yang menerapkan kombinasi 
@@ -231,6 +238,9 @@ generalisasi dengan lebih baik.
     \caption{Hasil Augmentasi Random Augment}
     \label{fig:4.contohrandomaugment}
 \end{figure}
+
+
+\subsection{Hasil \textit{Training} Model} \label{IV.Hasil_Train}
 
 % Berisi hasil penelitian berdasarkan rancangan yang sudah dijelaskan pada Bab \ref{Bab III}, terutama dari Subbab \ref{III.Metode}. Bagi yang membuat alat, jelaskan alat yang jadi dalam bentuk apa. Bagi yang membuat aplikasi, jelaskan aplikasi yang jadi dalam bentuk seperti apa. Jabarkan dalam bentuk pseudocode dan dijelaskan per bagian kodenya. Gunakan gambar dan tabel sebagai alat bantu menjelaskan hasil. \par
 
