@@ -426,6 +426,21 @@ if model_flag == 'resnet18':
     \end{tabular}
 \end{table}
 
+Berdasarkan hasil evaluasi yang tersaji pada Tabel \ref{tab:hasil_resnet18_224}, 
+model \textit{ResNet-18 pretrained} dengan citra berukuran 224x224 piksel 
+menunjukkan akurasi yang mencapai 0.80. Nilai \textit{f1-score} makro 
+mencapai 0.73 menunjukkan model memiliki keseimbangan yang cukup baik 
+dalam mengenali data pada setiap kelasnya. Nilai \textit{precision} makro 
+(0.71) dan nilai \textit{recall} makro (0.76) yang mana selisih keduanya 
+tidak terlalu jauh, membuat model dapat meminimalkan kesalahan dalam prediksi. 
+Nilai \textit{matthews correlation coefficient} (MCC) sebesar 0.64 
+menandakan terdapat korelasi positif yang cukup kuat antara hasil prediksi 
+dengan label aktualnya. Model mampu memisahkan antar kelas dengan baik 
+yang ditunjukkan pada nilai \textit{AUC} sebesar 0.95. \par
+
+
+\subsubsection{Hasil \textit{ResNet-50} Menggunakan Citra \textit{Size} 224x224 Piksel} \label{IV.Resnet50_224}
+
 
 % Berisi hasil penelitian berdasarkan rancangan yang sudah dijelaskan pada Bab \ref{Bab III}, terutama dari Subbab \ref{III.Metode}. Bagi yang membuat alat, jelaskan alat yang jadi dalam bentuk apa. Bagi yang membuat aplikasi, jelaskan aplikasi yang jadi dalam bentuk seperti apa. Jabarkan dalam bentuk pseudocode dan dijelaskan per bagian kodenya. Gunakan gambar dan tabel sebagai alat bantu menjelaskan hasil. \par
 
