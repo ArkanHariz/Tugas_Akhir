@@ -248,11 +248,11 @@ yang disajikan dari masing-masing model dan \textit{size} ukuran citra
 yang digunakan yaitu 28x28 piksel dan 224x224 piksel. \par
 
 \subsubsection{Hasil \textit{ResNet-18} Menggunakan Citra \textit{Size} 28x28 Piksel} \label{IV.Resnet18_28}
-Pada model \textit{ResNet-18} ini di \textit{training} menggunakan citra 
+Pada model \textit{ResNet-18 scratch} ini di \textit{training} menggunakan citra 
 berukuran 28x28 piksel. Model yang digunakan merupakan model \textit{scratch}, 
 yang dimana model menginisialisasi bobot secara acak. Hal ini berarti 
 proses pembelajaran dilakukan sepenuhnya berdasarkan data penelitian tanpa 
-memanfaatkan bobot \textit{pretrained}. Struktur model dapat dilihat pada 
+memanfaatkan bobot \textit{pretrained}. Struktur kode model dapat dilihat pada 
 Kode \ref{code:4.kode_resnet18_28} dan hasil evaluasi disajikan pada Tabel \ref{tab:hasil_resnet18_28}.
 
 \begin{lstlisting}[caption={Kode ResNet-18 28x28}, label={code:4.kode_resnet18_28}]
@@ -313,6 +313,64 @@ tetapi tingkat ketepatan dalam mendeteksi masih rendah yang mengakibatkan
 prediksi model masih tidak efektif yang menyebabkan model masih tidak 
 optimal, walaupun model cukup bagus dalam membedakan kelas yang ditunjukkan 
 pada nilai \textit{AUC} sebesar 0.91. \par
+
+
+\subsubsection{Hasil \textit{ResNet-50} Menggunakan Citra \textit{Size} 28x28 Piksel} \label{IV.Resnet50_28}
+Pada model \textit{ResNet-50 scratch} ini di \textit{training} menggunakan 
+citra 28x28 piksel. Struktur kode model dapat diliha pada Kode \ref{code:4.kode_resnet50_28} dan hasil 
+evaluasi disajikan pada Tabel \ref{tab:hasil_resnet50_28}. \par
+
+\begin{lstlisting}[caption={Kode ResNet-50 28x28}, label={code:4.kode_resnet50_28}]
+class Bottleneck(nn.Module):
+    expansion = 4
+    def __init__(self, in_planes, planes, stride=1):
+        super(Bottleneck, self).__init__()
+        self.conv1 = nn.Conv2d(in_planes, planes, kernel_size=1, bias=False)
+        self.bn1 = nn.BatchNorm2d(planes)
+        self.conv2 = nn.Conv2d(planes, planes, kernel_size=3, stride=stride, padding=1, bias=False)
+        self.bn2 = nn.BatchNorm2d(planes)
+        self.conv3 = nn.Conv2d(planes, self.expansion * planes, kernel_size=1, bias=False)
+        self.bn3 = nn.BatchNorm2d(self.expansion*planes)
+        self.shortcut = nn.Sequential()
+        if stride != 1 or in_planes != self.expansion*planes:
+            self.shortcut = nn.Sequential(
+                nn.Conv2d(in_planes, self.expansion*planes, kernel_size=1, stride=stride, bias=False),
+                nn.BatchNorm2d(self.expansion*planes)
+            )
+    def forward(self, x):
+        out = F.relu(self.bn1(self.conv1(x)))
+        out = F.relu(self.bn2(self.conv2(out)))
+        out = self.bn3(self.conv3(out))
+        out += self.shortcut(x)
+        out = F.relu(out)
+        return out
+\end{lstlisting}
+
+\begin{table}[h]
+    \centering
+    \caption{Hasil Evaluasi \textit{ResNet-50} Dengan Citra 28x28 Piksel}
+    \label{tab:hasil_resnet50_28}
+    \begin{tabular}{|m{0.46\textwidth}|C{0.12\textwidth}|}
+        \hline
+        \textbf{Metrik Evaluasi} & \textbf{Nilai} \\
+        \hline
+        \textit{Accuracy}  & 0.62 \\
+        \hline
+        \textit{Precision} (Macro)  & 0.41 \\
+        \hline
+        \textit{Recall} (Macro)  & 0.59 \\
+        \hline
+        \textit{F1-Score} (Macro)  & 0.45 \\
+        \hline
+        \textit{Matthews Correlation Coefficient}  & 0.44 \\
+        \hline
+        \textit{AUC}  & 0.89 \\
+        \hline
+    \end{tabular}
+\end{table}
+
+Berdasarkan Tabel \ref{tab:hasil_resnet50_28}, model \textit{ResNet-50} 
+mencapai akurasi sebesar 0.62.
 
 
 % Berisi hasil penelitian berdasarkan rancangan yang sudah dijelaskan pada Bab \ref{Bab III}, terutama dari Subbab \ref{III.Metode}. Bagi yang membuat alat, jelaskan alat yang jadi dalam bentuk apa. Bagi yang membuat aplikasi, jelaskan aplikasi yang jadi dalam bentuk seperti apa. Jabarkan dalam bentuk pseudocode dan dijelaskan per bagian kodenya. Gunakan gambar dan tabel sebagai alat bantu menjelaskan hasil. \par
