@@ -370,7 +370,18 @@ class Bottleneck(nn.Module):
 \end{table}
 
 Berdasarkan Tabel \ref{tab:hasil_resnet50_28}, model \textit{ResNet-50} 
-mencapai akurasi sebesar 0.62.
+mencapai akurasi sebesar 0.62. Nilai \textit{f1-score} makro sebesar 0.45 
+menandakan terdapat masalah pada konsistensi performa di seluruh kelas yang 
+disebabkan rendahnya nilai \textit{precision} makro. Jika nilai \textit{precision} 
+makro (0.41) dibandingkan dengan nilai \textit{recall} makro (0.59), 
+membuat karakteristik model cenderung mengklasifikasikan banyak data 
+sebagai kelas positif, tapi membuat risiko meninggkatnya \textit{false 
+positive}. Nilai \textit{matthews correlation coefficient} (MCC) sebesar 
+0.44 membuat kondisi menjadi selaras. Model masih tidak efektif ditandai 
+dengan hubungan antara hasil klasifikasi dan label aktual masih belum 
+mencapai tahap optimal. Meski demikian, model masih mampu untuk memisahkan 
+antar kelas dengan baik yang ditunjukkan pada nilai \textit{AUC} sebesar 
+0.89. \par
 
 
 % Berisi hasil penelitian berdasarkan rancangan yang sudah dijelaskan pada Bab \ref{Bab III}, terutama dari Subbab \ref{III.Metode}. Bagi yang membuat alat, jelaskan alat yang jadi dalam bentuk apa. Bagi yang membuat aplikasi, jelaskan aplikasi yang jadi dalam bentuk seperti apa. Jabarkan dalam bentuk pseudocode dan dijelaskan per bagian kodenya. Gunakan gambar dan tabel sebagai alat bantu menjelaskan hasil. \par
