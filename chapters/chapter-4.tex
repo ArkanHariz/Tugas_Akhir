@@ -253,7 +253,7 @@ berukuran 28x28 piksel. Model yang digunakan merupakan model \textit{scratch},
 yang dimana model menginisialisasi bobot secara acak. Hal ini berarti 
 proses pembelajaran dilakukan sepenuhnya berdasarkan data penelitian tanpa 
 memanfaatkan bobot \textit{pretrained}. Struktur model dapat dilihat pada 
-Kode \ref{code:4.kode_resnet18_28}.
+Kode \ref{code:4.kode_resnet18_28} dan hasil evaluasi disajikan pada Tabel \ref{tab:hasil_resnet18_28}.
 
 \begin{lstlisting}[caption={Kode ResNet-18 28x28}, label={code:4.kode_resnet18_28}]
 class BasicBlock(nn.Module):
@@ -277,6 +277,43 @@ class BasicBlock(nn.Module):
         out = F.relu(out)
         return out
 \end{lstlisting}
+
+\begin{table}[h]
+    \centering
+    \caption{Hasil Evaluasi \textit{ResNet-18} Dengan Citra 28x28 Piksel}
+    \label{tab:hasil_resnet18_28}
+    \begin{tabular}{|m{0.46\textwidth}|C{0.12\textwidth}|}
+        \hline
+        \textbf{Metrik Evaluasi} & \textbf{Nilai} \\
+        \hline
+        \textit{Accuracy}  & 0.60 \\
+        \hline
+        \textit{Precision} (Macro)  & 0.44 \\
+        \hline
+        \textit{Recall} (Macro)  & 0.62 \\
+        \hline
+        \textit{F1-Score} (Macro)  & 0.45 \\
+        \hline
+        \textit{Matthews Correlation Coefficient}  & 0.41 \\
+        \hline
+        \textit{AUC}  & 0.91 \\
+        \hline
+    \end{tabular}
+\end{table}
+
+Berdasarkan Tabel \ref{tab:hasil_resnet18_28}, model \textit{ResNet-18} 
+menghasilkan akurasi sebesar 0.60. Walaupun demikian, nilai \textit{F1-Score} 
+makro yang dihasilkan hanya 0.45 yang menunjukkan bahwa model memiliki 
+performa yang kurang baik. Hal ini dikarenakan nilai \textit{precision} 
+makro (0.44) yang rendah dibandingkan nilai \textit{recall} makro (0.62). 
+Kondisi menunjukkan model mampu mendeteksi dalam cakupan yang cukup luas 
+tetapi tingkat ketepatan dalam mendeteksi masih rendah yang mengakibatkan 
+\textit{false positive} meningkat. Didukung dengan nilai 
+\textit{matthews correlation coefficient} (0.41) yang menunjukkan bahwa 
+prediksi model masih tidak efektif yang menyebabkan model masih tidak 
+optimal, walaupun model cukup bagus dalam membedakan kelas yang ditunjukkan 
+pada nilai \textit{AUC} sebesar 0.91. \par
+
 
 % Berisi hasil penelitian berdasarkan rancangan yang sudah dijelaskan pada Bab \ref{Bab III}, terutama dari Subbab \ref{III.Metode}. Bagi yang membuat alat, jelaskan alat yang jadi dalam bentuk apa. Bagi yang membuat aplikasi, jelaskan aplikasi yang jadi dalam bentuk seperti apa. Jabarkan dalam bentuk pseudocode dan dijelaskan per bagian kodenya. Gunakan gambar dan tabel sebagai alat bantu menjelaskan hasil. \par
 
