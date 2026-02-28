@@ -394,7 +394,7 @@ dan hasil evaluasi disajikan pada Tabel \ref{tab:hasil_resnet18_224}. \par
 
 \begin{lstlisting}[caption={Kode ResNet-18 224x224}, label={code:4.kode_resnet18_224}]
 if model_flag == 'resnet18':
-            # Untuk ResNet18 torchvision (Size 224)
+            # Untuk ResNet18 (Size 224)
             model = resnet18(weights=ResNet18_Weights.IMAGENET1K_V1)
             num_ftrs = model.fc.in_features
             model.fc = nn.Sequential(
@@ -440,6 +440,52 @@ yang ditunjukkan pada nilai \textit{AUC} sebesar 0.95. \par
 
 
 \subsubsection{Hasil \textit{ResNet-50} Menggunakan Citra \textit{Size} 224x224 Piksel} \label{IV.Resnet50_224}
+Pada proses \textit{training} ini, model yang digunakan merupakan model 
+\textit{ResNet-50 pretrained} dari ImageNet. Data inputan berupa citra 
+dengan ukuran 224x224 piksel. Kode untuk model \textit{ResNet-50 pretrained} 
+dapat dilihat pada Kode dan hasil evaluasi disajikan pada Tabel . \par 
+
+\begin{lstlisting}[caption={Kode ResNet-50 224x224}, label={code:4.kode_resnet50_224}]
+else:
+    # Untuk ResNet50 (Size 224)
+    model = resnet50(weights=ResNet50_Weights.IMAGENET1K_V1)
+    num_ftrs = model.fc.in_features
+    model.fc = nn.Sequential(
+        nn.Dropout(p=dropout_prob),
+        nn.Linear(num_ftrs, n_classes)
+    )
+\end{lstlisting}
+
+\begin{table}[h]
+    \centering
+    \caption{Hasil Evaluasi \textit{ResNet-50} Dengan Citra 224x224 Piksel}
+    \label{tab:hasil_resnet50_224}
+    \begin{tabular}{|m{0.46\textwidth}|C{0.12\textwidth}|}
+        \hline
+        \textbf{Metrik Evaluasi} & \textbf{Nilai} \\
+        \hline
+        \textit{Accuracy}  & 0.74 \\
+        \hline
+        \textit{Precision} (Macro)  & 0.69 \\
+        \hline
+        \textit{Recall} (Macro)  & 0.74 \\
+        \hline
+        \textit{F1-Score} (Macro)  & 0.70 \\
+        \hline
+        \textit{Matthews Correlation Coefficient}  & 0.59 \\
+        \hline
+        \textit{AUC}  & 0.95 \\
+        \hline
+    \end{tabular}
+\end{table}
+
+Berdasarkan hasil evaluasi pada Tabel \ref{tab:hasil_resnet18_28}, model 
+\textit{ResNet-50 pretrained} memperoleh akurasi sebesar 0.74. \textit{F1-score} makro 
+yang didapatkan sebesar 0.70 memberikan gambaran bahwa model cukup baik 
+dalam identifikasi pada seluruh kelas. \textit{Precision} makro dengan 
+nilai 0.69 dan \textit{recall} dengan nilai 0.74 menunjukkan kesalahan 
+yang rendah dengan deteksi yang cukup baik. Selain itu, MCC yang didapatkan 
+adalah 0.59 dan nilai \textit{AUC} sebesar 0.95. \par
 
 
 % Berisi hasil penelitian berdasarkan rancangan yang sudah dijelaskan pada Bab \ref{Bab III}, terutama dari Subbab \ref{III.Metode}. Bagi yang membuat alat, jelaskan alat yang jadi dalam bentuk apa. Bagi yang membuat aplikasi, jelaskan aplikasi yang jadi dalam bentuk seperti apa. Jabarkan dalam bentuk pseudocode dan dijelaskan per bagian kodenya. Gunakan gambar dan tabel sebagai alat bantu menjelaskan hasil. \par

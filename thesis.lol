@@ -3,3 +3,4 @@
 \contentsline {lstlisting}{\numberline {4.3}{\ignorespaces Kode ResNet-18 28x28}}{50}{lstlisting.4.3}%
 \contentsline {lstlisting}{\numberline {4.4}{\ignorespaces Kode ResNet-50 28x28}}{51}{lstlisting.4.4}%
 \contentsline {lstlisting}{\numberline {4.5}{\ignorespaces Kode ResNet-18 224x224}}{52}{lstlisting.4.5}%
+\contentsline {lstlisting}{\numberline {4.6}{\ignorespaces Kode ResNet-50 224x224}}{53}{lstlisting.4.6}%
