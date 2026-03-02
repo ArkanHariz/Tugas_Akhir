@@ -515,8 +515,8 @@ adalah 0.59 dan nilai \textit{AUC} sebesar 0.95. \par
 \section{Analisis Hasil Penelitian} \label{IV.Analisis}
 Pada bagian ini dilakukan analisis perbandingan antara hasil \textit{baseline} 
 dengan hasil penelitian yang sudah dilakukan. Perbandingan dilakukan 
-untuk melihat performa yang berhasil dicapai dari segi akurasi, \textit{loss} dan
-\textit{confussion matrix}, maupun ketahanan model dalam menangani variasi 
+untuk melihat performa yang berhasil dicapai seperti dari segi akurasi, 
+\textit{loss}, maupun ketahanan model dalam menangani variasi 
 data. \par
 
 \subsection{Hasil Model \textit{Baseline}} \label{IV.Baseline}
@@ -597,9 +597,9 @@ dengan baik. \par
 Berdasarkan Tabel \ref{tab:hasil_resnet18baseline_224}, nilai akurasi 
 berada pada angka 0.78. Untuk \textit{precision} makro mendapatkan 0.66 
 yang menandakan rata-rata model dalam memprediksi di setiap kelasnya 
-cukup baik. Selain itu, model masih belum cukup baik untuk 
+cukup baik. Dilain sisi, model masih belum cukup baik untuk 
 prediksi data yang benar dari keseluruhan data di kelasnya masing-masing, 
-dilihat dari nilai\textit{recall} makro sebesar 0.53. Dikarenakan kedua 
+dilihat dari nilai \textit{recall} makro sebesar 0.53. Dikarenakan kedua 
 nilai \textit{precision} makro dan \textit{recall} makro yang belum cukup 
 baik, mengakibatkan nilai rata-rata harmonik yaitu \textit{f1-score} makro 
 mendapatkan nilai 0.56. Meskipun demikian, model mampu untuk membedakan 
@@ -607,7 +607,46 @@ antar kelasnya dilihat dari nilai \textit{AUC} sebesar 0.93. \par
 
 
 \subsubsection{Model \textit{ResNet-50 Baseline}} \label{IV.Resnet50_Baseline}
+Model \textit{ResNet-50 baseline} di-\textit{training} dengan dua ukuran 
+citra. Pada \textit{training} dengan ukuran citra 28x28 piksel, model 
+dibangun dari awal (\textit{scratch}), sementara untuk ukuran citra 
+224x224 piksel, model memanfaatkan model yang sudah disediakan oleh 
+\textit{torchvision}. Untuk hasil evaluasi dari masing-masing ukuran citra 
+ditampilkan pada Tabel untuk citra 28x28 piksel dan Tabel untuk citra 
+224x224 piksel. \par
 
+\begin{table}[h]
+    \centering
+    \caption{Hasil Evaluasi \textit{ResNet-50 Baseline} Dengan Citra 28x28 Piksel}
+    \label{tab:hasil_resnet50baseline_28}
+    \begin{tabular}{|m{0.46\textwidth}|C{0.12\textwidth}|}
+        \hline
+        \textbf{Metrik Evaluasi} & \textbf{Nilai} \\
+        \hline
+        \textit{Accuracy}  & 0.74 \\
+        \hline
+        \textit{Precision} (Macro)  & 0.65 \\
+        \hline
+        \textit{Recall} (Macro)  & 0.45 \\
+        \hline
+        \textit{F1-Score} (Macro)  & 0.48 \\
+        \hline
+        \textit{AUC}  & 0.91 \\
+        \hline
+    \end{tabular}
+\end{table}
+
+Berdasarkan Tabel \ref{tab:hasil_resnet50baseline_28}, Model mendapatkan 
+akurasi sebesar 0.74. Untuk \textit{precision} makro mendapatkan 0.65 
+yang menandakan rata-rata model dalam memprediksi di setiap kelasnya 
+cukup baik. Tetapi \textit{precision} makro cukup buruk yang mana nilainya 
+adalah 0.45. Nilai tersebut menandakan model masih sering salah memprediksi 
+yang benar dari keseluruhan data pada kelas nya masing-masing. Dikarenakan 
+salah satu dari komponen untuk \textit{f1-score} memiliki nilai yang rendah 
+dan nilai antara keduanya cukup jauh, membuat nilai \textit{f1-score} makro 
+mendapatkan nilai 0.48 yang menunjukkan bahwa model memiliki performa yang 
+kurang baik. Meskipun demikian, model masih mampu untuk membedakan antar kelasnya 
+dilihat dari nilai \textit{AUC} sebesar 0.91. \par
 
 % Berikan analisis hasil penelitian \& pengujian, berupa data yang didapatkan dari penelitian \& pengujian Tugas Akhir yang sudah anda kerjakan. Gunakan gambar dan tabel sebagai alat bantu menjelaskan analisis hasil. Data luaran penelitian yang dapat dianalisis berupa: \par
 % \begin{enumerate}[noitemsep]
