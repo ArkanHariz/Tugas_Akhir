@@ -537,24 +537,42 @@ disediakan oleh \textit{torchvision}. Hasil evaluasi disajikan pada Tabel
 dan Tabel \ref{tab:hasil_resnet18baseline_224} untuk \textit{training} 
 224x224 piksel. \par 
 
-\begin{table}[h]
+% \begin{table}[h]
+%     \centering
+%     \caption{Hasil Evaluasi \textit{ResNet-18 Baseline} Dengan Citra 28x28 Piksel}
+%     \label{tab:hasil_resnet18baseline_28}
+%     \begin{tabular}{|m{0.46\textwidth}|C{0.12\textwidth}|}
+%         \hline
+%         \textbf{Metrik Evaluasi} & \textbf{Nilai} \\
+%         \hline
+%         \textit{Accuracy}  & 0.75 \\
+%         \hline
+%         \textit{Precision} (Macro)  & 0.62 \\
+%         \hline
+%         \textit{Recall} (Macro)  & 0.50 \\
+%         \hline
+%         \textit{F1-Score} (Macro)  & 0.54 \\
+%         \hline
+%         \textit{AUC}  & 0.92 \\
+%         \hline
+%     \end{tabular}
+% \end{table}
+
+\begin{table}[H]
     \centering
-    \caption{Hasil Evaluasi \textit{ResNet-18 Baseline} Dengan Citra 28x28 Piksel}
+    \caption{Hasil Evaluasi \textit{ResNet-18 Baseline} dengan Citra 28$\times$28 Piksel}
     \label{tab:hasil_resnet18baseline_28}
-    \begin{tabular}{|m{0.46\textwidth}|C{0.12\textwidth}|}
-        \hline
+    \begin{tabular}{>{\raggedright\arraybackslash}m{0.55\textwidth} 
+                    >{\centering\arraybackslash}m{0.15\textwidth}}
+        \toprule
         \textbf{Metrik Evaluasi} & \textbf{Nilai} \\
-        \hline
-        \textit{Accuracy}  & 0.75 \\
-        \hline
-        \textit{Precision} (Macro)  & 0.62 \\
-        \hline
-        \textit{Recall} (Macro)  & 0.50 \\
-        \hline
-        \textit{F1-Score} (Macro)  & 0.54 \\
-        \hline
-        \textit{AUC}  & 0.92 \\
-        \hline
+        \midrule
+        \textit{Accuracy} & 0.75 \\
+        \textit{Precision} (Macro) & 0.62 \\
+        \textit{Recall} (Macro) & 0.50 \\
+        \textit{F1-Score} (Macro) & 0.54 \\
+        \textit{AUC} & 0.92 \\
+        \bottomrule
     \end{tabular}
 \end{table}
 
@@ -573,24 +591,42 @@ seluruh data pada masing-masing kelasnya. Meskipun demikian, nilai
 \textit{AUC} mendapatkan 0.92 yang mana model dapat memisahkan kelas 
 dengan baik. \par
 
-\begin{table}[h]
+% \begin{table}[h]
+%     \centering
+%     \caption{Hasil Evaluasi \textit{ResNet-18 Baseline} Dengan Citra 224x224 Piksel}
+%     \label{tab:hasil_resnet18baseline_224}
+%     \begin{tabular}{|m{0.46\textwidth}|C{0.12\textwidth}|}
+%         \hline
+%         \textbf{Metrik Evaluasi} & \textbf{Nilai} \\
+%         \hline
+%         \textit{Accuracy}  & 0.78 \\
+%         \hline
+%         \textit{Precision} (Macro)  & 0.66 \\
+%         \hline
+%         \textit{Recall} (Macro)  & 0.53 \\
+%         \hline
+%         \textit{F1-Score} (Macro)  & 0.56 \\
+%         \hline
+%         \textit{AUC}  & 0.93 \\
+%         \hline
+%     \end{tabular}
+% \end{table}
+
+\begin{table}[H]
     \centering
-    \caption{Hasil Evaluasi \textit{ResNet-18 Baseline} Dengan Citra 224x224 Piksel}
+    \caption{Hasil Evaluasi \textit{ResNet-18 Baseline} dengan Citra 224$\times$224 Piksel}
     \label{tab:hasil_resnet18baseline_224}
-    \begin{tabular}{|m{0.46\textwidth}|C{0.12\textwidth}|}
-        \hline
+    \begin{tabular}{>{\raggedright\arraybackslash}m{0.55\textwidth} 
+                    >{\centering\arraybackslash}m{0.15\textwidth}}
+        \toprule
         \textbf{Metrik Evaluasi} & \textbf{Nilai} \\
-        \hline
-        \textit{Accuracy}  & 0.78 \\
-        \hline
-        \textit{Precision} (Macro)  & 0.66 \\
-        \hline
-        \textit{Recall} (Macro)  & 0.53 \\
-        \hline
-        \textit{F1-Score} (Macro)  & 0.56 \\
-        \hline
-        \textit{AUC}  & 0.93 \\
-        \hline
+        \midrule
+        \textit{Accuracy} & 0.78 \\
+        \textit{Precision} (Macro) & 0.66 \\
+        \textit{Recall} (Macro) & 0.53 \\
+        \textit{F1-Score} (Macro) & 0.56 \\
+        \textit{AUC} & 0.93 \\
+        \bottomrule
     \end{tabular}
 \end{table}
 
@@ -612,27 +648,45 @@ citra. Pada \textit{training} dengan ukuran citra 28x28 piksel, model
 dibangun dari awal (\textit{scratch}), sementara untuk ukuran citra 
 224x224 piksel, model memanfaatkan model yang sudah disediakan oleh 
 \textit{torchvision}. Untuk hasil evaluasi dari masing-masing ukuran citra 
-ditampilkan pada Tabel untuk citra 28x28 piksel dan Tabel untuk citra 
-224x224 piksel. \par
+ditampilkan pada Tabel \ref{tab:hasil_resnet50baseline_28} untuk citra 
+28x28 piksel dan Tabel \ref{tab:hasil_resnet50baseline_224} untuk citra 224x224 piksel. \par
 
-\begin{table}[h]
+% \begin{table}[h]
+%     \centering
+%     \caption{Hasil Evaluasi \textit{ResNet-50 Baseline} Dengan Citra 28x28 Piksel}
+%     \label{tab:hasil_resnet50baseline_28}
+%     \begin{tabular}{|m{0.46\textwidth}|C{0.12\textwidth}|}
+%         \hline
+%         \textbf{Metrik Evaluasi} & \textbf{Nilai} \\
+%         \hline
+%         \textit{Accuracy}  & 0.74 \\
+%         \hline
+%         \textit{Precision} (Macro)  & 0.65 \\
+%         \hline
+%         \textit{Recall} (Macro)  & 0.45 \\
+%         \hline
+%         \textit{F1-Score} (Macro)  & 0.48 \\
+%         \hline
+%         \textit{AUC}  & 0.91 \\
+%         \hline
+%     \end{tabular}
+% \end{table}
+
+\begin{table}[H]
     \centering
-    \caption{Hasil Evaluasi \textit{ResNet-50 Baseline} Dengan Citra 28x28 Piksel}
+    \caption{Hasil Evaluasi \textit{ResNet-50 Baseline} dengan Citra 28$\times$28 Piksel}
     \label{tab:hasil_resnet50baseline_28}
-    \begin{tabular}{|m{0.46\textwidth}|C{0.12\textwidth}|}
-        \hline
+    \begin{tabular}{>{\raggedright\arraybackslash}m{0.55\textwidth} 
+                    >{\centering\arraybackslash}m{0.15\textwidth}}
+        \toprule
         \textbf{Metrik Evaluasi} & \textbf{Nilai} \\
-        \hline
-        \textit{Accuracy}  & 0.74 \\
-        \hline
-        \textit{Precision} (Macro)  & 0.65 \\
-        \hline
-        \textit{Recall} (Macro)  & 0.45 \\
-        \hline
-        \textit{F1-Score} (Macro)  & 0.48 \\
-        \hline
-        \textit{AUC}  & 0.91 \\
-        \hline
+        \midrule
+        \textit{Accuracy} & 0.74 \\
+        \textit{Precision} (Macro) & 0.65 \\
+        \textit{Recall} (Macro) & 0.45 \\
+        \textit{F1-Score} (Macro) & 0.48 \\
+        \textit{AUC} & 0.91 \\
+        \bottomrule
     \end{tabular}
 \end{table}
 
@@ -647,6 +701,24 @@ dan nilai antara keduanya cukup jauh, membuat nilai \textit{f1-score} makro
 mendapatkan nilai 0.48 yang menunjukkan bahwa model memiliki performa yang 
 kurang baik. Meskipun demikian, model masih mampu untuk membedakan antar kelasnya 
 dilihat dari nilai \textit{AUC} sebesar 0.91. \par
+
+\begin{table}[H]
+    \centering
+    \caption{Hasil Evaluasi \textit{ResNet-50 Baseline} dengan Citra 224$\times$224 Piksel}
+    \label{tab:hasil_resnet50baseline_224}
+    \begin{tabular}{>{\raggedright\arraybackslash}m{0.55\textwidth} 
+                    >{\centering\arraybackslash}m{0.15\textwidth}}
+        \toprule
+        \textbf{Metrik Evaluasi} & \textbf{Nilai} \\
+        \midrule
+        \textit{Accuracy} & 0.76 \\
+        \textit{Precision} (Macro) & 0.55 \\
+        \textit{Recall} (Macro) & 0.49 \\
+        \textit{F1-Score} (Macro) & 0.52 \\
+        \textit{AUC} & 0.92 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
 
 % Berikan analisis hasil penelitian \& pengujian, berupa data yang didapatkan dari penelitian \& pengujian Tugas Akhir yang sudah anda kerjakan. Gunakan gambar dan tabel sebagai alat bantu menjelaskan analisis hasil. Data luaran penelitian yang dapat dianalisis berupa: \par
 % \begin{enumerate}[noitemsep]
