@@ -533,7 +533,8 @@ ukuran citra. Untuk \textit{training} yang menggunakan citra 28x28 piksel,
 model menggunakan \textit{scratch} sedangkan untuk \textit{training} 
 yang menggunakan citra 224x224 piksel, model menggunakan model yang sudah 
 disediakan oleh \textit{torchvision}. Hasil evaluasi disajikan pada Tabel 
- untuk \textit{training} 28x28 piksel dan Tabel untuk \textit{training} 
+\ref{tab:hasil_resnet18baseline_28} untuk \textit{training} 28x28 piksel 
+dan Tabel \ref{tab:hasil_resnet18baseline_224} untuk \textit{training} 
 224x224 piksel. \par 
 
 \begin{table}[h]
@@ -571,6 +572,42 @@ yang rendah dapat didefinisikan bahwa model masih kurang optimal mendeteksi
 seluruh data pada masing-masing kelasnya. Meskipun demikian, nilai 
 \textit{AUC} mendapatkan 0.92 yang mana model dapat memisahkan kelas 
 dengan baik. \par
+
+\begin{table}[h]
+    \centering
+    \caption{Hasil Evaluasi \textit{ResNet-18 Baseline} Dengan Citra 224x224 Piksel}
+    \label{tab:hasil_resnet18baseline_224}
+    \begin{tabular}{|m{0.46\textwidth}|C{0.12\textwidth}|}
+        \hline
+        \textbf{Metrik Evaluasi} & \textbf{Nilai} \\
+        \hline
+        \textit{Accuracy}  & 0.78 \\
+        \hline
+        \textit{Precision} (Macro)  & 0.66 \\
+        \hline
+        \textit{Recall} (Macro)  & 0.53 \\
+        \hline
+        \textit{F1-Score} (Macro)  & 0.56 \\
+        \hline
+        \textit{AUC}  & 0.93 \\
+        \hline
+    \end{tabular}
+\end{table}
+
+Berdasarkan Tabel \ref{tab:hasil_resnet18baseline_224}, nilai akurasi 
+berada pada angka 0.78. Untuk \textit{precision} makro mendapatkan 0.66 
+yang menandakan rata-rata model dalam memprediksi di setiap kelasnya 
+cukup baik. Selain itu, model masih belum cukup baik untuk 
+prediksi data yang benar dari keseluruhan data di kelasnya masing-masing, 
+dilihat dari nilai\textit{recall} makro sebesar 0.53. Dikarenakan kedua 
+nilai \textit{precision} makro dan \textit{recall} makro yang belum cukup 
+baik, mengakibatkan nilai rata-rata harmonik yaitu \textit{f1-score} makro 
+mendapatkan nilai 0.56. Meskipun demikian, model mampu untuk membedakan 
+antar kelasnya dilihat dari nilai \textit{AUC} sebesar 0.93. \par
+
+
+\subsubsection{Model \textit{ResNet-50 Baseline}} \label{IV.Resnet50_Baseline}
+
 
 % Berikan analisis hasil penelitian \& pengujian, berupa data yang didapatkan dari penelitian \& pengujian Tugas Akhir yang sudah anda kerjakan. Gunakan gambar dan tabel sebagai alat bantu menjelaskan analisis hasil. Data luaran penelitian yang dapat dianalisis berupa: \par
 % \begin{enumerate}[noitemsep]
