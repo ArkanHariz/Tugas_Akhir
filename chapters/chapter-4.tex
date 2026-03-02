@@ -513,6 +513,65 @@ adalah 0.59 dan nilai \textit{AUC} sebesar 0.95. \par
 % \end{lstlisting}
 
 \section{Analisis Hasil Penelitian} \label{IV.Analisis}
+Pada bagian ini dilakukan analisis perbandingan antara hasil \textit{baseline} 
+dengan hasil penelitian yang sudah dilakukan. Perbandingan dilakukan 
+untuk melihat performa yang berhasil dicapai dari segi akurasi, \textit{loss} dan
+\textit{confussion matrix}, maupun ketahanan model dalam menangani variasi 
+data. \par
+
+\subsection{Hasil Model \textit{Baseline}} \label{IV.Baseline}
+Model \textit{baseline} melakukan \textit{training} menggunakan dua 
+arsitektur yaitu \textit{ResNet-18} dan \textit{ResNet-50} dan menggunakan 
+citra dengan ukuran 28x28 dan 224x224 piksel sebagai inputan di 
+masing-masing model. Pada model \textit{baseline} tidak dilakukannya 
+augmentasi pada data terutama pada kelas minoritas nya. \textit{Baseline} 
+hanya melakukan \textit{rezise} dan normalisasi. \par
+
+\subsubsection{Model \textit{ResNet-18 Baseline}} \label{IV.Resnet18_Baseline}
+Model \textit{ResNet-18 baseline} di-\textit{training} menggunakan dua 
+ukuran citra. Untuk \textit{training} yang menggunakan citra 28x28 piksel, 
+model menggunakan \textit{scratch} sedangkan untuk \textit{training} 
+yang menggunakan citra 224x224 piksel, model menggunakan model yang sudah 
+disediakan oleh \textit{torchvision}. Hasil evaluasi disajikan pada Tabel 
+ untuk \textit{training} 28x28 piksel dan Tabel untuk \textit{training} 
+224x224 piksel. \par 
+
+\begin{table}[h]
+    \centering
+    \caption{Hasil Evaluasi \textit{ResNet-18 Baseline} Dengan Citra 28x28 Piksel}
+    \label{tab:hasil_resnet18baseline_28}
+    \begin{tabular}{|m{0.46\textwidth}|C{0.12\textwidth}|}
+        \hline
+        \textbf{Metrik Evaluasi} & \textbf{Nilai} \\
+        \hline
+        \textit{Accuracy}  & 0.75 \\
+        \hline
+        \textit{Precision} (Macro)  & 0.62 \\
+        \hline
+        \textit{Recall} (Macro)  & 0.50 \\
+        \hline
+        \textit{F1-Score} (Macro)  & 0.54 \\
+        \hline
+        \textit{AUC}  & 0.92 \\
+        \hline
+    \end{tabular}
+\end{table}
+
+Hasil yang didapatkan dari \textit{training} yaitu model \textit{ResNet-18 baseline} 
+dengan citra 28x28 piksel menghasilkan akurasi sebesar 0.75. Pada 
+\textit{precision} makro mendapatkan 0.62 menunjukkan model memprediksi 
+suatu kelas yang benar sesuai dengan labelnya sebesar 62\%, dan sisanya 
+merupakan \textit{false positive}. Berdasarkan nilai \textit{precision} 
+yang didapatkan bahwa model masih sering melakukan kesalahan dalam prediksi. 
+Untuk \textit{recall} makro mendapatkan 0.50 menunjukkan model mampu 
+mendeteksi seluruh sampel yang seharusnya masuk dalam masing-masing kelas 
+adalah 50\%. Dengan kata lain, model hanya mampu mengenali setengah dari 
+total data yang benar-benar termasuk dalam suatu kelas. Nilai \textit{recall} 
+yang rendah dapat didefinisikan bahwa model masih kurang optimal mendeteksi 
+seluruh data pada masing-masing kelasnya. Meskipun demikian, nilai 
+\textit{AUC} mendapatkan 0.92 yang mana model dapat memisahkan kelas 
+dengan baik. \par
+
 % Berikan analisis hasil penelitian \& pengujian, berupa data yang didapatkan dari penelitian \& pengujian Tugas Akhir yang sudah anda kerjakan. Gunakan gambar dan tabel sebagai alat bantu menjelaskan analisis hasil. Data luaran penelitian yang dapat dianalisis berupa: \par
 % \begin{enumerate}[noitemsep]
 % 	\item Hasil pengujian
