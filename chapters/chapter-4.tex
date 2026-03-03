@@ -840,16 +840,16 @@ def forward(self, x):
 
 # Model Sendiri (Scratch)
 def forward(self, x):
-        out = F.relu(self.bn1(self.conv1(x)))
-        out = self.layer1(out)
-        out = self.layer2(out)
-        out = self.layer3(out)
-        out = self.layer4(out)
-        out = self.avgpool(out)
-        out = out.view(out.size(0), -1)
-        out = self.dropout(out) # Dropout
-        out = self.linear(out)
-        return out
+    out = F.relu(self.bn1(self.conv1(x)))
+    out = self.layer1(out)
+    out = self.layer2(out)
+    out = self.layer3(out)
+    out = self.layer4(out)
+    out = self.avgpool(out)
+    out = out.view(out.size(0), -1)
+    out = self.dropout(out) # Dropout
+    out = self.linear(out)
+    return out
 \end{lstlisting}
 
 Pada \textit{Baseline}, model tidak menggunakan \textit{dropout} sehingga 
@@ -859,13 +859,49 @@ menggunakan \textit{dropout} yang diletakka sesudah \textit{pooling} dan
 sebelum \textit{fully connected}. \textit{Dropout rate} yang digunakan 
 pada model \textit{scratch} yaitu 0.7, yang berarti 70\% neuron akan 
 dinonaktifkan secara acak pada setiap iterasi \textit{training}. 
-\textit{Dropout rate} yang cukup ekstrim ini bertujuan untuk menekan risiko 
-overfitting, yang perlu diingat bahwa model ini dilatih dari awal 
-(\textit{scratch}) dan memiliki dataset yang tidak seimbang.
+Perlu diingat bahwa model ini dilatih dari awal (\textit{scratch}) dan 
+memiliki dataset yang tidak seimbang, \textit{Dropout rate} dibuat cukup 
+ekstrim ini bertujuan untuk menekan risiko overfitting \cite{srivastava2014dropout}. 
 
 
 \subsubsection{Model \textit{Pretrained} } \label{IV.Pretrained}
 
+\begin{lstlisting}[caption={Perbedaan \textit{Pretrained Baseline} Dengan Model Sendiri}, label={code:4.perbedaan_pretrained}]
+# Model Baseline (Pretrained)
+if model_flag == 'resnet18':
+    model =  resnet18(pretrained=False, num_classes=n_classes) if resize else ResNet18(in_channels=n_channels, num_classes=n_classes)
+elif model_flag == 'resnet50':
+    model =  resnet50(pretrained=False, num_classes=n_classes) if resize else ResNet50(in_channels=n_channels, num_classes=n_classes)
+else:
+    raise NotImplementedError
+
+#-------------------------------------------------------------#
+
+# Model Sendiri (Pretrained)
+if model_flag == 'resnet18':
+    model = resnet18(weights=ResNet18_Weights.IMAGENET1K_V1)
+    num_ftrs = model.fc.in_features
+    model.fc = nn.Sequential(
+        nn.Dropout(p=dropout_prob),
+        nn.Linear(num_ftrs, n_classes)
+    )
+else:
+    model = resnet50(weights=ResNet50_Weights.IMAGENET1K_V1)
+    num_ftrs = model.fc.in_features
+    model.fc = nn.Sequential(
+        nn.Dropout(p=dropout_prob),
+        nn.Linear(num_ftrs, n_classes)
+    )
+\end{lstlisting}
+
+Berdasarkan pada Kode \ref{code:4.perbedaan_pretrained}, terdapat perbedaan 
+saat melakukan \textit{train} dengan citra 224x224. Pada model 
+\textit{baseline} kedua model yaitu \textit{ResNet-18} dan \textit{ResNet-50} 
+menggunakan model yang sudah disiapkan oleh \textit{PyTorch} dengan 
+memanggil pustaka \textit{torchvision} dan pada \textit{baseline} tidak 
+menggunakan \textit{pretrained} yang ditandai parameter \textit{pretrained} 
+yang bernilai \textit{False}. Sedangkan untuk model sendiri, kedua model 
+menggunakan \textit{pretrained} dari ImageNet.
 
 
 \subsection{Perbandingan Hasil \textit{Baseline} Dengan Hasil Sendiri} \label{IV.Perbandingan_Hasil_Baseline}

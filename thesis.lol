@@ -5,3 +5,4 @@
 \contentsline {lstlisting}{\numberline {4.5}{\ignorespaces Kode ResNet-18 224x224}}{52}{lstlisting.4.5}%
 \contentsline {lstlisting}{\numberline {4.6}{\ignorespaces Kode ResNet-50 224x224}}{53}{lstlisting.4.6}%
 \contentsline {lstlisting}{\numberline {4.7}{\ignorespaces Perbedaan Struktur \textit {Baseline} Dengan Model Sendiri}}{58}{lstlisting.4.7}%
+\contentsline {lstlisting}{\numberline {4.8}{\ignorespaces Perbedaan \textit {Pretrained Baseline} Dengan Model Sendiri}}{58}{lstlisting.4.8}%
