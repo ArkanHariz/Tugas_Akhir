@@ -809,9 +809,64 @@ yaitu 0.92 menunjukkan model masih mampu untuk membedakan antar kelasnya
 dengan baik. Dengan demikian, model ini masih belum optimal dan memerlukan 
 peningkatan. \par
 
-\subsection{Perbandingan Model \textit{Baseline} Dengan Hasil Sendiri} \label{IV.Perbandingan_Model}
+\subsection{Perbandingan Model \textit{Baseline} Dengan Model Sendiri} \label{IV.Perbandingan_Model}
+Kedua model \textit{baseline} dan model sendiri terdapat perbedaan, 
+walaupun model yang digunakan sama yaitu \textit{ResNet-18} dan \textit{ResNet-50}. 
+Perbedaan berada pada model yang di-\textit{train} untuk citra 28x28 dan 
+model yang di-\textit{train} untuk citra 224x224. Untuk model yang 
+di-\textit{train} dengan citra 28x28 menggunakan \textit{scratch} dan 
+untuk model yang di-\textit{train} dengan citra 224x224 menggunakan model 
+bukan \textit{scratch} atau \textit{pretrained}. \par 
 
-\subsection{Perbandingan \textit{Loss}} \label{IV.Perbandingan_Loss}
+\subsubsection{Model \textit{Scratch}} \label{IV.Scratch}
+Dalam struktur model nya, terdapat sebuah perbedaan struktur pada model 
+\textit{baseline} dengan model sendiri. Perbedaan struktur dapat dilihat 
+pada Kode . \par
+
+\begin{lstlisting}[caption={Perbedaan Struktur \textit{Baseline} Dengan Model Sendiri}, label={code:4.perbedaan_scratch}]
+# Model Baseline (Scratch)
+def forward(self, x):
+    out = F.relu(self.bn1(self.conv1(x)))
+    out = self.layer1(out)
+    out = self.layer2(out)
+    out = self.layer3(out)
+    out = self.layer4(out)
+    out = self.avgpool(out)
+    out = out.view(out.size(0), -1)
+    out = self.linear(out)
+    return out
+
+#-------------------------------------------------------------#
+
+# Model Sendiri (Scratch)
+def forward(self, x):
+        out = F.relu(self.bn1(self.conv1(x)))
+        out = self.layer1(out)
+        out = self.layer2(out)
+        out = self.layer3(out)
+        out = self.layer4(out)
+        out = self.avgpool(out)
+        out = out.view(out.size(0), -1)
+        out = self.dropout(out) # Dropout
+        out = self.linear(out)
+        return out
+\end{lstlisting}
+
+Pada \textit{Baseline}, model tidak menggunakan \textit{dropout} sehingga 
+seluruh neuron pada setiap layer berkontribusi penuh 
+saat proses \textit{training}. Berbeda dengan model sendiri yang 
+menggunakan \textit{dropout} yang diletakka sesudah \textit{pooling} dan 
+sebelum \textit{fully connected}. \textit{Dropout rate} yang digunakan 
+pada model \textit{scratch} yaitu 0.7, yang berarti 70\% neuron akan 
+dinonaktifkan secara acak pada setiap iterasi \textit{training}. 
+\textit{Dropout rate} yang cukup ekstrim ini bertujuan untuk menekan risiko 
+overfitting, yang perlu diingat bahwa model ini dilatih dari awal 
+(\textit{scratch}) dan memiliki dataset yang tidak seimbang.
+
+
+\subsubsection{Model \textit{Pretrained} } \label{IV.Pretrained}
+
+
 
 \subsection{Perbandingan Hasil \textit{Baseline} Dengan Hasil Sendiri} \label{IV.Perbandingan_Hasil_Baseline}
 
