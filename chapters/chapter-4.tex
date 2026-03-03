@@ -823,7 +823,7 @@ Dalam struktur model nya, terdapat sebuah perbedaan struktur pada model
 \textit{baseline} dengan model sendiri. Perbedaan struktur dapat dilihat 
 pada Kode . \par
 
-\begin{lstlisting}[caption={Perbedaan Struktur \textit{Baseline} Dengan Model Sendiri}, label={code:4.perbedaan_scratch}]
+\begin{lstlisting}[caption={Perbedaan Model \textit{Scratch}}, label={code:4.perbedaan_scratch}]
 # Model Baseline (Scratch)
 def forward(self, x):
     out = F.relu(self.bn1(self.conv1(x)))
@@ -866,7 +866,7 @@ ekstrim ini bertujuan untuk menekan risiko overfitting \cite{srivastava2014dropo
 
 \subsubsection{Model \textit{Pretrained} } \label{IV.Pretrained}
 
-\begin{lstlisting}[caption={Perbedaan \textit{Pretrained Baseline} Dengan Model Sendiri}, label={code:4.perbedaan_pretrained}]
+\begin{lstlisting}[caption={Perbedaan Model \textit{Pretrained}}, label={code:4.perbedaan_pretrained}]
 # Model Baseline (Pretrained)
 if model_flag == 'resnet18':
     model =  resnet18(pretrained=False, num_classes=n_classes) if resize else ResNet18(in_channels=n_channels, num_classes=n_classes)
@@ -902,6 +902,32 @@ memanggil pustaka \textit{torchvision} dan pada \textit{baseline} tidak
 menggunakan \textit{pretrained} yang ditandai parameter \textit{pretrained} 
 yang bernilai \textit{False}. Sedangkan untuk model sendiri, kedua model 
 menggunakan \textit{pretrained} dari ImageNet.
+
+
+\subsection{Penggunaan \textit{Class Weight}} \label{IV.Penggunaan_Class_Weight}
+Pada penelitian ini, digunakannya \textit{class weight} yang diletakkan 
+pada \textit{loss function} yaitu \textit{cross-entropy loss}. Penggunaan 
+dapat \textit{class weight} dapat dilihat pada Kode \ref{code:4.class_weight}. \par
+
+\begin{lstlisting}[caption={Penggunaan \textit{Class Weight}}, label={code:4.class_weight}]
+counts = np.array([327, 514, 1099, 115, 1113, 6705, 142])
+weights = 1.0 / counts
+weights = weights / weights.sum() * n_classes 
+class_weights = torch.tensor(weights).float().to(device)
+
+criterion = nn.CrossEntropyLoss(weight=class_weights)
+\end{lstlisting}
+
+Penggunaan \textit{class weight} pada penelitian ini bertujuan untuk 
+menangani \textit{imbalanced data}. Berdasarkan pada Kode \ref{code:4.class_weight}, 
+menghitung nilai invers dari jumlah data pada masing-masing kelas untuk 
+menentukan bobot yang berguna untuk memberikan penalti lebih besar saat 
+model salah memprediksi pada kelas minoritas. Proses ini akan memberikan 
+bobot tertinggi pada kelas dengan jumlah data nya paling sedikit sementara 
+kelas yang memiliki jumlah data nya paling banyak mendapatkan bobot yang 
+rendah. \textit{Class weight} digunakan pada \textit{loss function} yaitu \textit{cross-entropy loss} 
+supaya model dapat setara terhadap semua kelas. 
+
 
 
 \subsection{Perbandingan Hasil \textit{Baseline} Dengan Hasil Sendiri} \label{IV.Perbandingan_Hasil_Baseline}
