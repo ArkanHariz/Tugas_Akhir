@@ -985,11 +985,11 @@ yang berada pada angka 0.53. Selain hasil \textit{ResNet-18} dengan citra
 overfitting yang mana grafik \textit{val loss} yang menurun seiring 
 berjalanya proses \textit{training} walaupun terdapat lonjakan dibeberapa
 epoch dibandingkan \textit{ResNet-18} 224x224 
-tanpa melakukan augmentasi minoritas yang masih overfitting yang ditandai 
+tanpa melakukan augmentasi minoritas yang masih \textit{overfitting} yang ditandai 
 \textit{val loss} yang tidak menurun sampai akhir proses \textit{training}. 
 Untuk grafik \textit{loss} \textit{Resnet-18} 224x224 augmentasi minoritas 
-dapat dilihat pada Gambar dan grafik los \textit{Resnet-18} 224x224 tanpa 
-augmentasi minoritas dapat dilihat pada Gambar . \par
+dapat dilihat pada Gambar \ref{fig:4.resnet18_224_aug} dan grafik los \textit{Resnet-18} 224x224 tanpa 
+augmentasi minoritas (\textit{baseline}) dapat dilihat pada Gambar \ref{fig:4.resnet18_224_no_aug}. \par
 
 \begin{figure}[H] % Kalau menggunakan H, posisi gambar akan tepat dibawah teks
     \centering
@@ -1003,6 +1003,113 @@ augmentasi minoritas dapat dilihat pada Gambar . \par
     \includegraphics[width=1.0\textwidth]{figure/resnet18_224_no_aug.png}
     \caption{Grafik Loss Resnet-18 224x224 Tanpa Augmentasi Minoritas}
     \label{fig:4.resnet18_224_no_aug}
+\end{figure}
+
+Untuk model \textit{ResNet-18} dengan citra 28x28 yang dilakukan augmentasi 
+minoritas, hasil evaluasi model masih belum melebihi model \textit{baseline} 
+yang tidak melakukan augmentasi minoritas. Dari segi akurasi, model 
+\textit{ResNet-18} dengan augmentasi minoritas hanya mendapatkan akurasi 
+sebesar 0.60 yang mana lebih rendah dibandingkan model \textit{baseline} 
+yang mendapatkan akurasi sebesar 0.75. Nilai \textit{precision} makro pun 
+hanya mendapatkan 0.44 berbanding jauh dengan model \textit{baseline} 
+yang mendapatkan \textit{precision} 0.62. Dikarenakan nilai \textit{precision} 
+yang rendah pada model \textit{ResNet-18} augmentasi minoritas, membuat 
+nilai \textit{f1-score} mendapatkan nilai yang rendah yaitu 0.45. Meskipun 
+pada model \textit{baseline}, nilai \textit{f1-score} nya mendapatkan 0.54 
+yang mana masih belum cukup baik tetapi dibandingkan dengan \textit{ResNet-18} 
+dengan augmentasi minortias, nilai \textit{f1-score} pada model 
+\textit{baseline} lebih baik. Disisi lain, dapat dilihat pada \textit{loss} 
+yang didapatkan pada kedua model. Grafik \textit{loss} pada \textit{ResNet-18} 
+yang dilakukannya augmentasi minoritas menunjukkan rendah nya risiko 
+\textit{overfitting} yang mana grafik pada \textit{val loss} menurun 
+seiring proses \textit{training} dibandingkan dengan grafik \textit{loss} 
+pada model \textit{baseline} yang tidak menurun seiring proses \textit{training}. 
+Untuk grafik \textit{loss} \textit{Resnet-18} 28x28 augmentasi minoritas 
+dapat dilihat pada Gambar \ref{fig:4.resnet18_28_aug} dan grafik \textit{loss} 
+\textit{Resnet-18} 28x28 tanpa augmentasi minoritas (\textit{baseline}) 
+dapat dilihat pada Gambar \ref{fig:4.resnet18_28_no_aug}. \par
+
+\begin{figure}[H] % Kalau menggunakan H, posisi gambar akan tepat dibawah teks
+    \centering
+    \includegraphics[width=1.0\textwidth]{figure/resnet18_28_aug.png}
+    \caption{Grafik Loss Resnet-18 28x28 Augmentasi Minoritas}
+    \label{fig:4.resnet18_28_aug}
+\end{figure}
+
+\begin{figure}[H] % Kalau menggunakan H, posisi gambar akan tepat dibawah teks
+    \centering
+    \includegraphics[width=1.0\textwidth]{figure/resnet18_28_no_aug.png}
+    \caption{Grafik Loss Resnet-18 28x28 Tanpa Augmentasi Minoritas}
+    \label{fig:4.resnet18_28_no_aug}
+\end{figure}
+
+Model selanjutnya yaitu \textit{ResNet-50} dengan citra 28x28 yang 
+di-\textit{training} dengan citra 28x28. Pada model \textit{ResNet-50} 
+yang dilakukan augmentasi minoritas mendapatkan akurasi 0.62 yang mana 
+akurasi tersebut masih rendah dibandingkan dengan model \textit{baseline} 
+yang mendapatkan akurasi sebesar 0.74. Secara keseluruhan hasil, \textit{ResNet-50} 
+masih di bawah model \textit{baseline} yang tidak melakukan augmentasi 
+minoritas. Nilai \textit{precision} pada model \textit{ResNet-50} dengan 
+augmentasi minoritas mendapatkan nilai 0.41 yang mana nilai tersebut masih 
+rendah dibandingkan dengan model \textit{baseline} yang mendapatkan nilai 
+\textit{precision} sebesar 0.65. Walaupun nilai \textit{recall} pada model 
+yang melakukan augmentasi minoritas mendapatkan nilai 0.59 diatas model 
+\textit{baseline}. Meskipun demikian, untuk nilai \textit{f1-score} pada 
+kedua model tidak cukup baik yang mana model \textit{ResNet-50} dengan 
+augmentasi minoritas hanya mendapatkan nilai 0.45 dan model \textit{baseline} 
+mendapatkan nilai 0.48. Untuk \textit{loss} pada kedua model, model 
+\textit{baseline} masih berisiko \textit{overfitting} dilihat pada grafik 
+\textit{val loss} yang menaik dibandingkan grafik \textit{val loss} pada 
+model \textit{ResNet-50} dengan augmentasi minoritas yang terlihat menurun. 
+Gambar grafik \textit{loss} dapat dilihat pada Gambar untuk 
+\textit{ResNet-50} dengan augmentasi minoritas dan Gambar untuk model 
+\textit{baseline}. \par
+
+\begin{figure}[H] % Kalau menggunakan H, posisi gambar akan tepat dibawah teks
+    \centering
+    \includegraphics[width=1.0\textwidth]{figure/resnet50_28_aug.png}
+    \caption{Grafik Loss Resnet-50 28x28 Augmentasi Minoritas}
+    \label{fig:4.resnet50_28_aug}
+\end{figure}
+
+\begin{figure}[H] % Kalau menggunakan H, posisi gambar akan tepat dibawah teks
+    \centering
+    \includegraphics[width=1.0\textwidth]{figure/resnet50_28_no_aug.png}
+    \caption{Grafik Loss Resnet-50 28x28 Tanpa Augmentasi Minoritas}
+    \label{fig:4.resnet50_28_no_aug}
+\end{figure}
+
+Kemudian terdapat model \textit{ResNet-50} yang di-\textit{training} 
+menggunakan citra 224x224. Pada kedua model yaitu \textit{ResNet-50} dengan 
+augmentasi minoritas dengan model \textit{baseline}, model \textit{baseline} 
+masih unggul dari akurasi yang mendapatkan 0.76 dibandingkan model \textit{ResNet-50} 
+dengan augmentasi minoritas yang mendapatkan akurasi 0.74. Tetapi untuk 
+nilai \textit{precision} dan \textit{recall}, model \textit{baseline} 
+lebih rendah yang mana mendapatkan nilai 0.55 dan 0.49 dibandingkan model 
+\textit{ResNet-50} dengan augmentasi minoritas yang mendapatkan nilai 
+\textit{precision} 0.69 dan nilai \textit{recall} 0.74. Kedua nilai 
+tersebut menyebabkan nilai \textit{f1-score} pada model \textit{ResNet-50} 
+dengan augmentasi minoritas mendapatkan nilai sebesar 0.70 lebih baik 
+dibandingkan dengan model \textit{baseline} yang nilai \textit{f1-score}-nya 
+0.52. Dari sisi \textit{loss}, model \textit{ResNet-50} dengan augmentasi 
+minoritas masih rentan terhadap \textit{overfitting} jika dilihat dari grafik \textit{val loss} dari kedua 
+model tidak menurun selama proses \textit{training} dibandingkan model 
+\textit{baseline} yang risiko nya rendah terhadap \textit{overfitting}. 
+Grafik \textit{loss} dapat dilihat pada Gambar \ref{fig:4.resnet50_224_aug} 
+dan Gambar \ref{fig:4.resnet50_224_no_aug}. \par
+
+\begin{figure}[H] % Kalau menggunakan H, posisi gambar akan tepat dibawah teks
+    \centering
+    \includegraphics[width=0.9\textwidth]{figure/resnet50_224_aug.png}
+    \caption{Grafik Loss Resnet-50 224x224 Augmentasi Minoritas}
+    \label{fig:4.resnet50_224_aug}
+\end{figure}
+
+\begin{figure}[H] % Kalau menggunakan H, posisi gambar akan tepat dibawah teks
+    \centering
+    \includegraphics[width=0.9\textwidth]{figure/resnet50_224_no_aug.png}
+    \caption{Grafik Loss Resnet-50 224x224 Tanpa Augmentasi Minoritas}
+    \label{fig:4.resnet50_224_no_aug}
 \end{figure}
 
 % Berikan analisis hasil penelitian \& pengujian, berupa data yang didapatkan dari penelitian \& pengujian Tugas Akhir yang sudah anda kerjakan. Gunakan gambar dan tabel sebagai alat bantu menjelaskan analisis hasil. Data luaran penelitian yang dapat dianalisis berupa: \par
