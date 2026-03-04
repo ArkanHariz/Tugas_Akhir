@@ -929,8 +929,58 @@ rendah. \textit{Class weight} digunakan pada \textit{loss function} yaitu \texti
 supaya model dapat setara terhadap semua kelas. 
 
 
-
 \subsection{Perbandingan Hasil \textit{Baseline} Dengan Hasil Sendiri} \label{IV.Perbandingan_Hasil_Baseline}
+Pada bagian ini dilakukan perbandingan hasil evaluasi dari \textit{baseline} 
+dengan hasil evaluasi dari model sendiri. Keduanya diuji menggunakan 
+data uji sebanyak 2.005 data. Perbedaan berada pada augmentasi kelas 
+minoritas yang dilakukan pada model sendiri, sedangkan pada 
+\textit{baseline} tidak dilakukan augmentasi pada data terutama pada 
+kelas minoritas nya. Perbandingan hasil evaluasi dapat dilihat pada Tabel 
+ \par.
+
+\begin{table}[!htbp]
+\centering
+\caption{Perbandingan Hasil \textit{Baseline} dan Model Sendiri}
+\label{tab:perbandingan_hasil_evaluasi}
+
+\begin{tabular}{lccccc}
+    \toprule
+    & \textbf{Accuracy} & \textbf{Precision} & \textbf{Recall} & \textbf{F1-Score} & \textbf{AUC} \\
+    \midrule
+
+    \multicolumn{6}{l}{\textbf{Augmentasi Minoritas}} \\
+    \midrule
+    ResNet-18 (28) & 0.60 & 0.44 & 0.62 & 0.45 & 0.91 \\
+    Resnet-50 (28) & 0.62 & 0.41 & 0.59 & 0.45 & 0.89 \\
+    Resnet-18 (224) & \textbf{0.80} & \textbf{0.71} & \textbf{0.76} & \textbf{0.73} & \textbf{0.95} \\
+    Resnet-50 (224) & 0.74 & 0.69 & 0.74 & 0.70 & \textbf{0.95} \\
+
+    \midrule
+    \multicolumn{6}{l}{\textbf{Tanpa Augmentasi Minoritas}} \\
+    \midrule
+    ResNet-18 (28) & 0.75 & 0.62 & 0.50 & 0.54 & 0.92 \\
+    Resnet-50 (28) & 0.74 & 0.65 & 0.45 & 0.48 & 0.91 \\
+    Resnet-18 (224) & 0.78 & 0.66 & 0.53 & 0.56 & 0.93 \\
+    Resnet-50 (224) & 0.76 & 0.55 & 0.49 & 0.52 & 0.92 \\
+
+    \bottomrule
+    \end{tabular}
+\end{table}
+
+Berdasarkan pada Tabel \ref{tab:perbandingan_hasil_evaluasi} terkait 
+perbandingan hasil evaluasi antara model \textit{baseline} yang tanpa 
+augmentasi minoriotas dengan model sendiri yang menggunakan augmentasi 
+minoritas, hasil \textit{ResNet-18} dengan citra 224x224 yang dilakukannya 
+augmentasi pada kelas minoritas lebih unggul secara keseluruhan. Berdasarkan 
+hal tersebut bahwa \textit{ResNet-18} dengan citra 224x224 yang dilakukannya 
+augmentasi kelas minoritas menunjukkan lebih baik dalam mengenali pola data, 
+dapat menjaga keseimbangan ketepatan saat memprediksi (\textit{precision}) 
+dan mampu deteksi data yang benar dari keseluruhan data pada kelas nya masing-masing 
+(\textit{recall}). Sementara untuk model \textit{ResNet-18} dengan citra 224x224 
+yang tidak melakukan augmentasi minoritas memiliki hasil yang rendah yang 
+membuat model tersebut masih salah dalam mendeteksi data yang benar dari 
+keseluruhan data pada kelas nya masing-masing berdasarkan nilai \textit{recall}-nya 
+yang berada pada angka 0.53. \par
 
 % Berikan analisis hasil penelitian \& pengujian, berupa data yang didapatkan dari penelitian \& pengujian Tugas Akhir yang sudah anda kerjakan. Gunakan gambar dan tabel sebagai alat bantu menjelaskan analisis hasil. Data luaran penelitian yang dapat dianalisis berupa: \par
 % \begin{enumerate}[noitemsep]
