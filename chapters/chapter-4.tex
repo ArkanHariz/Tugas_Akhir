@@ -980,7 +980,30 @@ dan mampu deteksi data yang benar dari keseluruhan data pada kelas nya masing-ma
 yang tidak melakukan augmentasi minoritas memiliki hasil yang rendah yang 
 membuat model tersebut masih salah dalam mendeteksi data yang benar dari 
 keseluruhan data pada kelas nya masing-masing berdasarkan nilai \textit{recall}-nya 
-yang berada pada angka 0.53. \par
+yang berada pada angka 0.53. Selain hasil \textit{ResNet-18} dengan citra 
+224x224 augmentasi minorits yang unggul, model dapat mengurangi risiko 
+overfitting yang mana grafik \textit{val loss} yang menurun seiring 
+berjalanya proses \textit{training} walaupun terdapat lonjakan dibeberapa
+epoch dibandingkan \textit{ResNet-18} 224x224 
+tanpa melakukan augmentasi minoritas yang masih overfitting yang ditandai 
+\textit{val loss} yang tidak menurun sampai akhir proses \textit{training}. 
+Untuk grafik \textit{loss} \textit{Resnet-18} 224x224 augmentasi minoritas 
+dapat dilihat pada Gambar dan grafik los \textit{Resnet-18} 224x224 tanpa 
+augmentasi minoritas dapat dilihat pada Gambar . \par
+
+\begin{figure}[H] % Kalau menggunakan H, posisi gambar akan tepat dibawah teks
+    \centering
+    \includegraphics[width=1.0\textwidth]{figure/resnet18_224_aug.png}
+    \caption{Grafik Loss Resnet-18 224x224 Augmentasi Minoritas}
+    \label{fig:4.resnet18_224_aug}
+\end{figure}
+
+\begin{figure}[H] % Kalau menggunakan H, posisi gambar akan tepat dibawah teks
+    \centering
+    \includegraphics[width=1.0\textwidth]{figure/resnet18_224_no_aug.png}
+    \caption{Grafik Loss Resnet-18 224x224 Tanpa Augmentasi Minoritas}
+    \label{fig:4.resnet18_224_no_aug}
+\end{figure}
 
 % Berikan analisis hasil penelitian \& pengujian, berupa data yang didapatkan dari penelitian \& pengujian Tugas Akhir yang sudah anda kerjakan. Gunakan gambar dan tabel sebagai alat bantu menjelaskan analisis hasil. Data luaran penelitian yang dapat dianalisis berupa: \par
 % \begin{enumerate}[noitemsep]
