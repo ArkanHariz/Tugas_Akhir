@@ -2,7 +2,40 @@
 \chapter{KESIMPULAN DAN SARAN} \label{Bab V}
 
 \section{Kesimpulan} \label{V.Kesimpulan}
-Berisi kesimpulan dari hasil dan pembahasan terkait penelitian yang dilakukan, dapat juga berupa temuan yang Anda dapatkan setelah melakukan penelitian atau analisis terhadap tugas akhir Anda. Memberikan jawaban dari poin pada subbab \nameref{I.Rumusan Masalah} dan \nameref{I.Tujuan}. \par
+Berdasarkan hasil penelitian yang telah dilaksanakan terhadap arsitektur 
+\textit{ResNet-18} dan \textit{ResNet-50} dengan menerapkan augmentasi 
+data kelas minoritas pada dataset DermaMNIST, dapat disimpulkan sebagai 
+berikut.
+
+\begin{enumerate}[noitemsep]
+    \item Penerapan augmentasi data yang ditujukan khusus untuk kelas 
+    minoritas memberikan dampak terhadap kedua performa model yaitu \textit{ResNet-18} 
+    dan \textit{ResNet-50} dalam mengklasifikasikan data pada dataset 
+    DermaMNIST. Kemampuan model meningkat dalam mempelajari kelas minoritas 
+    karena didukung augmentasi sehingga proses pembelajaran menjadi 
+    seimbang. Hal ini dapat dilihat dari hasil evaluasi pada model sendiri.
+
+    \item Hasil menunjukkan performa yang berbeda terhadap \textit{ResNet-18} 
+    dan \textit{ResNet-50} setelah melakukan proses \textit{training} 
+    pada dataset DermaMNIST yang kelas minoritasnya sudah diterapkan 
+    augmentasi data. Dari 4 skema yang telah dilakukan, model \textit{ResNet-18} 
+    yang dilatih dengan citra 224x224 memiliki hasil yang lebih baik. 
+    Model \textit{ResNet-18} dengan citra 224x224 mendapatkan akurasi 
+    sebesar 0.80 (80\%), didukung dengan nilai \textit{precision} yang 
+    mendapatkan nilai sebesar 0.71, nilai \textit{recall} mendapatkan 
+    sebesar 0.76 dan nilai \textit{f1-score} sebesar 0.73. Selain itu, 
+    model mampu dengan baik dalam memisahkan data dari masing-masing 
+    kelasnya yang dilihat dari nilai \textit{AUC} sebesar 0.95. Nilai 
+    MCC yang berada pada nilai 0.64 menunjukkan model mampu mengklasifikasi 
+    dengan cukup baik dan tingkat korelasi positif yang kuat antara prediksi 
+    dan aktual, serta model sudah tidak bergantung lagi denga kelas 
+    mayoritas.
+
+    \item Data uji digunakan untuk mengukur performa akhir model.
+\end{enumerate}
+
+
+% Berisi kesimpulan dari hasil dan pembahasan terkait penelitian yang dilakukan, dapat juga berupa temuan yang Anda dapatkan setelah melakukan penelitian atau analisis terhadap tugas akhir Anda. Memberikan jawaban dari poin pada subbab \nameref{I.Rumusan Masalah} dan \nameref{I.Tujuan}. \par
 
 \section{Saran} \label{V.Saran}
 Berisi saran mengenai aspek tugas akhir atau temuan yang dapat dikembangkan dan diperkaya di tugas akhir selanjutnya. Saran dapat berkaitan erat pada subbab \nameref{IV.Analisis}. \par
