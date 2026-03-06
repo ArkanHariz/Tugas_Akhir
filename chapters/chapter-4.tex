@@ -809,6 +809,7 @@ yaitu 0.92 menunjukkan model masih mampu untuk membedakan antar kelasnya
 dengan baik. Dengan demikian, model ini masih belum optimal dan memerlukan 
 peningkatan. \par
 
+
 \subsection{Perbandingan Model \textit{Baseline} Dengan Model Sendiri} \label{IV.Perbandingan_Model}
 Kedua model \textit{baseline} dan model sendiri terdapat perbedaan, 
 walaupun model yang digunakan sama yaitu \textit{ResNet-18} dan \textit{ResNet-50}. 
@@ -818,10 +819,10 @@ di-\textit{train} dengan citra 28x28 menggunakan \textit{scratch} dan
 untuk model yang di-\textit{train} dengan citra 224x224 menggunakan model 
 bukan \textit{scratch} atau \textit{pretrained}. \par 
 
-\subsubsection{Model \textit{Scratch}} \label{IV.Scratch}
-Dalam struktur model nya, terdapat sebuah perbedaan struktur pada model 
-\textit{baseline} dengan model sendiri. Perbedaan struktur dapat dilihat 
-pada Kode . \par
+
+Dalam struktur model yang di-\textit{training} dengan citra 28x28, 
+terdapat sebuah perbedaan struktur pada model \textit{baseline} dengan 
+model sendiri. Perbedaan struktur dapat dilihat pada Kode \ref{code:4.perbedaan_scratch}. \par
 
 \begin{lstlisting}[caption={Perbedaan Model \textit{Scratch}}, label={code:4.perbedaan_scratch}]
 # Model Baseline (Scratch)
@@ -861,10 +862,12 @@ pada model \textit{scratch} yaitu 0.7, yang berarti 70\% neuron akan
 dinonaktifkan secara acak pada setiap iterasi \textit{training}. 
 Perlu diingat bahwa model ini dilatih dari awal (\textit{scratch}) dan 
 memiliki dataset yang tidak seimbang, \textit{Dropout rate} dibuat cukup 
-ekstrim ini bertujuan untuk menekan risiko overfitting \cite{srivastava2014dropout}. 
+ekstrim ini bertujuan untuk menekan risiko overfitting \cite{srivastava2014dropout}. \par
 
 
-\subsubsection{Model \textit{Pretrained} } \label{IV.Pretrained}
+Selanjutnya pada struktur model yang di-\textit{training} dengan citra 
+224x224, terdapat sebuah perbedaan struktur pada model \textit{baseline} 
+dengan model sendiri. Perbedaan struktur dapat dilihat pada Kode \ref{code:4.perbedaan_pretrained}. \par
 
 \begin{lstlisting}[caption={Perbedaan Model \textit{Pretrained}}, label={code:4.perbedaan_pretrained}]
 # Model Baseline (Pretrained)
