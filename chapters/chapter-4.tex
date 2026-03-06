@@ -862,7 +862,11 @@ pada model \textit{scratch} yaitu 0.7, yang berarti 70\% neuron akan
 dinonaktifkan secara acak pada setiap iterasi \textit{training}. 
 Perlu diingat bahwa model ini dilatih dari awal (\textit{scratch}) dan 
 memiliki dataset yang tidak seimbang, \textit{Dropout rate} dibuat cukup 
-ekstrim ini bertujuan untuk menekan risiko overfitting \cite{srivastava2014dropout}. \par
+ekstrim ini bertujuan untuk menekan risiko overfitting \cite{srivastava2014dropout}. 
+Selain itu, penggunaan dropout dengan nilai yang tinggi juga dapat 
+mendorong model untuk mempelajari representasi fitur yang lebih robust, 
+dengan berharap model tidak ketergantungan pada neuron tertentu saat 
+\textit{training} berlangsung. \par
 
 
 Selanjutnya pada struktur model yang di-\textit{training} dengan citra 
