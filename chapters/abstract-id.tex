@@ -10,10 +10,36 @@
 	\bigskip
 	
 	\normalsize \normalfont \justifying \singlespacing
-	Halaman ABSTRAK berisi uraian tentang latar belakang, tujuan, metodologi penelitian, hasil / kesimpulan. Ditulis dalam BAHASA INDONESIA tidak lebih dari 250 kata, dengan jarak antar baris satu spasi. Pada akhir abstrak ditulis kata “Kata Kunci” yang dicetak tebal, diikuti tanda titik dua dan kata kunci yang tidak lebih dari 5 kata. Kata kunci terdiri dari kata-kata yang khusus menunjukkan dan berkaitan dengan bahan yang diteliti, metode/instrumen yang digunakan, topik penelitian. Kata kunci diketik pada jarak dua spasi dari baris akhir isi abstrak.\par
+	Klasifikasi penyakit kulit merupakan salah satu penerapan 
+	kecerdasan buatan dalam bidang medis, khususnya untuk proses 
+	diagnosis otomatis melalui analisis citra medis. Dataset yang 
+	digunakan dalam penelitian ini yaitu DermaMNIST dengan 7 kelas 
+	didalamnya. Dataset ini 
+	memiliki suatu masalah yaitu ketidakseimbangan distribusi data 
+	antar kelas nya yang terdapat potensi untuk memengaruhi performa 
+	model, terutama pada kelas minoritas. Kondisi ini menyebabkan 
+	model cenderung akurat dalam memprediksi terhadap kelas mayoritas. 
+	Penelitian ini bertujuan menganalisis pengaruh penerapan augmentasi 
+	data pada kelas minoritas terhadap performa model \textit{deep learning} 
+	dalam klasifikasi citra penyakit kulit. Model \textit{CNN based} 
+	yang digunakan adalah \textit{ResNet-18} dan \textit{ResNet-50}. 
+	Penelitian meliputi tahap \textit{preprocessing data}, penerapan 
+	augmentasi citra pada kelas minoritas, \textit{training} model, 
+	dan evaluasi performa model menggunakan metrik \textit{accuracy}, 
+	\textit{precision}, \textit{recall}, \textit{f1-score}, AUC, dan 
+	MCC. Hasil penelitian menunjukkan bahwa model \textit{ResNet-18} 
+	yang di-\textit{train} dengan citra ukuran 224x224 memperoleh 
+	akurasi 80\%, \textit{precision macro} 71\%, \textit{recall macro} 
+	76\%, \textit{f1-score macro} 73\%, AUC 95\%, dan MCC 64\%. 
+	Berdasarkan hasil penelitian, penerapan augmentasi data pada 
+	kelas minoritas dapat mengurangi dampak ketidakseimbangan data 
+	serta meningkatkan kemampuan model dalam melakukan klasifikasi 
+	citra penyakit kulit.
+	
+	% Halaman ABSTRAK berisi uraian tentang latar belakang, tujuan, metodologi penelitian, hasil / kesimpulan. Ditulis dalam BAHASA INDONESIA tidak lebih dari 250 kata, dengan jarak antar baris satu spasi. Pada akhir abstrak ditulis kata “Kata Kunci” yang dicetak tebal, diikuti tanda titik dua dan kata kunci yang tidak lebih dari 5 kata. Kata kunci terdiri dari kata-kata yang khusus menunjukkan dan berkaitan dengan bahan yang diteliti, metode/instrumen yang digunakan, topik penelitian. Kata kunci diketik pada jarak dua spasi dari baris akhir isi abstrak.\par
 
     \vspace{20pt}
-	\raggedright \textbf{Kata Kunci: kunci1, kunci2}
+	\raggedright \textbf{Kata Kunci: Klasifikasi Penyakit Kulit, Augmentasi Data, ResNet-18, ResNet-50, DermaMNIST}
 	
 	\vfill
 	
