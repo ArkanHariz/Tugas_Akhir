@@ -161,20 +161,49 @@ def get_aug_transform(size):
 secara horizontal maupun vertikal. Teknik ini bertujuan supaya model dapat 
 belajar fitur objek dari berbagai sudut pandang. \par
 
+% \begin{figure}[H]
+%     \centering
+    
+%     \begin{subfigure}[t]{0.4\textwidth}
+%         \centering
+%         \includegraphics[width=\textwidth]{figure/h_flip.png}
+%         \caption{Flip Horizontal}
+%     \end{subfigure}
+%     \hfill
+%     \begin{subfigure}[t]{0.4\textwidth}
+%         \centering
+%         \includegraphics[width=\textwidth]{figure/v_flip.png}
+%         \caption{Flip Vertical}
+%     \end{subfigure}
+    
+%     \caption{Hasil Augmentasi Flip}
+%     \label{fig:4.contohflip}
+% \end{figure}
+
 \begin{figure}[H]
     \centering
     
-    \begin{subfigure}[t]{0.4\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{figure/h_flip.png}
-        \caption{Flip Horizontal}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[t]{0.4\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{figure/v_flip.png}
-        \caption{Flip Vertical}
-    \end{subfigure}
+    \setlength{\fboxrule}{1pt} % ketebalan border
+    \setlength{\fboxsep}{5pt}  % jarak isi dengan border
+    
+    \fbox{
+        \begin{minipage}{0.9\textwidth}
+            \centering
+            
+            \begin{subfigure}[t]{0.4\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{figure/h_flip.png}
+                \caption{Flip Horizontal}
+            \end{subfigure}
+            \hfill
+            \begin{subfigure}[t]{0.4\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{figure/v_flip.png}
+                \caption{Flip Vertical}
+            \end{subfigure}
+            
+        \end{minipage}
+    }
     
     \caption{Hasil Augmentasi Flip}
     \label{fig:4.contohflip}
@@ -190,7 +219,7 @@ Pada penelitian ini, rotasi dilakukan dengan sudut 20 derajat. \par
 
 \begin{figure}[H] % Kalau menggunakan H, posisi gambar akan tepat dibawah teks
     \centering
-    \includegraphics[width=0.4\textwidth]{figure/rotation.png}
+    \fbox{\includegraphics[width=0.35\textwidth]{figure/rotation.png}}
     \caption{Hasil Augmentasi Rotasi}
     \label{fig:4.contohrotation}
 \end{figure}
@@ -205,7 +234,7 @@ pencahayaan atau distribusi warna tertentu pada gambar. \par
 
 \begin{figure}[H] % Kalau menggunakan H, posisi gambar akan tepat dibawah teks
     \centering
-    \includegraphics[width=0.4\textwidth]{figure/col_jit.png}
+    \fbox{\includegraphics[width=0.4\textwidth]{figure/col_jit.png}}
     \caption{Hasil Augmentasi Color Jitter}
     \label{fig:4.contohcolorjitter}
 \end{figure}
@@ -219,7 +248,7 @@ menghafal pola tertenut pada gambar. \par
 
 \begin{figure}[H] % Kalau menggunakan H, posisi gambar akan tepat dibawah teks
     \centering
-    \includegraphics[width=0.4\textwidth]{figure/rand_era.png}
+    \fbox{\includegraphics[width=0.4\textwidth]{figure/rand_era.png}}
     \caption{Hasil Augmentasi Random Erasing}
     \label{fig:4.contohrandomerasing}
 \end{figure}
@@ -234,7 +263,7 @@ generalisasi dengan lebih baik.
 
 \begin{figure}[H] % Kalau menggunakan H, posisi gambar akan tepat dibawah teks
     \centering
-    \includegraphics[width=0.4\textwidth]{figure/rand_aug.png}
+    \fbox{\includegraphics[width=0.4\textwidth]{figure/rand_aug.png}}
     \caption{Hasil Augmentasi Random Augment}
     \label{fig:4.contohrandomaugment}
 \end{figure}
@@ -1000,14 +1029,14 @@ augmentasi minoritas (\textit{baseline}) dapat dilihat pada Gambar \ref{fig:4.re
 
 \begin{figure}[H] % Kalau menggunakan H, posisi gambar akan tepat dibawah teks
     \centering
-    \includegraphics[width=1.0\textwidth]{figure/resnet18_224_aug.png}
+    \fbox{\includegraphics[width=1.0\textwidth]{figure/resnet18_224_aug.png}}
     \caption{Grafik Loss Resnet-18 224x224 Augmentasi Minoritas}
     \label{fig:4.resnet18_224_aug}
 \end{figure}
 
 \begin{figure}[H] % Kalau menggunakan H, posisi gambar akan tepat dibawah teks
     \centering
-    \includegraphics[width=1.0\textwidth]{figure/resnet18_224_no_aug.png}
+    \fbox{\includegraphics[width=1.0\textwidth]{figure/resnet18_224_no_aug.png}}
     \caption{Grafik Loss Resnet-18 224x224 Tanpa Augmentasi Minoritas}
     \label{fig:4.resnet18_224_no_aug}
 \end{figure}
@@ -1038,14 +1067,14 @@ dapat dilihat pada Gambar \ref{fig:4.resnet18_28_no_aug}. \par
 
 \begin{figure}[H] % Kalau menggunakan H, posisi gambar akan tepat dibawah teks
     \centering
-    \includegraphics[width=1.0\textwidth]{figure/resnet18_28_aug.png}
+    \fbox{\includegraphics[width=1.0\textwidth]{figure/resnet18_28_aug.png}}
     \caption{Grafik Loss Resnet-18 28x28 Augmentasi Minoritas}
     \label{fig:4.resnet18_28_aug}
 \end{figure}
 
 \begin{figure}[H] % Kalau menggunakan H, posisi gambar akan tepat dibawah teks
     \centering
-    \includegraphics[width=1.0\textwidth]{figure/resnet18_28_no_aug.png}
+    \fbox{\includegraphics[width=1.0\textwidth]{figure/resnet18_28_no_aug.png}}
     \caption{Grafik Loss Resnet-18 28x28 Tanpa Augmentasi Minoritas}
     \label{fig:4.resnet18_28_no_aug}
 \end{figure}
@@ -1074,14 +1103,14 @@ Gambar grafik \textit{loss} dapat dilihat pada Gambar untuk
 
 \begin{figure}[H] % Kalau menggunakan H, posisi gambar akan tepat dibawah teks
     \centering
-    \includegraphics[width=1.0\textwidth]{figure/resnet50_28_aug.png}
+    \fbox{\includegraphics[width=0.8\textwidth]{figure/resnet50_28_aug.png}}
     \caption{Grafik Loss Resnet-50 28x28 Augmentasi Minoritas}
     \label{fig:4.resnet50_28_aug}
 \end{figure}
 
 \begin{figure}[H] % Kalau menggunakan H, posisi gambar akan tepat dibawah teks
     \centering
-    \includegraphics[width=1.0\textwidth]{figure/resnet50_28_no_aug.png}
+    \fbox{\includegraphics[width=0.8\textwidth]{figure/resnet50_28_no_aug.png}}
     \caption{Grafik Loss Resnet-50 28x28 Tanpa Augmentasi Minoritas}
     \label{fig:4.resnet50_28_no_aug}
 \end{figure}
@@ -1107,14 +1136,14 @@ dan Gambar \ref{fig:4.resnet50_224_no_aug}. \par
 
 \begin{figure}[H] % Kalau menggunakan H, posisi gambar akan tepat dibawah teks
     \centering
-    \includegraphics[width=0.9\textwidth]{figure/resnet50_224_aug.png}
+    \fbox{\includegraphics[width=0.9\textwidth]{figure/resnet50_224_aug.png}}
     \caption{Grafik Loss Resnet-50 224x224 Augmentasi Minoritas}
     \label{fig:4.resnet50_224_aug}
 \end{figure}
 
 \begin{figure}[H] % Kalau menggunakan H, posisi gambar akan tepat dibawah teks
     \centering
-    \includegraphics[width=0.9\textwidth]{figure/resnet50_224_no_aug.png}
+    \fbox{\includegraphics[width=0.9\textwidth]{figure/resnet50_224_no_aug.png}}
     \caption{Grafik Loss Resnet-50 224x224 Tanpa Augmentasi Minoritas}
     \label{fig:4.resnet50_224_no_aug}
 \end{figure}
