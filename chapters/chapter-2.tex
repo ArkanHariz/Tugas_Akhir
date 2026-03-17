@@ -133,7 +133,50 @@ penelitian terdahulu yang berkaitan dengan penelitian ini: \par
 % 	\hline
 % \end{longtable}
 
-\begin{tabularx}{\textwidth}{| c | X | X | X | X |}
+% \begin{tabularx}{\textwidth}{| c | X | X | X | X |}
+%     \caption{Tabel Studi Literatur}
+%     \label{table:2.literasi}\\
+    
+%     \hline
+%     \textbf{No.} & \centering \textbf{Judul} & \centering \textbf{Masalah} & \centering \textbf{Metode} & \centering \textbf{Hasil} \tabularnewline
+%     \hline
+%     \endfirsthead
+
+%     \hline
+%     \textbf{No.} & \centering \textbf{Judul} & \centering \textbf{Masalah} & \centering \textbf{Metode} & \centering \textbf{Hasil} \tabularnewline
+%     \hline
+%     \endhead
+
+%     1. & Nerma Kadric, Amila Akagic, Medina Kapo [2025] [\textit{Improving Diagnostic Accuracy of Pigmented Skin Lesions With CNNs: A Case Study with DermaMNIST Dataset}] 
+% 	   & Kelemahan dataset DermaMNIST yang memiliki resolusi gambar yang rendah (28 x 28), \textit{imbalanced data}. 
+% 	   & \textit{Trasnfer learning} arsitektur ResNet-50 dan EfficientNetV2L dengan menggunakan dataset DermaMNIST orisinal dan DermaMNIST-C (resolusi 224 x 224). 
+% 	   & Arsitektur EfficientNetV2L mencapai akurasi 84.90\% pada dataset DermaMNIST-C. \\* \hline
+
+%     2. & Ian Mateos Gonzales, Estefani Jaramilla Nava, Abraham Sánchez Morales, Jesús García Ramírez, Ricardo Ramos Aguilar [2025] [\textit{Lightweight Deep Models for Dermatological Disease Detection: A Study on Instance Selection and Channel Optimization}] 
+% 	   & Model \textit{deep learning} yang ringan untuk deteksi penyakit dermatologis. 
+% 	   & Menggunakan \textit{Lightweight Deep Models}, melakukan \textit{instance selection} menggunakan K-Means Clustering untuk mengurangi data pada kelas mayoritas. 
+% 	   & Model dengan 472K parameter mencapai akurasi 71.57\%, dengan komputasi yang lebih efisien yang sebanding dengan model ResNet. \\* \hline
+
+%     3. & Arindam Halder, Anogh Dalal, Sanghita Gharami, Marcin Wozniak, Muhammad Fazal Ijaz, Pawar Kuman Singh [2025] [\textit{A fuzzy rank-based deep ensemble methodology for multi-class skin cancer classification}] 
+% 	   & \textit{Imbalanced data} pada klasifikasi kanker kulit multi-class. 
+% 	   & \textit{Fuzzy ensemble} dengan menggabungkan Xception, InceptionResNet V2, dan MobileNetV2. Menerapkan augmentasi data untuk menyeimbangkan dataset. 
+% 	   & Model ensemble mencapai akurasi 95\% pada dataset HAM10000 dan mencapai akurasi 73\% dengan menguji model dengan dataset DermaMNIST. \\* \hline
+
+%     4. & Gogor Putra Hafi Puja Gusti, Elin Haerani, Fadhillah Syafria, Febi Yanto, Siska Kurnia Gusti [2024] [Implementasi Algoritma Convolutional Neural Network (ResNet-50) untuk Klasifikasi Kanker Kulit Benign dan Malignant] 
+% 	   & Klasifikasi kanker kulit untuk membedakan antara Benign (jinak) dan Malignant (ganas), yang merupakan masalah klasifikasi biner. 
+% 	   & Implementasi \textit{transfer learning} menggunakan ResNet-50 yang \textit{pre-trained}. 
+% 	   & Dengan menggunakan ResNet-50 mencapai akurasi 90\% dengan \textit{loss} 13\%. \\* \hline
+
+%     5. & Shuwei Shen, Mengjuan Xu, Fan Zhang, Pengfei Shao, Honghong Liu, Liang Xu, Chi Zang, Peng Liu, Peng Yao, Ronald X. Xu [2022] [\textit{A Low-Cost High-Performance Data Augmentation for Deep Learning-Based Skin Lesion Classification}] 
+% 	   & Data klasifikasi lesi kulit yang tidak seimbang. 
+% 	   & Menggunakan arsitektur EfficientNet b2 serta menerapkan \textit{Low Cost Augment} untuk augmentasi data. 
+% 	   & Dengan menerapkan \textit{Low Cost Augment} dan menggunakan arsitektur EfficientNet b2, hasil yang didapatkan dengan evaluasi BACC mencapai 0.853. \\* \hline
+% \end{tabularx}
+
+\begin{landscape} % Memulai halaman landscape
+\begin{small}      % Opsional: memperkecil sedikit font agar lebih lega
+
+\begin{tabularx}{\linewidth}{| c | p{0.25\linewidth} | X | X | X |}
     \caption{Tabel Studi Literatur}
     \label{table:2.literasi}\\
     
@@ -147,36 +190,35 @@ penelitian terdahulu yang berkaitan dengan penelitian ini: \par
     \hline
     \endhead
 
-    1. & 
-    \begin{minipage}[t]{\linewidth} \smallskip Nerma Kadric, dkk [2025] [\textit{Improving Diagnostic Accuracy of Pigmented Skin Lesions With CNNs: A Case Study with DermaMNIST Dataset}] \smallskip \end{minipage} & 
-    \begin{minipage}[t]{\linewidth} \smallskip Kelemahan dataset DermaMNIST yang memiliki resolusi gambar yang rendah (28 x 28), \textit{imbalanced data}. \smallskip \end{minipage} & 
-    \begin{minipage}[t]{\linewidth} \smallskip \textit{Transfer learning} arsitektur ResNet-50 dan EfficientNetV2L dengan menggunakan dataset DermaMNIST orisinal dan DermaMNIST-C (224 x 224). \smallskip \end{minipage} & 
-    \begin{minipage}[t]{\linewidth} \smallskip Arsitektur EfficientNetV2L mencapai akurasi 84.90\% pada dataset DermaMNIST-C. \smallskip \end{minipage} \\ \hline
+    1. & Nerma Kadric, dkk [2025] [\textit{Improving Diagnostic Accuracy of Pigmented Skin Lesions With CNNs: A Case Study with DermaMNIST Dataset}] 
+       & Kelemahan dataset DermaMNIST yang memiliki resolusi gambar yang rendah (28 x 28), \textit{imbalanced data}. 
+       & \textit{Trasnfer learning} arsitektur ResNet-50 dan EfficientNetV2L dengan menggunakan dataset DermaMNIST orisinal dan DermaMNIST-C (224 x 224). 
+       & Arsitektur EfficientNetV2L mencapai akurasi 84.90\% pada dataset DermaMNIST-C. \\ \hline
 
-    2. & 
-    \begin{minipage}[t]{\linewidth} \smallskip Ian Mateos Gonzales, dkk [2025] [\textit{Lightweight Deep Models for Dermatological Disease Detection: A Study on Instance Selection and Channel Optimization}] \smallskip \end{minipage} & 
-    \begin{minipage}[t]{\linewidth} \smallskip Model \textit{deep learning} yang ringan untuk deteksi penyakit dermatologis. \smallskip \end{minipage} & 
-    \begin{minipage}[t]{\linewidth} \smallskip Menggunakan \textit{Lightweight Deep Models}, melakukan \textit{instance selection} menggunakan K-Means Clustering. \smallskip \end{minipage} & 
-    \begin{minipage}[t]{\linewidth} \smallskip Model dengan 472K parameter mencapai akurasi 71.57\%, dengan komputasi sebanding dengan model ResNet. \smallskip \end{minipage} \\ \hline
+    2. & Ian Mateos Gonzales, dkk [2025] [\textit{Lightweight Deep Models for Dermatological Disease Detection: A Study on Instance Selection and Channel Optimization}] 
+       & Model \textit{deep learning} yang ringan untuk deteksi penyakit dermatologis. 
+       & Menggunakan \textit{Lightweight Deep Models}, melakukan \textit{instance selection} menggunakan K-Means Clustering. 
+       & Model dengan 472K parameter mencapai akurasi 71.57\%, dengan komputasi yang lebih efisien yang sebanding dengan model ResNet. \\ \hline
 
-    3. & 
-    \begin{minipage}[t]{\linewidth} \smallskip Arindam Halder, dkk [2025] [\textit{A fuzzy rank-based deep ensemble methodology for multi-class skin cancer classification}] \smallskip \end{minipage} & 
-    \begin{minipage}[t]{\linewidth} \smallskip \textit{Imbalanced data} pada klasifikasi kanker kulit multi-class. \smallskip \end{minipage} & 
-    \begin{minipage}[t]{\linewidth} \smallskip \textit{Fuzzy ensemble} (Xception, InceptionResNet V2, MobileNetV2). Menerapkan augmentasi data. \smallskip \end{minipage} & 
-    \begin{minipage}[t]{\linewidth} \smallskip Model ensemble mencapai akurasi 95\% pada HAM10000 dan 73\% pada dataset DermaMNIST. \smallskip \end{minipage} \\ \hline
+    3. & Arindam Halder, dkk [2025] [\textit{A fuzzy rank-based deep ensemble methodology for multi-class skin cancer classification}] 
+       & \textit{Imbalanced data} pada klasifikasi kanker kulit multi-class. 
+       & \textit{Fuzzy ensemble} (Xception, InceptionResNet V2, dan MobileNetV2). Menerapkan augmentasi data. 
+       & Model ensemble mencapai akurasi 95\% pada HAM10000 dan 73\% pada dataset DermaMNIST. \\ \hline
 
-    4. & 
-    \begin{minipage}[t]{\linewidth} \smallskip Gogor Putra Hafi P. G., dkk [2024] [Implementasi Algoritma CNN (ResNet-50) untuk Klasifikasi Kanker Kulit Benign dan Malignant] \smallskip \end{minipage} & 
-    \begin{minipage}[t]{\linewidth} \smallskip Klasifikasi kanker kulit untuk membedakan antara Benign (jinak) dan Malignant (ganas). \smallskip \end{minipage} & 
-    \begin{minipage}[t]{\linewidth} \smallskip Implementasi \textit{transfer learning} menggunakan ResNet-50 yang \textit{pre-trained}. \smallskip \end{minipage} & 
-    \begin{minipage}[t]{\linewidth} \smallskip Menggunakan ResNet-50 mencapai akurasi 90\% dengan \textit{loss} 13\%. \smallskip \end{minipage} \\ \hline
+    4. & Gogor Putra Hafi P. G., dkk [2024] [Implementasi Algoritma CNN (ResNet-50) untuk Klasifikasi Kanker Kulit Benign dan Malignant] 
+       & Klasifikasi kanker kulit untuk membedakan antara Benign (jinak) dan Malignant (ganas). 
+       & Implementasi \textit{transfer learning} menggunakan ResNet-50 yang \textit{pre-trained}. 
+       & Dengan menggunakan ResNet-50 mencapai akurasi 90\% dengan \textit{loss} 13\%. \\ \hline
 
-    5. & 
-    \begin{minipage}[t]{\linewidth} \smallskip Shuwei Shen, dkk [2022] [\textit{A Low-Cost High-Performance Data Augmentation for Deep Learning-Based Skin Lesion Classification}] \smallskip \end{minipage} & 
-    \begin{minipage}[t]{\linewidth} \smallskip Data klasifikasi lesi kulit yang tidak seimbang. \smallskip \end{minipage} & 
-    \begin{minipage}[t]{\linewidth} \smallskip Menggunakan arsitektur EfficientNet-B2 serta menerapkan \textit{Low Cost Augment} untuk augmentasi data. \smallskip \end{minipage} & 
-    \begin{minipage}[t]{\linewidth} \smallskip Dengan EfficientNet-B2 dan \textit{Low Cost Augment}, hasil evaluasi BACC mencapai 0.853. \smallskip \end{minipage} \\ \hline
+    5. & Shuwei Shen, dkk [2022] [\textit{A Low-Cost High-Performance Data Augmentation for Deep Learning-Based Skin Lesion Classification}] 
+       & Data klasifikasi lesi kulit yang tidak seimbang. 
+       & Menggunakan arsitektur EfficientNet b2 serta menerapkan \textit{Low Cost Augment} untuk augmentasi data. 
+       & Dengan menerapkan \textit{Low Cost Augment} dan EfficientNet b2, hasil evaluasi BACC mencapai 0.853. \\ \hline
+
 \end{tabularx}
+
+\end{small}
+\end{landscape} % Kembali ke halaman portrait
 
 \section{Dasar Teori} \label{II.Teori}
 Berikut ini adalah dasar teori atau penjelasan teori terkait yang akan 
