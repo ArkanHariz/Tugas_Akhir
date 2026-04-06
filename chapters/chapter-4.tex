@@ -1243,4 +1243,39 @@ generalisasi model yang baik pada data baru dibandingkan grafik \textit{loss}
 pada penelitian sebelumnya yang cenderung tidak menurun menunjukkan kondisi 
 \textit{overfitting} yang tinggi. \par
 
-===== REVISIAN PAK TANTO (NOMOR 2 \& 3) =====
+===== REVISIAN PAK TANTO (NOMOR 2) =====
+
+===== REVISIAN PAK TANTO (NOMOR 3) =====
+
+Penelitian sebelumnya dan penelitian yang dilakukan menggunakan arsitektur 
+\textit{ResNet-18} dan \textit{ResNet-50}, tetapi terdapat perbedaan 
+modifikasi teknis pada internal arsitekturnya. 
+
+Arsitektur yang digunakan pada penelitian sebelumnya menggunakan model \textit{scratch} 
+untuk \textit{training} citra 28x28 dan menggunakan model yang sudah 
+disediakan oleh \textit{torchvision} untuk \textit{training} citra 224x224 
+namun tanpa menggunakan \textit{pretrained}. Sedangkan pada penelitian 
+yang dilakukan, model menggunakan \textit{pretrained} dari ImageNet 
+untuk \textit{training} citra 224x224. Pada penelitian sebelumnya, untuk 
+model \textit{scratch} seluruh neuron berkontribusi penuh saat proses 
+\textit{training} dikarenakan tidak menggunakan \textit{hyperparameter} 
+berupa \textit{dropout}. Tanpa digunakan \textit{dropout} akan rentan 
+terhadap \textit{overfitting}. Pada penelitian yang dilakukan, model 
+menerapkan \textit{dropout} dengan \textit{dropout rate} sebesar 0.7 atau 
+dapat dikatakan 70\% neuron akan dinonaktifkan secara acak pada setiap 
+iterasi \textit{training}. \textit{Dropout} diletakkan sebelum \textit{fully connected}. \par
+
+Terdapat modifikasi pada \textit{fully connected}. Penelitian sebelumnya 
+yang menggunakan struktur standar dari \textit{torchvision}, tidak 
+menambahkan modifikasi pada lapisan linearnya. Modifikasi yang dilakukan 
+ada pada \textit{fully connected} yang terdapat tambahkan "nn.Sequential" 
+untuk menggabungkan \textit{dropout} dengan lapisan linear yang bertujuan 
+menyesuaikan jumlah kelas target yaitu 7 kelas penyakit. Penelitian yang 
+dilakukan juga terdapat \textit{class weight} yang diletakkan pada 
+\textit{loss function} untuk mengubah cara hitung error pada model dengan 
+memberikan bobot tertinggi pada kelas minoritas. Sedangkan penelitian 
+sebelumnya tidak menggunakan \textit{class weight} dan model akan 
+memperlakukan semua kelas secara setara tanpa memperhatikan ketidakseimbangan 
+data. \par
+
+===== REVISIAN PAK TANTO (NOMOR 3) =====
