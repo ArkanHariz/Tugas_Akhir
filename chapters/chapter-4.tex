@@ -1189,3 +1189,58 @@ menerapkan augmentasi kelas minoritas (\textit{baseline}).
 % 	\item Aplikasi yang dikembangkan
 % \end{enumerate}
 % Analisis dapat membandingkan dengan hasil penelitian sebelumnya yang memiliki kemiripan topik. \par
+
+===== REVISIAN PAK TANTO (NOMOR 2) =====
+
+Perbandingan antara penelitian sebelumnya yang mana tidak terdapat perlakuan 
+khusus augmentasi kelas minoritas dengan penelitian yang dikerjakan 
+dapat dilihat dari tiga faktor utama yaitu strategi augmentasi untuk 
+penanganan data tidak seimbang, performa metrik evaluasi, dan ketahanan 
+model terhadap overfitting. \par
+
+Dalam strategi penanganan data tidak seimbang, penelitian sebelumnya tidak 
+melakukan teknik augmentasi apa pun, terutama pada kelas minoritas nya. 
+Penelitian sebelumnya hanya sebatas melakukan \textit{preprocessing} pada 
+\textit{resize} citra dan normalisasi citra. Dibandingkan dengan penelitian 
+yang dilakukan, menerapkan teknik augmentasi pada kelas minorita yang 
+menggunakan teknik berupa \textit{flip} (horizontal dan vertikal), 
+\textit{rotation} 20 derajat, \textit{color jitter}, \textit{random erasing}, 
+dan \textit{random augment}. Penelitian ini juga menggunakan 
+\textit{class weight} yang diterapkan pada \textit{loss function} bertujuan 
+memberikan penalti yang lebih besar jika model salah memprediksi pada 
+kelas minoritas. \par
+
+Prediksi yang dilakukan kedua penelitian dapat dilihat perbedaan yang 
+cukup signifikan pada nilai \textit{recall}-nya. Nilai \textit{recall} 
+penelitian sebelumya pada model \textit{ResNet-18} (224) memperoleh sebesar 
+0.53. Berdasarkan nilai \textit{recall} tersebut, penelitian sebelumnya 
+hanya mampu mengenali sekitar setengah dari total data sesungguhnya yang 
+termasuk dalam suatu kelas. Sedangkan pada penelitian yang dilakukan, 
+nilai \textit{recall} memperoleh sebesar 0.76. Pada metrik evaluasi lainnya 
+yaitu \textit{f1-score}, selisih antara \textit{precision} dan \textit{recall} 
+yang jauh menyebabkan nilai \textit{f1-score} rendah. Pada penelitian yang 
+dilakukan nilai \textit{f1-score} memperoleh sebesar 0.73, nilai \textit{f1-score} 
+yang tinggi menunjukkan model memiliki keseimbangan yang baik dalam 
+mengenali data di setiap kelasnya. Penelitian yang dilakukan juga menambahkan 
+metrik evaluasi khusus untuk data tidak seimbang yaitu 
+\textit{matthews correlation coefficient} (MCC). Berdasarkan nilai MCC 
+yang diperoleh sebesar 0.64 pada model terbaik yaitu \textit{ResNet-18} 
+(224), membuktikan terdapat korelasi positif antara hasil prediksi dengan 
+label aktual meskipun terdapat ketidakseimbangan data. 
+
+Perbandingan lainnya dapat dilihat dari segi arsitektur dan proses \textit{training}. 
+Penelitian sebelumnya menggunakan arsitektur yang sudah disediakan oleh 
+\textit{torchvision} tanpa adanya \textit{pretrained} dan tanpa 
+memanfaatkan \textit{dropout} untuk menekan risiko \textit{overfitting}. 
+Pada penelitian yang dilakukan, arsitektur yang digunakan menggunakan 
+\textit{dropout} sebesar 0.7 sebelum lapisan \textit{fully connected} untuk menekan 
+risiko overfitting dan pada arsitektur yang di-\textit{training} dengan 
+citra 224x224 menggunakan \textit{pretrained} dari ImageNet. Dengan 
+menerapkan \textit{pretrained} dan \textit{dropout}, grafik \textit{loss} 
+cenderung menurun seiring proses \textit{training}. Berdasarkan grafik 
+\textit{loss} yang cenderung menurun, model dapat lebih stabil dan 
+generalisasi model yang baik pada data baru dibandingkan grafik \textit{loss} 
+pada penelitian sebelumnya yang cenderung tidak menurun menunjukkan kondisi 
+\textit{overfitting} yang tinggi. \par
+
+===== REVISIAN PAK TANTO (NOMOR 2 \& 3) =====
