@@ -632,17 +632,17 @@ menggunakan persamaan berikut. \\
 	\textit{Accuracy} mengukur seberapa akurat model dalam mengklasifikasikan data. 
     Rumus akurasi dapat dilihat pada persamaan Rumus 2.1.
 \end{enumerate}
-% \begin{equationcaptioned}[eq:2.accuracy]{
-% 	Accuracy = \frac{TP + TN}{TP + TN + FP + FN}
-% }{
-% 	Rumus Accuracy % Caption rumus
-% }
-% \end{equationcaptioned}
+\begin{equationcaptioned}[eq:2.accuracy]{
+	Accuracy = \frac{TP + TN}{TP + TN + FP + FN}
+}{
+	Accuracy % Caption rumus
+}
+\end{equationcaptioned}
 
-\begin{equation}
-Accuracy = \frac{TP + TN}{TP + TN + FP + FN}
-\tag{Rumus 2.1 Accuracy}
-\end{equation}
+% \begin{equation}
+% Accuracy = \frac{TP + TN}{TP + TN + FP + FN}
+% \tag{Rumus 2.1 Accuracy}
+% \end{equation}
 
 \begin{enumerate}[noitemsep, resume]
 	\item \textit{Precision} \\
@@ -652,17 +652,17 @@ Accuracy = \frac{TP + TN}{TP + TN + FP + FN}
     oleh model (TP + FP). Rumus \textit{precision} dapat dilihat pada 
     persamaan Rumus 2.2.
 \end{enumerate}
-% \begin{equationcaptioned}[eq:2.precision]{
-% 	Precision = \frac{TP}{TP + FP}
-% }{
-% 	Rumus Precision % Caption rumus
-% }
-% \end{equationcaptioned}
+\begin{equationcaptioned}[eq:2.precision]{
+	Precision = \frac{TP}{TP + FP}
+}{
+	Precision % Caption rumus
+}
+\end{equationcaptioned}
 
-\begin{equation}
-Precision = \frac{TP}{TP + FP}
-\tag{Rumus 2.2 Precision}
-\end{equation}
+% \begin{equation}
+% Precision = \frac{TP}{TP + FP}
+% \tag{Rumus 2.2 Precision}
+% \end{equation}
 
 \begin{enumerate}[noitemsep, resume]
 	\item \textit{Recall} \\
@@ -672,17 +672,17 @@ Precision = \frac{TP}{TP + FP}
     dengan jumlah total data yang faktanya positif (TP + FN). Rumus 
     \textit{recall} dapat dilihat pada persamaan Rumus 2.3.
 \end{enumerate}
-% \begin{equationcaptioned}[eq:2.recall]{
-% 	Recall = \frac{TP}{TP + FN}
-% }{
-% 	Rumus Recall % Caption rumus
-% }
-% \end{equationcaptioned}
+\begin{equationcaptioned}[eq:2.recall]{
+	Recall = \frac{TP}{TP + FN}
+}{
+	Recall % Caption rumus
+}
+\end{equationcaptioned}
 
-\begin{equation}
-Recall = \frac{TP}{TP + FN}
-\tag{Rumus 2.3 Recall}
-\end{equation}
+% \begin{equation}
+% Recall = \frac{TP}{TP + FN}
+% \tag{Rumus 2.3 Recall}
+% \end{equation}
 
 \begin{enumerate}[noitemsep, resume]
 	\item \textit{F1-Score} \\
@@ -692,17 +692,17 @@ Recall = \frac{TP}{TP + FN}
     ketidakseimbangan kelas (imbalanced classes). Rumus \textit{F1-Score} 
     dapat dilihat pada persamaan Rumus 2.4.
 \end{enumerate}
-% \begin{equationcaptioned}[eq:2.f1score]{
-% 	F1-Score = 2 \times \frac{Precision \times Recall}{Precision + Recall}
-% }{
-% 	Rumus F1-Score % Caption rumus
-% }
-% \end{equationcaptioned}
+\begin{equationcaptioned}[eq:2.f1score]{
+	F1-Score = 2 \times \frac{Precision \times Recall}{Precision + Recall}
+}{
+	F1-Score % Caption rumus
+}
+\end{equationcaptioned}
 
-\begin{equation}
-F1-Score = 2 \times \frac{Precision \times Recall}{Precision + Recall}
-\tag{Rumus 2.4 F1-Score}
-\end{equation}
+% \begin{equation}
+% F1-Score = 2 \times \frac{Precision \times Recall}{Precision + Recall}
+% \tag{Rumus 2.4 F1-Score}
+% \end{equation}
 
 \subsection{Matthews Correlation Coefficient} \label{II.Teori7}
 \textit{Matthews Correlation Coefficient} (MCC) merupakan metrik evaluasi untuk 
@@ -717,17 +717,17 @@ sebagai positif dan sebaliknya. Keunggulan MCC adalah mampu dalam menangani
 \textit{imbalanced data} dikarenakan MCC diakui \textit{robust} terhadap 
 \textit{imbalanced data} \cite{chicco2023matthews}. Berikut persamaan MCC untuk klasifikasi multi-kelas 
 yang dapat dilihat pada Rumus 2.5.
-% \begin{equationcaptioned}[eq:2.mcc]{
-% 	MCC = \frac{c \times s - \sum_{k}^{K} p_k \times t_k}{\sqrt{(s^2 - \sum_{k}^{K} p_k^2) \times (s^2 - \sum_{k}^{K} t_k^2)}}
-% }{
-% 	Rumus Matthews Correlation Coefficient % Caption rumus
-% }
-% \end{equationcaptioned}
+\begin{equationcaptioned}[eq:2.mcc]{
+	MCC = \frac{c \times s - \sum_{k}^{K} p_k \times t_k}{\sqrt{(s^2 - \sum_{k}^{K} p_k^2) \times (s^2 - \sum_{k}^{K} t_k^2)}}
+}{
+	MCC % Caption rumus
+}
+\end{equationcaptioned}
 
-\begin{equation}
-MCC = \frac{c \times s - \sum_{k}^{K} p_k \times t_k}{\sqrt{(s^2 - \sum_{k}^{K} p_k^2) \times (s^2 - \sum_{k}^{K} t_k^2)}}
-\tag{Rumus 2.5 MCC}
-\end{equation}
+% \begin{equation}
+% MCC = \frac{c \times s - \sum_{k}^{K} p_k \times t_k}{\sqrt{(s^2 - \sum_{k}^{K} p_k^2) \times (s^2 - \sum_{k}^{K} t_k^2)}}
+% \tag{Rumus 2.5 MCC}
+% \end{equation}
 
 \noindent Keterangan: \\
 k: Jumlah total kelas \\ 
