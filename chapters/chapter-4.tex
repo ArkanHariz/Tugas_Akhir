@@ -652,6 +652,91 @@ untuk melihat performa yang berhasil dicapai seperti dari segi akurasi,
 \textit{loss}, maupun ketahanan model dalam menangani variasi 
 data. \par
 
+Perbandingan antara penelitian sebelumnya yang tidak menerapkan augmentasi 
+kelas minoritas dengan penelitian yang dikerjakan dapat dilihat dari tiga 
+faktor utama yaitu strategi augmentasi untuk penanganan data tidak 
+seimbang, performa metrik evaluasi, dan ketahanan model terhadap 
+\textit{overfitting}. \par
+
+Penelitian sebelumnya tidak melakukan teknik augmentasi apapun, terutama 
+pada kelas minoritasnya. Penelitian sebelumnya hanya sebatas melakukan 
+\textit{preprocessing} berupa \textit{resize} citra dan normalisasi citra. 
+Tanpa augmentasi pada kelas minoritas, model cenderung lebih banyak 
+belajar dari kelas mayoritas yaitu Melanocytic Nevi yang memiliki 4.693 
+data latih, sementara kelas minoritas seperti Dermatofibroma hanya 
+memiliki 80 data latih. Kondisi ini membuat model kurang mampu mengenali 
+pola pada kelas minoritas secara maksimal. \par
+
+Dibandingkan dengan penelitian yang dilakukan, diterapkan teknik augmentasi 
+khusus pada kelas minoritas menggunakan beberapa teknik sekaligus yaitu 
+\textit{flip} horizontal dan vertikal, \textit{rotation} sebesar 20 derajat, 
+\textit{color jitter}, \textit{random erasing}, dan \textit{random augment}. 
+Dengan menerapkan beberapa teknik augmentasi tersebut secara bersamaan, 
+variasi data pada kelas minoritas menjadi lebih beragam sehingga model 
+memiliki lebih banyak kesempatan untuk mempelajari karakteristik kelas 
+minoritas. Selain itu, penelitian ini juga menggunakan \textit{class weight} 
+yang diterapkan pada \textit{loss function}. \textit{Class weight} memberikan 
+penalti yang lebih besar apabila model salah memprediksi pada kelas 
+minoritas, sehingga model tidak hanya fokus belajar dari kelas mayoritas 
+saja. \par
+
+Perbedaan yang paling terlihat antara penelitian sebelumnya dan penelitian 
+yang dilakukan ada pada nilai \textit{recall} dan \textit{f1-score}. Pada penelitian 
+sebelumnya, model \textit{ResNet-18} dengan citra 224x224 hanya 
+mendapatkan nilai \textit{recall} sebesar 0.53. Artinya, dari seluruh 
+data yang seharusnya terdeteksi pada masing-masing kelas, model hanya 
+mampu mendeteksi sekitar setengahnya saja. Nilai \textit{recall} yang 
+rendah ini menunjukkan bahwa model masih sering gagal mendeteksi data 
+yang benar, terutama pada kelas minoritas. \par
+
+Sementara pada penelitian yang dilakukan, nilai \textit{recall} pada model 
+\textit{ResNet-18} dengan citra 224x224 berhasil meningkat menjadi 0.76. 
+Peningkatan ini menunjukkan bahwa dengan adanya augmentasi pada kelas 
+minoritas, model menjadi lebih mampu mengenali data dari masing-masing 
+kelas, termasuk kelas yang datanya sedikit. Selisih nilai recall antara 
+kedua penelitian ini cukup besar yaitu sebesar 0.23, yang membuktikan 
+bahwa augmentasi kelas minoritas memberikan pengaruh terhadap 
+kemampuan model dalam mendeteksi data pada tiap kelas. \par
+
+Untuk nilai \textit{f1-score}, penelitian sebelumnya hanya mendapatkan nilai 0.56 
+pada model \textit{ResNet-18} dengan citra 224x224. Nilai \textit{f1-score} yang rendah ini 
+terjadi karena selisih antara nilai \textit{precision} dan \textit{recall} yang cukup jauh, 
+yaitu \textit{precision} 0.66 dan \textit{recall} hanya 0.53. Sedangkan pada penelitian 
+yang dilakukan, nilai \textit{f1-score} berhasil mencapai 0.73 dengan nilai 
+\textit{precision} 0.71 dan \textit{recall} 0.76 yang selisihnya tidak terlalu jauh. Hal ini 
+menunjukkan model yang menggunakan augmentasi kelas minoritas lebih 
+seimbang dalam hal ketepatan prediksi dan kemampuan mendeteksi data yang 
+benar. \par
+
+Penelitian yang dilakukan juga menambahkan metrik evaluasi khusus untuk 
+data tidak seimbang yaitu \textit{Matthews Correlation Coefficient} (MCC). 
+Metrik ini digunakan karena lebih adil dalam menilai performa model pada 
+data yang tidak seimbang dibandingkan hanya menggunakan akurasi biasa. 
+Nilai MCC yang diperoleh sebesar 0.64 pada model terbaik yaitu \textit{ResNet-18} 
+dengan citra 224x224, membuktikan terdapat korelasi positif yang cukup 
+kuat antara hasil prediksi dengan label aktualnya meskipun data antar 
+kelas tidak seimbang. Penelitian sebelumnya tidak menggunakan MCC sebagai 
+metrik evaluasinya sehingga penilaian performa model pada kondisi data 
+tidak seimbang menjadi kurang menyeluruh. \par
+
+Dari sisi ketahanan model terhadap \textit{overfitting}, penelitian 
+sebelumnya tidak menggunakan \textit{dropout} sehingga seluruh neuron aktif selama 
+proses \textit{training}. Kondisi ini membuat model cenderung menghafal data latih 
+dan kurang mampu melakukan generalisasi pada data baru, yang ditandai 
+dengan grafik val loss yang tidak menurun bahkan cenderung naik selama 
+proses \textit{training} berlangsung. \par
+
+Pada penelitian yang dilakukan, diterapkan \textit{dropout} dengan nilai 
+0.7 yang diletakkan sebelum lapisan \textit{fully connected}. Artinya 
+sebanyak 70\% neuron dinonaktifkan secara acak pada setiap iterasi 
+\textit{training}. Penerapan \textit{dropout} ini terbukti membantu 
+menekan risiko \textit{overfitting} yang dapat dilihat dari grafik val loss 
+yang cenderung menurun seiring berjalannya proses \textit{training} 
+meskipun terdapat beberapa lonjakan di beberapa epoch. Dengan grafik val 
+loss yang menurun, model menjadi lebih stabil dan mampu melakukan 
+generalisasi yang lebih baik terhadap data baru yang belum pernah dilihat 
+sebelumnya. \par
+
 \subsection{Hasil Model \textit{Baseline}} \label{IV.Baseline}
 Model \textit{baseline} melakukan \textit{training} menggunakan dua 
 arsitektur yaitu \textit{ResNet-18} dan \textit{ResNet-50} dan menggunakan 
@@ -1192,90 +1277,90 @@ menerapkan augmentasi kelas minoritas (\textit{baseline}).
 
 ===== REVISIAN PAK TANTO (NOMOR 2) =====
 
-Perbandingan antara penelitian sebelumnya yang tidak menerapkan augmentasi 
-kelas minoritas dengan penelitian yang dikerjakan dapat dilihat dari tiga 
-faktor utama yaitu strategi augmentasi untuk penanganan data tidak 
-seimbang, performa metrik evaluasi, dan ketahanan model terhadap 
-\textit{overfitting}. \par
+% Perbandingan antara penelitian sebelumnya yang tidak menerapkan augmentasi 
+% kelas minoritas dengan penelitian yang dikerjakan dapat dilihat dari tiga 
+% faktor utama yaitu strategi augmentasi untuk penanganan data tidak 
+% seimbang, performa metrik evaluasi, dan ketahanan model terhadap 
+% \textit{overfitting}. \par
 
-Penelitian sebelumnya tidak melakukan teknik augmentasi apapun, terutama 
-pada kelas minoritasnya. Penelitian sebelumnya hanya sebatas melakukan 
-\textit{preprocessing} berupa \textit{resize} citra dan normalisasi citra. 
-Tanpa augmentasi pada kelas minoritas, model cenderung lebih banyak 
-belajar dari kelas mayoritas yaitu Melanocytic Nevi yang memiliki 4.693 
-data latih, sementara kelas minoritas seperti Dermatofibroma hanya 
-memiliki 80 data latih. Kondisi ini membuat model kurang mampu mengenali 
-pola pada kelas minoritas secara maksimal. \par
+% Penelitian sebelumnya tidak melakukan teknik augmentasi apapun, terutama 
+% pada kelas minoritasnya. Penelitian sebelumnya hanya sebatas melakukan 
+% \textit{preprocessing} berupa \textit{resize} citra dan normalisasi citra. 
+% Tanpa augmentasi pada kelas minoritas, model cenderung lebih banyak 
+% belajar dari kelas mayoritas yaitu Melanocytic Nevi yang memiliki 4.693 
+% data latih, sementara kelas minoritas seperti Dermatofibroma hanya 
+% memiliki 80 data latih. Kondisi ini membuat model kurang mampu mengenali 
+% pola pada kelas minoritas secara maksimal. \par
 
-Dibandingkan dengan penelitian yang dilakukan, diterapkan teknik augmentasi 
-khusus pada kelas minoritas menggunakan beberapa teknik sekaligus yaitu 
-\textit{flip} horizontal dan vertikal, \textit{rotation} sebesar 20 derajat, 
-\textit{color jitter}, \textit{random erasing}, dan \textit{random augment}. 
-Dengan menerapkan beberapa teknik augmentasi tersebut secara bersamaan, 
-variasi data pada kelas minoritas menjadi lebih beragam sehingga model 
-memiliki lebih banyak kesempatan untuk mempelajari karakteristik kelas 
-minoritas. Selain itu, penelitian ini juga menggunakan \textit{class weight} 
-yang diterapkan pada \textit{loss function}. \textit{Class weight} memberikan 
-penalti yang lebih besar apabila model salah memprediksi pada kelas 
-minoritas, sehingga model tidak hanya fokus belajar dari kelas mayoritas 
-saja. \par
+% Dibandingkan dengan penelitian yang dilakukan, diterapkan teknik augmentasi 
+% khusus pada kelas minoritas menggunakan beberapa teknik sekaligus yaitu 
+% \textit{flip} horizontal dan vertikal, \textit{rotation} sebesar 20 derajat, 
+% \textit{color jitter}, \textit{random erasing}, dan \textit{random augment}. 
+% Dengan menerapkan beberapa teknik augmentasi tersebut secara bersamaan, 
+% variasi data pada kelas minoritas menjadi lebih beragam sehingga model 
+% memiliki lebih banyak kesempatan untuk mempelajari karakteristik kelas 
+% minoritas. Selain itu, penelitian ini juga menggunakan \textit{class weight} 
+% yang diterapkan pada \textit{loss function}. \textit{Class weight} memberikan 
+% penalti yang lebih besar apabila model salah memprediksi pada kelas 
+% minoritas, sehingga model tidak hanya fokus belajar dari kelas mayoritas 
+% saja. \par
 
-Perbedaan yang paling terlihat antara penelitian sebelumnya dan penelitian 
-yang dilakukan ada pada nilai \textit{recall} dan \textit{f1-score}. Pada penelitian 
-sebelumnya, model \textit{ResNet-18} dengan citra 224x224 hanya 
-mendapatkan nilai \textit{recall} sebesar 0.53. Artinya, dari seluruh 
-data yang seharusnya terdeteksi pada masing-masing kelas, model hanya 
-mampu mendeteksi sekitar setengahnya saja. Nilai \textit{recall} yang 
-rendah ini menunjukkan bahwa model masih sering gagal mendeteksi data 
-yang benar, terutama pada kelas minoritas. \par
+% Perbedaan yang paling terlihat antara penelitian sebelumnya dan penelitian 
+% yang dilakukan ada pada nilai \textit{recall} dan \textit{f1-score}. Pada penelitian 
+% sebelumnya, model \textit{ResNet-18} dengan citra 224x224 hanya 
+% mendapatkan nilai \textit{recall} sebesar 0.53. Artinya, dari seluruh 
+% data yang seharusnya terdeteksi pada masing-masing kelas, model hanya 
+% mampu mendeteksi sekitar setengahnya saja. Nilai \textit{recall} yang 
+% rendah ini menunjukkan bahwa model masih sering gagal mendeteksi data 
+% yang benar, terutama pada kelas minoritas. \par
 
-Sementara pada penelitian yang dilakukan, nilai \textit{recall} pada model 
-\textit{ResNet-18} dengan citra 224x224 berhasil meningkat menjadi 0.76. 
-Peningkatan ini menunjukkan bahwa dengan adanya augmentasi pada kelas 
-minoritas, model menjadi lebih mampu mengenali data dari masing-masing 
-kelas, termasuk kelas yang datanya sedikit. Selisih nilai recall antara 
-kedua penelitian ini cukup besar yaitu sebesar 0.23, yang membuktikan 
-bahwa augmentasi kelas minoritas memberikan pengaruh terhadap 
-kemampuan model dalam mendeteksi data pada tiap kelas. \par
+% Sementara pada penelitian yang dilakukan, nilai \textit{recall} pada model 
+% \textit{ResNet-18} dengan citra 224x224 berhasil meningkat menjadi 0.76. 
+% Peningkatan ini menunjukkan bahwa dengan adanya augmentasi pada kelas 
+% minoritas, model menjadi lebih mampu mengenali data dari masing-masing 
+% kelas, termasuk kelas yang datanya sedikit. Selisih nilai recall antara 
+% kedua penelitian ini cukup besar yaitu sebesar 0.23, yang membuktikan 
+% bahwa augmentasi kelas minoritas memberikan pengaruh terhadap 
+% kemampuan model dalam mendeteksi data pada tiap kelas. \par
 
-Untuk nilai \textit{f1-score}, penelitian sebelumnya hanya mendapatkan nilai 0.56 
-pada model \textit{ResNet-18} dengan citra 224x224. Nilai \textit{f1-score} yang rendah ini 
-terjadi karena selisih antara nilai \textit{precision} dan \textit{recall} yang cukup jauh, 
-yaitu \textit{precision} 0.66 dan \textit{recall} hanya 0.53. Sedangkan pada penelitian 
-yang dilakukan, nilai \textit{f1-score} berhasil mencapai 0.73 dengan nilai 
-\textit{precision} 0.71 dan \textit{recall} 0.76 yang selisihnya tidak terlalu jauh. Hal ini 
-menunjukkan model yang menggunakan augmentasi kelas minoritas lebih 
-seimbang dalam hal ketepatan prediksi dan kemampuan mendeteksi data yang 
-benar. \par
+% Untuk nilai \textit{f1-score}, penelitian sebelumnya hanya mendapatkan nilai 0.56 
+% pada model \textit{ResNet-18} dengan citra 224x224. Nilai \textit{f1-score} yang rendah ini 
+% terjadi karena selisih antara nilai \textit{precision} dan \textit{recall} yang cukup jauh, 
+% yaitu \textit{precision} 0.66 dan \textit{recall} hanya 0.53. Sedangkan pada penelitian 
+% yang dilakukan, nilai \textit{f1-score} berhasil mencapai 0.73 dengan nilai 
+% \textit{precision} 0.71 dan \textit{recall} 0.76 yang selisihnya tidak terlalu jauh. Hal ini 
+% menunjukkan model yang menggunakan augmentasi kelas minoritas lebih 
+% seimbang dalam hal ketepatan prediksi dan kemampuan mendeteksi data yang 
+% benar. \par
 
-Penelitian yang dilakukan juga menambahkan metrik evaluasi khusus untuk 
-data tidak seimbang yaitu \textit{Matthews Correlation Coefficient} (MCC). 
-Metrik ini digunakan karena lebih adil dalam menilai performa model pada 
-data yang tidak seimbang dibandingkan hanya menggunakan akurasi biasa. 
-Nilai MCC yang diperoleh sebesar 0.64 pada model terbaik yaitu \textit{ResNet-18} 
-dengan citra 224x224, membuktikan terdapat korelasi positif yang cukup 
-kuat antara hasil prediksi dengan label aktualnya meskipun data antar 
-kelas tidak seimbang. Penelitian sebelumnya tidak menggunakan MCC sebagai 
-metrik evaluasinya sehingga penilaian performa model pada kondisi data 
-tidak seimbang menjadi kurang menyeluruh. \par
+% Penelitian yang dilakukan juga menambahkan metrik evaluasi khusus untuk 
+% data tidak seimbang yaitu \textit{Matthews Correlation Coefficient} (MCC). 
+% Metrik ini digunakan karena lebih adil dalam menilai performa model pada 
+% data yang tidak seimbang dibandingkan hanya menggunakan akurasi biasa. 
+% Nilai MCC yang diperoleh sebesar 0.64 pada model terbaik yaitu \textit{ResNet-18} 
+% dengan citra 224x224, membuktikan terdapat korelasi positif yang cukup 
+% kuat antara hasil prediksi dengan label aktualnya meskipun data antar 
+% kelas tidak seimbang. Penelitian sebelumnya tidak menggunakan MCC sebagai 
+% metrik evaluasinya sehingga penilaian performa model pada kondisi data 
+% tidak seimbang menjadi kurang menyeluruh. \par
 
-Dari sisi ketahanan model terhadap \textit{overfitting}, penelitian 
-sebelumnya tidak menggunakan \textit{dropout} sehingga seluruh neuron aktif selama 
-proses \textit{training}. Kondisi ini membuat model cenderung menghafal data latih 
-dan kurang mampu melakukan generalisasi pada data baru, yang ditandai 
-dengan grafik val loss yang tidak menurun bahkan cenderung naik selama 
-proses \textit{training} berlangsung. \par
+% Dari sisi ketahanan model terhadap \textit{overfitting}, penelitian 
+% sebelumnya tidak menggunakan \textit{dropout} sehingga seluruh neuron aktif selama 
+% proses \textit{training}. Kondisi ini membuat model cenderung menghafal data latih 
+% dan kurang mampu melakukan generalisasi pada data baru, yang ditandai 
+% dengan grafik val loss yang tidak menurun bahkan cenderung naik selama 
+% proses \textit{training} berlangsung. \par
 
-Pada penelitian yang dilakukan, diterapkan \textit{dropout} dengan nilai 
-0.7 yang diletakkan sebelum lapisan \textit{fully connected}. Artinya 
-sebanyak 70\% neuron dinonaktifkan secara acak pada setiap iterasi 
-\textit{training}. Penerapan \textit{dropout} ini terbukti membantu 
-menekan risiko \textit{overfitting} yang dapat dilihat dari grafik val loss 
-yang cenderung menurun seiring berjalannya proses \textit{training} 
-meskipun terdapat beberapa lonjakan di beberapa epoch. Dengan grafik val 
-loss yang menurun, model menjadi lebih stabil dan mampu melakukan 
-generalisasi yang lebih baik terhadap data baru yang belum pernah dilihat 
-sebelumnya. \par
+% Pada penelitian yang dilakukan, diterapkan \textit{dropout} dengan nilai 
+% 0.7 yang diletakkan sebelum lapisan \textit{fully connected}. Artinya 
+% sebanyak 70\% neuron dinonaktifkan secara acak pada setiap iterasi 
+% \textit{training}. Penerapan \textit{dropout} ini terbukti membantu 
+% menekan risiko \textit{overfitting} yang dapat dilihat dari grafik val loss 
+% yang cenderung menurun seiring berjalannya proses \textit{training} 
+% meskipun terdapat beberapa lonjakan di beberapa epoch. Dengan grafik val 
+% loss yang menurun, model menjadi lebih stabil dan mampu melakukan 
+% generalisasi yang lebih baik terhadap data baru yang belum pernah dilihat 
+% sebelumnya. \par
 
 % Perbandingan antara penelitian sebelumnya yang mana tidak terdapat perlakuan 
 % khusus augmentasi kelas minoritas dengan penelitian yang dikerjakan 
