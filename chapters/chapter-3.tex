@@ -143,7 +143,93 @@ Metode yang akan digunakan pada penelitian adalah metode \textit{Convolutional
 Neural Network} (CNN) dengan arsitektur ResNet-18 dan ResNet-50 untuk 
 klasifikasi jenis penyakit kulit berdasarkan dataset DermaMNIST yang dimana 
 membandingkan performa kedua arsitektur sebelum dan sesudah dilakukan 
-augmentasi data yang dikhususkan untuk kelas minoritas. \par
+augmentasi data yang dikhususkan untuk kelas minoritas. Penelitian 
+sebelumnya dan penelitian yang dilakukan sama-sama menggunakan 
+arsitektur \textit{ResNet-18} dan \textit{ResNet-50}, namun terdapat 
+beberapa perbedaan pada modifikasi teknis di dalam arsitekturnya. \par
+
+Perbedaan pertama terletak pada penggunaan \textit{pretrained}. Pada 
+penelitian sebelumnya, model yang digunakan untuk \textit{training} 
+dengan citra 28x28 dibangun dari awal atau \textit{scratch}, dan untuk 
+\textit{training} dengan citra 224x224 menggunakan model yang sudah 
+disediakan oleh \textit{torchvision} namun tanpa menggunakan bobot 
+\textit{pretrained}, yang ditandai dengan parameter \textit{pretrained} 
+bernilai "False". Artinya, seluruh bobot model diinisialisasi secara acak 
+dan model belajar sepenuhnya dari nol. \par
+
+Pada penelitian yang dilakukan, model yang digunakan untuk \textit{training} 
+dengan citra 224x224 menggunakan bobot \textit{pretrained} dari ImageNet. 
+Penggunaan \textit{pretrained} memungkinkan model untuk memanfaatkan 
+pengetahuan yang sudah dipelajari sebelumnya dari jutaan gambar pada 
+dataset ImageNet. Hal ini sangat membantu terutama karena dataset 
+DermaMNIST yang di-resize menjadi 224x224 memiliki kualitas gambar yang 
+cenderung buram akibat upscaling dari ukuran asli 28x28. Dengan 
+\textit{pretrained}, model tidak perlu belajar dari awal sehingga proses 
+\textit{training} menjadi lebih efisien dan hasil yang didapatkan pun 
+lebih baik. \par
+
+\begin{figure}[H] % Kalau menggunakan H, posisi gambar akan tepat dibawah teks
+    \centering
+    \fbox{\includegraphics[width=0.9\textwidth]{figure/resnet_punya_saya_TA.png}}
+    \caption{Visualisasi Arsitektur \textit{ResNet-18} Dengan \textit{Dropout}}
+    \label{fig:3.resnet18_dropout}
+\end{figure}
+
+\begin{figure}[H] % Kalau menggunakan H, posisi gambar akan tepat dibawah teks
+    \centering
+    \fbox{\includegraphics[width=0.9\textwidth]{figure/resnet_punya_saya_TA2.png}}
+    \caption{Visualisasi Arsitektur \textit{ResNet-50} Dengan \textit{Dropout}}
+    \label{fig:3.resnet50_dropout}
+\end{figure}
+
+Perbedaan kedua terletak pada penggunaan \textit{dropout}. Pada 
+penelitian sebelumnya, tidak diterapkan \textit{dropout} sama sekali pada 
+arsitekturnya. Seluruh neuron aktif selama proses \textit{training} 
+berlangsung tanpa ada yang dinonaktifkan. Kondisi ini membuat model 
+rentan terhadap \textit{overfitting}, terutama karena dataset DermaMNIST 
+memiliki distribusi data yang tidak seimbang antar kelasnya. Pada penelitian yang dilakukan, ditambahkan \textit{dropout} dengan 
+\textit{dropout rate} sebesar 0.7 yang diletakkan sebelum lapisan 
+\textit{fully connected}. Dengan \textit{dropout rate} 0.7, sebanyak 70\% 
+neuron akan dinonaktifkan secara acak pada setiap iterasi \textit{training}. 
+Nilai \textit{dropout} yang cukup tinggi ini sengaja dipilih karena model 
+dilatih menggunakan data yang tidak seimbang sehingga risiko \textit{overfitting} 
+lebih tinggi. Dengan adanya \textit{dropout}, model tidak terlalu 
+bergantung pada neuron-neuron tertentu sehingga representasi fitur yang 
+dipelajari menjadi lebih umum dan model lebih mampu melakukan generalisasi 
+pada data baru. Visualisasi dari arsitektur \textit{ResNet-18} dengan 
+\textit{dropout} dapat dilihat pada Gambar \ref{fig:3.resnet18_dropout} dan 
+visualisasi dari arsitektur \textit{ResNet-50} dengan \textit{dropout} dapat 
+dilihat pada Gambar \ref{fig:3.resnet50_dropout}. \par
+
+Perbedaan ketiga terletak pada modifikasi lapisan \textit{fully connected}. 
+Pada penelitian sebelumnya, lapisan \textit{fully connected} menggunakan 
+struktur standar yang langsung disediakan oleh \textit{torchvision} tanpa 
+ada modifikasi tambahan. Model langsung diarahkan untuk mengklasifikasikan 
+data ke dalam jumlah kelas yang diinginkan tanpa penyesuaian khusus. Pada 
+penelitian yang dilakukan, lapisan \textit{fully connected} dimodifikasi 
+menggunakan "nn.Sequential" yang menggabungkan \textit{dropout} dengan 
+lapisan linear. Modifikasi ini dilakukan untuk dua tujuan sekaligus, 
+yaitu menambahkan \textit{dropout} sebagai pencegah \textit{overfitting} 
+dan menyesuaikan jumlah output model dengan jumlah kelas target yaitu 7 
+kelas penyakit kulit pada dataset DermaMNIST. \par
+
+Perbedaan keempat terletak pada penggunaan \textit{class weight} pada 
+\textit{loss function}. Penelitian sebelumnya tidak menggunakan 
+\textit{class weight} sehingga model memperlakukan semua kelas secara 
+setara selama proses \textit{training}. Dengan kata lain, kesalahan 
+prediksi pada kelas mayoritas dan kelas minoritas dianggap sama 
+pentingnya oleh model. Kondisi ini menyebabkan model lebih banyak belajar 
+dari kelas mayoritas karena jumlah datanya yang jauh lebih banyak. Pada 
+penelitian yang dilakukan, diterapkan \textit{class weight} yang 
+diletakkan pada \textit{loss function} yaitu cross-entropy loss. 
+\textit{Class weight} dihitung berdasarkan nilai invers dari jumlah data 
+pada masing-masing kelas, sehingga kelas yang memiliki jumlah data lebih 
+sedikit mendapatkan bobot yang lebih tinggi. Dengan cara ini, apabila 
+model salah memprediksi data dari kelas minoritas maka penalti yang 
+diterima model akan lebih besar dibandingkan jika model salah memprediksi 
+data dari kelas mayoritas. Penerapan \textit{class weight} ini membuat 
+proses pembelajaran model menjadi lebih adil terhadap semua kelas 
+meskipun jumlah datanya tidak seimbang. \par
 
 \section{Ilustrasi Perhitungan Metode} \label{III.Ilustrasi}
 Berikut adalah ilustrasi perhitungan metode yang digunakan dalam penelitian. \par
